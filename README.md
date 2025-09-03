@@ -8,9 +8,9 @@
 
 **Your personal command center for success at Cochran Films**
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-View_Onboarding_Page-blue?style=for-the-badge&logo=github)](https://github.com/cochranfilms/shanylah)
-[![Status](https://img.shields.io/badge/Status-Active_Assistant-green?style=for-the-badge)](#)
-[![Team](https://img.shields.io/badge/Team-Cochran_Films-gold?style=for-the-badge)](#)
+[![Live Demo](https://img.shields.io/badge/🌐_LIVE_DEMO-View_Onboarding_Page-blue?style=for-the-badge&logo=github)](https://cochranfilms.github.io/shanylah/)
+[![Status](https://img.shields.io/badge/STATUS-Active_Assistant-green?style=for-the-badge)](#)
+[![Team](https://img.shields.io/badge/TEAM-Cochran_Films-gold?style=for-the-badge)](#)
 
 </div>
 
@@ -31,12 +31,20 @@
 ## 🎯 Quick Start
 
 ### What You've Already Completed ✅
-- [x] **Assistant Contract** - Reviewed and signed
-- [x] **Cochran Films SOP** - Procedures and workflows understood
-- [x] **Brand Guidelines** - Colors, typography, and tone reviewed
-- [x] **Platform Access** - Admin access to Calendly and HubSpot granted
+
+- [x] **Reviewed and signed your Assistant Contract**
+- [x] **Reviewed the Cochran Films SOP**
+- [x] **Received and reviewed Brand Guidelines**
+- [x] **Granted Admin access to Calendly and HubSpot**
+
+> 🎉 **Great start — you're cleared to begin your active role!**
+
+---
+
+## 📚 Onboarding Checklist
 
 ### Your First Day Checklist 🎯
+
 - [ ] **HubSpot Dashboard** - Get familiar with the CRM interface
 - [ ] **Calendly Setup** - Review upcoming bookings and availability
 - [ ] **Brand Guidelines** - Deep dive into visual identity
@@ -48,36 +56,27 @@
 
 ## 🛠️ Tools & Platforms
 
-### Core Platforms
-| Platform | Purpose | Access Level | Quick Link |
-|----------|---------|--------------|------------|
-| **HubSpot** | CRM & Lead Management | Admin | [Open HubSpot](https://app.hubspot.com/) |
-| **Calendly** | Scheduling & Bookings | Admin | [Open Calendly](https://calendly.com/) |
-| **Gmail** | Email Management | Full Access | [Open Gmail](https://mail.google.com/) |
-| **LinkedIn** | Lead Research & Messaging | Cody's Profile | [Company Page](https://www.linkedin.com/company/cochranfilms) |
-| **Google Drive** | File Storage & Collaboration | Team Folders | [Team Drive](https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC) |
-| **Trello** | Task Management | Project Boards | [Open Trello](https://trello.com/) |
-| **Wave** | Invoicing & Finance | View Access | [Open Wave](https://www.waveapps.com/) |
-
-### Quick Access Buttons
-<div align="center">
-
-[![HubSpot](https://img.shields.io/badge/HubSpot_CRM-FF7A59?style=for-the-badge&logo=hubspot&logoColor=white)](https://app.hubspot.com/)
-[![Calendly](https://img.shields.io/badge/Calendly-006BFF?style=for-the-badge&logo=calendly&logoColor=white)](https://calendly.com/)
-[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](https://mail.google.com/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/cochranfilms)
-
-</div>
+| Tool | Purpose | Access Level | Quick Link |
+|------|---------|--------------|------------|
+| **HubSpot** | CRM & Lead Management | Admin | [🔗 Open](https://app.hubspot.com/) |
+| **Calendly** | Scheduling & Bookings | Admin | [🔗 Open](https://calendly.com/) |
+| **Gmail** | Email Management | Full Access | [🔗 Open](https://mail.google.com/) |
+| **LinkedIn** | Lead Research & Messaging | Cody's Profile | [🔗 Open](https://www.linkedin.com/company/cochranfilms) |
+| **Google Drive** | File Storage & Collaboration | Team Folders | [🔗 Open](https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC) |
+| **Trello** | Task Management | Project Boards | [🔗 Open](https://trello.com/) |
+| **Wave** | Invoicing & Finance | View Access | [🔗 Open](https://www.waveapps.com/) |
 
 ---
 
 ## 📁 File Management
 
 ### Team Resources
-- **📂 [Cochran Films Internal Drive](https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC)** - All team documents, SOPs, and resources
-- **📂 [Shanylah Personal Folder](https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq)** - Your workspace for uploads and personal files
+
+- **📂 [Cochran Films Internal Drive](https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link)** - All team documents, SOPs, and resources
+- **📂 [Shanylah Personal Folder](https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link)** - Your workspace for uploads and personal files
 
 ### Key Documents
+
 - 📄 **Assistant Contract** - Your role and responsibilities
 - 📄 **Cochran Films SOP** - Standard operating procedures
 - 📄 **Brand Guidelines** - Visual identity and tone
@@ -89,21 +88,21 @@
 ## 🎨 Brand Guidelines
 
 ### Color Palette
-```css
-Primary Gold: #f5af00
-Secondary Gold: #ffd700
-Dark Gold: #e09a00
-Black: #1a1a1a
-White: #ffffff
-Gray: #6b7280
-```
 
-### Typography
-- **Headings**: Montserrat (Bold, 700)
-- **Body Text**: Inter (Regular, 400-600)
-- **Accent**: Gradient text for special headings
+<div align="center">
+
+| Color | Hex Code | Usage |
+|-------|----------|-------|
+| ![Primary Gold](https://via.placeholder.com/40x40/f5af00/ffffff?text=+) | `#f5af00` | Primary Brand Color |
+| ![Secondary Gold](https://via.placeholder.com/40x40/ffd700/ffffff?text=+) | `#ffd700` | Secondary Accent |
+| ![Dark Gold](https://via.placeholder.com/40x40/e09a00/ffffff?text=+) | `#e09a00` | Dark Variant |
+| ![Black](https://via.placeholder.com/40x40/1a1a1a/ffffff?text=+) | `#1a1a1a` | Text & Headers |
+| ![White](https://via.placeholder.com/40x40/ffffff/000000?text=+) | `#ffffff` | Backgrounds |
+
+</div>
 
 ### Brand Values
+
 - 🎯 **Trust** - Building lasting relationships
 - 🤝 **Loyalty** - Commitment to excellence
 - 💡 **Innovation** - Cutting-edge solutions
@@ -115,41 +114,30 @@ Gray: #6b7280
 ## 📞 Communication
 
 ### Weekly Check-ins
+
 - **Schedule**: Every week with Cody
 - **Format**: Zoom or FaceTime
 - **Duration**: 30-45 minutes
 - **Purpose**: Updates, feedback, and planning
 
 ### Response Times
+
 - **Email**: Within 4 hours during business hours
 - **Urgent**: Within 1 hour
 - **Non-urgent**: Within 24 hours
-
-### Communication Channels
-- 📧 **Email** - Primary communication
-- 📱 **Text** - Urgent updates only
-- 📞 **Phone** - Important consultations
-- 💬 **Slack/Teams** - Quick questions (if applicable)
 
 ---
 
 ## 🚀 Getting Started
 
-### Your Role Overview
-As an Assistant at Cochran Films, you'll be the backbone of our operations, ensuring smooth communication, organized workflows, and exceptional client experiences.
+### First Week Goals
 
-### Primary Responsibilities
-- 📧 **Email Management** - Sorting, responding, and organizing
-- 📅 **Scheduling** - Managing Calendly bookings and availability
-- 🎯 **CRM Management** - Updating HubSpot with client information
-- 📁 **File Organization** - Maintaining Google Drive structure
-- 📞 **Client Communication** - Professional and timely responses
-
-### Success Metrics
-- ✅ **Task Completion** - On-time, detail-oriented execution
-- ⏰ **Availability** - Reachable during business hours
-- 🔄 **Proactivity** - Anticipating needs and updates
-- 🛡️ **Confidentiality** - Maintaining client privacy and brand standards
+1. **Get familiar with the HubSpot dashboard** → [hubspot.com](https://www.hubspot.com/)
+2. **Log into Calendly and view upcoming bookings** → [calendly.com](https://calendly.com/)
+3. **Review brand guidelines** → [Open Guidelines](https://drive.google.com/file/d/17mSv4xvh9IDfNdupTEB8YvJImgNwy0BU/view?usp=sharing)
+4. **Get access to Gmail + LinkedIn**
+5. **One-on-one with Cody** — Already done ✅
+6. **Bookmark all important links and logins**
 
 ---
 
@@ -158,12 +146,14 @@ As an Assistant at Cochran Films, you'll be the backbone of our operations, ensu
 **Cochran Films LLC** is a full-stack media powerhouse based in Georgia, specializing in:
 
 ### What We Do
-- 🎬 **Media Production** - Film, promos, documentaries, podcasts, commercials
-- 🛠️ **Business Tools** - Automated invoicing, client portals, dashboards
-- 🎨 **Branding & Web** - Logo design, websites, SEO, automation
-- 🎓 **Education** - Course Creator Academy, CCA Critiques
+
+- 🎬 **Media Production** – Film, promos, documentaries, podcasts, commercials
+- 🔧 **Business Tools** – Automated invoicing, client portals, dashboards
+- 🎨 **Branding & Web** – Logo design, websites, SEO, automation
+- 🎓 **Education** – Course Creator Academy, CCA Critiques
 
 ### Our Mission
+
 Empowering stories through film, education, and technology while maintaining the highest standards of quality, innovation, and client satisfaction.
 
 ---
@@ -171,46 +161,50 @@ Empowering stories through film, education, and technology while maintaining the
 ## 🔗 Quick Links
 
 ### Client-Facing
-- [🌐 Cochran Films Website](https://www.cochranfilms.com/)
-- [📸 Portfolio](https://www.cochranfilms.com/portfolio)
-- [📋 Discovery Call Booking](https://landing.cochranfilms.com/forms-hub.html)
-- [🎥 Media Inquiry Form](https://landing.cochranfilms.com/forms-hub.html)
+- 🌐 [Cochran Films Website](https://www.cochranfilms.com/)
+- 💼 [Portfolio](https://www.cochranfilms.com/portfolio)
+- 📅 [Discovery Call Booking](https://landing.cochranfilms.com/forms-hub.html)
+- 📸 [Media Inquiry Form](https://landing.cochranfilms.com/forms-hub.html)
 
 ### Social Media
-- [📷 Instagram](https://www.instagram.com/cochran.films/)
-- [📺 YouTube](https://www.youtube.com/@cochranfilmsllc)
-- [💼 LinkedIn Company](https://www.linkedin.com/company/cochranfilms)
+- 📷 [Instagram](https://www.instagram.com/cochran.films/)
+- 🎥 [YouTube](https://www.youtube.com/@cochranfilmsllc)
+
+### Internal Tools
+- 📊 [HubSpot CRM](https://app.hubspot.com/)
+- 📅 [Calendly](https://calendly.com/)
+- 📋 [Trello](https://trello.com/)
+- 💰 [Wave Invoicing](https://www.waveapps.com/)
 
 ---
 
-## 📞 Contact Information
+## 💼 Your Role as an Assistant
 
-### Primary Contact
-- **Cody Cochran** - Founder & CEO
-- **Phone**: (404) 907-1918
-- **Email**: [Contact via Gmail](https://mail.google.com/)
+### Primary Responsibilities
 
-### Emergency Contacts
-- **Business Hours**: Monday-Friday, 9 AM - 6 PM EST
-- **Response Time**: Within 4 hours during business hours
+- 📧 **Email Management** – Sorting, responding, and organizing
+- 📅 **Scheduling** – Managing Calendly bookings and availability
+- 🎯 **CRM Management** – Updating HubSpot with client information
+- 📁 **File Organization** – Maintaining Google Drive structure
+- 📞 **Client Communication** – Professional and timely responses
+
+### Success Metrics
+
+- ✅ **Task Completion** – On-time, detail-oriented execution
+- ⏰ **Availability** – Reachable during business hours
+- 💡 **Proactivity** – Anticipating needs and updates
+- 🛡️ **Confidentiality** – Maintaining client privacy and brand standards
 
 ---
 
 <div align="center">
 
-## 🎉 Welcome to the Cochran Films Family!
+## 🎬 Welcome to the Cochran Films Family!
 
-**You're not just joining a company – you're becoming part of a creative family that's passionate about storytelling, innovation, and excellence.**
+**Let's build something amazing together!**
 
-### Remember:
-- 🎯 **Ask Questions** - We're here to help you succeed
-- 💡 **Share Ideas** - Your input is valuable
-- 🚀 **Grow With Us** - This is just the beginning of your journey
+![Footer](CF_Logo_White2025.png)
 
----
-
-**© 2025 Cochran Films LLC • Stories that tell themselves**
-
-![Footer Logo](CF_Logo_White2025.png)
+*©2025 Cochran Films LLC • Stories that tell themselves*
 
 </div>
