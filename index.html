@@ -269,51 +269,35 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
     </section>
 
     <section class="card" style="margin-top:18px">
-      <h2>Unified Workspace (Embedded Apps)</h2>
-      <p class="muted">Access key platforms inline. Some services may restrict embedding with security headers. If a view doesn’t load, use the Open button.</p>
+      <h2>Unified Workspace</h2>
+      <p class="muted">Quick access to key platforms. Most services block iframe embedding for security, so we've provided direct links with embedded Calendly (which works).</p>
       <div class="apps-grid">
-        <div class="app-embed" data-name="HubSpot" data-url="https://app.hubspot.com/login">
-          <div class="toolbar">
-            <div class="title">HubSpot</div>
-            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
-            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
-            <a class="btn" data-action="open" href="https://app.hubspot.com/" target="_blank" rel="noopener">Open</a>
-          </div>
-          <iframe class="app-frame" title="HubSpot"></iframe>
-          <div class="hint">If HubSpot blocks embedding, click Open.</div>
-        </div>
-
         <div class="app-embed" data-name="Calendly" data-url="https://calendly.com/">
           <div class="toolbar">
-            <div class="title">Calendly</div>
+            <div class="title">Calendly (Embedded)</div>
             <button class="btn gold" data-action="refresh" type="button">Refresh</button>
             <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
-            <a class="btn" data-action="open" href="https://calendly.com/" target="_blank" rel="noopener">Open</a>
+            <a class="btn" data-action="open" href="https://calendly.com/" target="_blank" rel="noopener">Open in New Tab</a>
           </div>
           <iframe class="app-frame" title="Calendly"></iframe>
-          <div class="hint">Log in or use Open to launch the full site.</div>
+          <div class="hint">✅ Calendly works embedded - log in and manage bookings here.</div>
         </div>
 
-        <div class="app-embed" data-name="Trello" data-url="https://trello.com/login">
+        <div class="app-embed">
           <div class="toolbar">
-            <div class="title">Trello</div>
-            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
-            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
-            <a class="btn" data-action="open" href="https://trello.com/" target="_blank" rel="noopener">Open</a>
+            <div class="title">Other Platforms (Direct Links)</div>
           </div>
-          <iframe class="app-frame" title="Trello"></iframe>
-          <div class="hint">If the login is blocked, use Open to continue.</div>
-        </div>
-
-        <div class="app-embed" data-name="LinkedIn" data-url="https://www.linkedin.com/login">
-          <div class="toolbar">
-            <div class="title">LinkedIn</div>
-            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
-            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
-            <a class="btn" data-action="open" href="https://www.linkedin.com/" target="_blank" rel="noopener">Open</a>
+          <div style="padding: 20px; background: rgba(255,255,255,.02); border-radius: 8px; border: 1px solid rgba(255,255,255,.08);">
+            <div class="quick-links">
+              <a class="btn gold" href="https://app.hubspot.com/" target="_blank" rel="noopener">HubSpot CRM</a>
+              <a class="btn" href="https://trello.com/" target="_blank" rel="noopener">Trello Boards</a>
+              <a class="btn" href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">LinkedIn Company</a>
+              <a class="btn" href="https://www.waveapps.com/" target="_blank" rel="noopener">Wave Invoicing</a>
+              <a class="btn" href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
+              <a class="btn" href="https://calendar.google.com/" target="_blank" rel="noopener">Google Calendar</a>
+            </div>
+            <p class="hint" style="margin-top: 12px;">These platforms block iframe embedding for security. Click any button to open in a new tab.</p>
           </div>
-          <iframe class="app-frame" title="LinkedIn"></iframe>
-          <div class="hint">LinkedIn often blocks embedding. Use Open if the frame is blank.</div>
         </div>
       </div>
     </section>
