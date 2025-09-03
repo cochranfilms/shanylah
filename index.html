@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cochran Films — Shanylah Sainvil Onboarding</title>
+<meta name="description" content="Onboarding guide for Shanylah Sainvil — Cochran Films procedures, expectations, and quick links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Brand palette */
+:root{--cf-gold:#f5af00;--cf-black:#0a0a0a;--cf-white:#ffffff;--cf-gray:#a0a0a0;--cf-deep:#0d0d0d;--max:1100px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cf-black);color:var(--cf-white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0 0 10px}
+h1{font-size:clamp(28px,4vw,40px);letter-spacing:.3px}
+h2{font-size:clamp(20px,2.6vw,28px)}
+p{margin:0 0 14px}
+img{max-width:100%;height:auto}
+a{color:var(--cf-white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
+a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
+.hero{position:relative;padding:42px 20px 30px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(245,175,0,.08),transparent)}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:56px;height:auto}
+.tag{display:inline-block;background:rgba(245,175,0,.15);color:var(--cf-white);padding:4px 10px;border:1px solid rgba(245,175,0,.35);border-radius:999px;font-size:12px;letter-spacing:.4px;margin:10px 0}
+.intro{color:#e9e9e9;max-width:850px}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:24px}
+.card{grid-column:span 12;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 16px}
+@media(min-width:900px){.card{padding:22px}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-8{grid-column:span 8}}
+.card h3{margin-bottom:8px;font-size:18px}
+.muted{color:#c9c9c9}
+.list{margin:8px 0 0;padding-left:18px}
+.list li{margin:6px 0}
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#111;padding:2px 6px;border:1px solid rgba(255,255,255,.15);border-radius:6px;font-size:12px}
+
+.quick-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff}
+.btn:hover{background:rgba(245,175,0,.18);border-color:var(--cf-gold)}
+.btn.gold{background:var(--cf-gold);color:#000;border-color:transparent}
+.btn.gold:hover{filter:brightness(.95)}
+
+.footer{padding:30px 20px;color:#bdbdbd;text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:26px}
+.kicker{font-size:12px;color:#a9a9a9}
+
+.two-col{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.two-col{grid-template-columns:1.1fr .9fr}}
+.drive-embed{width:100%;height:560px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
+/* Inline viewer */
+.viewer{display:grid;gap:12px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{flex:1 1 320px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0f0f0f;color:#fff}
+.viewer-iframe{width:100%;height:620px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
+/* Unified workspace iframes */
+.apps-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.app-embed{display:grid;gap:10px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar .title{font-weight:600;margin-right:auto}
+.app-frame{width:100%;height:860px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
+.hint{font-size:12px;color:#a9a9a9}
+.fullscreen{position:fixed;inset:0;width:100vw;height:100vh;background:#000;padding:16px 16px 0 16px;margin:0;z-index:9999}
+.fullscreen .app-frame{height:calc(100vh - 72px)}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand">
+        <img src="CF_Logo_White2025.png" alt="Cochran Films logo" onerror="this.src='CF_Logo_Black2025.png'">
+        <div>
+          <div class="tag">Assistant Onboarding</div>
+          <h1>Welcome, Shanylah — You’re part of the Cochran Films family</h1>
+          <p class="intro">This page is your hub for expectations, tools, and quick links. Keep it bookmarked — we’ll keep enhancing it with documents and workflows to help you succeed.</p>
+        </div>
+      </div>
+      <div class="quick-links" style="margin-top:14px">
+        <a class="btn gold" href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Team Files (Read)</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Your Drive Folder (Upload)</a>
+        <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Discovery & Media Forms</a>
+        <a class="btn" href="https://www.cochranfilms.com/" target="_blank" rel="noopener">Cochran Films Website</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <article class="card span-8">
+        <h2>1) Welcome + What You’ve Already Completed</h2>
+        <ul class="list">
+          <li>Reviewed and signed your Assistant Contract ✅</li>
+          <li>Reviewed the Cochran Films SOP ✅</li>
+          <li>Received and reviewed Brand Guidelines ✅</li>
+          <li>Granted Admin access to Calendly and HubSpot ✅</li>
+        </ul>
+        <p class="muted">Great start — you’re cleared to begin your active role.</p>
+      </article>
+
+      <aside class="card span-4">
+        <h3>Quick Access</h3>
+        <div class="quick-links">
+          <a class="btn" href="https://www.hubspot.com/" target="_blank" rel="noopener">HubSpot</a>
+          <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a>
+          <a class="btn" href="https://trello.com/" target="_blank" rel="noopener">Trello</a>
+          <a class="btn" href="https://www.waveapps.com/" target="_blank" rel="noopener">Wave</a>
+          <a class="btn" href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </aside>
+
+      <article class="card span-12">
+        <h2>2) Overview of Cochran Films</h2>
+        <p>Cochran Films LLC is a full-stack media powerhouse based in Georgia, specializing in high-end video production, branding, web development, content strategy, on-site photo printing, and AI-driven systems via our sister brand Marketing Mousetrap Agency. Founded by Cody Cochran, we focus on quality, innovation, client satisfaction, and empowering stories through film, education, and technology.</p>
+        <div class="two-col">
+          <div>
+            <h3>What We Do</h3>
+            <ul class="list">
+              <li>Media Production: film, promos, docs, podcasts, commercials</li>
+              <li>Business Tools: automated invoicing, client portals, dashboards</li>
+              <li>Branding & Web: logos, websites, SEO, automation</li>
+              <li>Community & Education: Course Creator Academy, CCA Critiques</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Key Values</h3>
+            <ul class="list">
+              <li>Trust</li>
+              <li>Loyalty</li>
+              <li>Innovation</li>
+              <li>Family</li>
+              <li>Professionalism</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card span-6">
+        <h2>3) Your Role as an Assistant</h2>
+        <h3>Primary Responsibilities</h3>
+        <ul class="list">
+          <li>Email sorting and response</li>
+          <li>Scheduling via Calendly</li>
+          <li>Managing client info and pipeline in HubSpot</li>
+          <li>Internal file organization (Google Drive / G Suite)</li>
+          <li>Weekly check-ins and updates with Cody</li>
+        </ul>
+        <h3>Expanded Capabilities (Next)</h3>
+        <ul class="list">
+          <li>Access to Cody’s email account (view/sort/send on behalf)</li>
+          <li>Access to Cody’s LinkedIn for lead messaging and research</li>
+        </ul>
+        <h3>Success Looks Like</h3>
+        <ul class="list">
+          <li>Timely, detail‑oriented task completion</li>
+          <li>Reachable during weekday business hours</li>
+          <li>Proactive check-ins for updates or shifts</li>
+          <li>Client confidentiality and brand professionalism</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>4) Calendly — Overview</h2>
+        <p>Calendly powers discovery calls, onboarding meetings, and consultations.</p>
+        <h3>Your Use</h3>
+        <ul class="list">
+          <li>Monitor bookings and notify Cody of new appointments</li>
+          <li>Adjust availability or meeting types as needed</li>
+          <li>Review meeting notes/form data prior to calls</li>
+        </ul>
+        <h3>Helpful Features</h3>
+        <ul class="list">
+          <li>Google Calendar sync</li>
+          <li>Meeting buffers and time zones</li>
+          <li>Form integration for client info</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>5) HubSpot — Overview</h2>
+        <p>HubSpot is our CRM to manage leads, clients, templates, and the pipeline.</p>
+        <h3>Your Use</h3>
+        <ul class="list">
+          <li>Track new contacts and deal status</li>
+          <li>Use email templates for outreach or follow‑ups</li>
+          <li>Log notes and update tasks after conversations</li>
+        </ul>
+        <h3>Helpful Features</h3>
+        <ul class="list">
+          <li>Contact timeline history</li>
+          <li>Pipeline views and stages</li>
+          <li>Automation: reminders, follow‑ups, internal alerts</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>6) Tools You’ll Use Often</h2>
+        <ul class="list">
+          <li>Gmail: inquiries and replies</li>
+          <li>LinkedIn (Cody’s): leads and client data — <a href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">open</a></li>
+          <li>Google Calendar: events, shoots, calls</li>
+          <li>Google Drive: assets, documents, brand kits</li>
+          <li>Trello or Sheets: task tracking — <a href="https://trello.com/" target="_blank" rel="noopener">open</a></li>
+          <li>WaveApps: invoices and reminders — <a href="https://www.waveapps.com/" target="_blank" rel="noopener">open</a></li>
+          <li>Zoom / FaceTime: weekly check‑ins</li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>7) Quick Links</h2>
+        <div class="quick-links">
+          <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Discovery Call Booking</a>
+          <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Media Inquiry Form</a>
+          <a class="btn" href="https://www.cochranfilms.com/" target="_blank" rel="noopener">Cochran Films Website</a>
+          <a class="btn" href="https://www.cochranfilms.com/portfolio" target="_blank" rel="noopener">Portfolio</a>
+          <a class="btn" href="https://www.instagram.com/cochran.films/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://www.youtube.com/@cochranfilmsllc" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </article>
+
+      <article class="card span-12">
+        <h2>8) First Week Goals</h2>
+        <ul class="list">
+          <li>Get familiar with the HubSpot dashboard — <a href="https://www.hubspot.com/" target="_blank" rel="noopener">hubspot.com</a></li>
+          <li>Log into Calendly and view upcoming bookings — <a href="https://calendly.com/" target="_blank" rel="noopener">calendly.com</a></li>
+          <li>Review brand guidelines — <a href="https://drive.google.com/file/d/17mSv4xvh9IDfNdupTEB8YvJImgNwy0BU/view?usp=sharing" target="_blank" rel="noopener">open</a></li>
+          <li>Get access to Gmail + LinkedIn</li>
+          <li>One‑on‑one with Cody — Already done ✅</li>
+          <li>Bookmark all important links and logins</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h3>File Handoff</h3>
+      <p>
+        • Team resources live here: <a href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Cochran Films Internal Drive</a><br>
+        • Upload your work here: <a href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Shanylah Personal Folder</a>
+      </p>
+      <p class="kicker">We’ll add more shortcuts (SOPs, templates, scripts) as needed.</p>
+    </section>
+
+    <section class="grid" style="margin-top:18px" aria-label="Embedded Drive Folders">
+      <article class="card span-6">
+        <h3>Team Files — Inline View</h3>
+        <iframe class="drive-embed" src="https://drive.google.com/embeddedfolderview?id=1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC#grid" title="Cochran Films Internal Drive"></iframe>
+        <p class="kicker">Read‑only preview. If access is restricted, set folder sharing to “Anyone with the link: Viewer”.</p>
+      </article>
+      <article class="card span-6">
+        <h3>Your Uploads — Inline View</h3>
+        <iframe class="drive-embed" src="https://drive.google.com/embeddedfolderview?id=1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq#list" title="Shanylah Personal Folder"></iframe>
+        <p class="kicker">Use “Open in Drive” inside the frame to upload. In‑page uploads would require Google Picker API.</p>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>Inline File Viewer</h2>
+      <p class="muted">Paste any Google Drive link (Docs, Sheets, Slides, PDFs, images, videos) and preview it here. Works with items shared to “Anyone with the link”.</p>
+      <div class="viewer">
+        <div class="controls">
+          <input id="driveUrl" class="field" type="url" inputmode="url" placeholder="Paste a Google Drive link…">
+          <button id="previewBtn" class="btn gold" type="button">Preview</button>
+          <a id="openBtn" class="btn" href="#" target="_blank" rel="noopener">Open in Drive</a>
+          <a id="downloadBtn" class="btn" href="#" target="_blank" rel="noopener">Download</a>
+          <a id="sampleBtn" class="btn" href="#" role="button">Try sample</a>
+        </div>
+        <iframe id="viewerFrame" class="viewer-iframe" title="Drive file preview"></iframe>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>Unified Workspace (Embedded Apps)</h2>
+      <p class="muted">Access key platforms inline. Some services may restrict embedding with security headers. If a view doesn’t load, use the Open button.</p>
+      <div class="apps-grid">
+        <div class="app-embed" data-name="HubSpot" data-url="https://app.hubspot.com/login">
+          <div class="toolbar">
+            <div class="title">HubSpot</div>
+            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
+            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
+            <a class="btn" data-action="open" href="https://app.hubspot.com/" target="_blank" rel="noopener">Open</a>
+          </div>
+          <iframe class="app-frame" title="HubSpot"></iframe>
+          <div class="hint">If HubSpot blocks embedding, click Open.</div>
+        </div>
+
+        <div class="app-embed" data-name="Calendly" data-url="https://calendly.com/">
+          <div class="toolbar">
+            <div class="title">Calendly</div>
+            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
+            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
+            <a class="btn" data-action="open" href="https://calendly.com/" target="_blank" rel="noopener">Open</a>
+          </div>
+          <iframe class="app-frame" title="Calendly"></iframe>
+          <div class="hint">Log in or use Open to launch the full site.</div>
+        </div>
+
+        <div class="app-embed" data-name="Trello" data-url="https://trello.com/login">
+          <div class="toolbar">
+            <div class="title">Trello</div>
+            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
+            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
+            <a class="btn" data-action="open" href="https://trello.com/" target="_blank" rel="noopener">Open</a>
+          </div>
+          <iframe class="app-frame" title="Trello"></iframe>
+          <div class="hint">If the login is blocked, use Open to continue.</div>
+        </div>
+
+        <div class="app-embed" data-name="LinkedIn" data-url="https://www.linkedin.com/login">
+          <div class="toolbar">
+            <div class="title">LinkedIn</div>
+            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
+            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
+            <a class="btn" data-action="open" href="https://www.linkedin.com/" target="_blank" rel="noopener">Open</a>
+          </div>
+          <iframe class="app-frame" title="LinkedIn"></iframe>
+          <div class="hint">LinkedIn often blocks embedding. Use Open if the frame is blank.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="CF_Logo_White2025.png" alt="Cochran Films" width="44" height="44" style="opacity:.9" onerror="this.src='CF_Logo_Black2025.png'">
+    <div class="kicker">©2025 Cochran Films LLC • Stories that tell themselves</div>
+  </footer>
+
+<script>
+(function(){
+  const input = document.getElementById('driveUrl');
+  const previewBtn = document.getElementById('previewBtn');
+  const openBtn = document.getElementById('openBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const frame = document.getElementById('viewerFrame');
+  const sampleBtn = document.getElementById('sampleBtn');
+
+  const SAMPLE_ID = '17mSv4xvh9IDfNdupTEB8YvJImgNwy0BU';
+
+  function extractIdAndKind(rawUrl){
+    if(!rawUrl) return null;
+    try{ rawUrl = rawUrl.trim(); }catch(e){ return null; }
+    const url = new URL(rawUrl);
+    const host = url.hostname;
+    const path = url.pathname;
+    const searchParams = url.searchParams;
+
+    const idFromD = /\/d\/([a-zA-Z0-9_-]{10,})/.exec(path);
+    const idFromQuery = searchParams.get('id');
+    const id = (idFromD && idFromD[1]) || idFromQuery || '';
+    if(!id) return null;
+
+    let kind = 'file';
+    if(host.includes('docs.google.com')){
+      if(path.includes('/document/')) kind = 'document';
+      else if(path.includes('/spreadsheets/')) kind = 'spreadsheet';
+      else if(path.includes('/presentation/')) kind = 'presentation';
+    }
+    return { id, kind };
+  }
+
+  function buildPreviewUrl(info){
+    if(!info) return '';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/preview`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/preview`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/preview`;
+      default: return `https://drive.google.com/file/d/${id}/preview`;
+    }
+  }
+
+  function buildOpenUrl(info){
+    if(!info) return '#';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/view`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/view`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/view`;
+      default: return `https://drive.google.com/file/d/${id}/view`;
+    }
+  }
+
+  function buildDownloadUrl(info){
+    if(!info) return '#';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/export?format=pdf`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/export?format=pdf`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/export/pdf`;
+      default: return `https://drive.google.com/uc?export=download&id=${id}`;
+    }
+  }
+
+  function preview(url){
+    const info = extractIdAndKind(url);
+    if(!info){ alert('Please paste a valid Google Drive link.'); return; }
+    const previewUrl = buildPreviewUrl(info);
+    const openUrl = buildOpenUrl(info);
+    const downloadUrl = buildDownloadUrl(info);
+    frame.src = previewUrl;
+    openBtn.href = openUrl;
+    downloadBtn.href = downloadUrl;
+  }
+
+  previewBtn.addEventListener('click', () => preview(input.value));
+  input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); preview(input.value); } });
+  sampleBtn.addEventListener('click', (e) => { e.preventDefault(); input.value = `https://drive.google.com/file/d/${SAMPLE_ID}/view?usp=sharing`; preview(input.value); });
+})();
+
+// Initialize app iframes
+(function(){
+  const blocks = document.querySelectorAll('.app-embed');
+  blocks.forEach(block => {
+    const url = block.getAttribute('data-url');
+    const frame = block.querySelector('iframe');
+    const openBtn = block.querySelector('[data-action="open"]');
+    const refreshBtn = block.querySelector('[data-action="refresh"]');
+    const fullscreenBtn = block.querySelector('[data-action="fullscreen"]');
+    if(frame) frame.src = url;
+    if(openBtn) openBtn.href = url.replace(/login$/,'');
+    if(refreshBtn) refreshBtn.addEventListener('click', ()=>{ if(frame) frame.src = frame.src; });
+    if(fullscreenBtn) fullscreenBtn.addEventListener('click', ()=>{
+      block.classList.toggle('fullscreen');
+      // Scroll to top when entering fullscreen
+      if(block.classList.contains('fullscreen')) window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
+
+
