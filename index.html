@@ -9,60 +9,372 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Brand palette */
-:root{--cf-gold:#f5af00;--cf-black:#0a0a0a;--cf-white:#ffffff;--cf-gray:#a0a0a0;--cf-deep:#0d0d0d;--max:1100px}
+/* Brand palette - Light theme */
+:root{
+  --cf-gold:#f5af00;
+  --cf-gold-light:#ffd700;
+  --cf-gold-dark:#e09a00;
+  --cf-black:#1a1a1a;
+  --cf-white:#ffffff;
+  --cf-gray:#6b7280;
+  --cf-light-gray:#f8fafc;
+  --cf-blue:#3b82f6;
+  --cf-purple:#8b5cf6;
+  --cf-pink:#ec4899;
+  --cf-green:#10b981;
+  --max:1200px;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--cf-black);color:var(--cf-white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6}
-h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0 0 10px}
-h1{font-size:clamp(28px,4vw,40px);letter-spacing:.3px}
-h2{font-size:clamp(20px,2.6vw,28px)}
-p{margin:0 0 14px}
+html,body{
+  margin:0;padding:0;
+  background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);
+  color:var(--cf-black);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0 0 16px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);letter-spacing:-0.02em;background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2{font-size:clamp(24px,3vw,32px);color:var(--cf-black);position:relative}
+h2::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:4px;background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink));border-radius:2px}
+h3{font-size:20px;color:var(--cf-black)}
+
+p{margin:0 0 16px;color:var(--cf-gray)}
 img{max-width:100%;height:auto}
-a{color:var(--cf-white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
-a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
 
-.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
-.hero{position:relative;padding:42px 20px 30px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(245,175,0,.08),transparent)}
-.brand{display:flex;align-items:center;gap:16px}
-.brand img{width:56px;height:auto}
-.tag{display:inline-block;background:rgba(245,175,0,.15);color:var(--cf-white);padding:4px 10px;border:1px solid rgba(245,175,0,.35);border-radius:999px;font-size:12px;letter-spacing:.4px;margin:10px 0}
-.intro{color:#e9e9e9;max-width:850px}
+a{color:var(--cf-blue);text-decoration:none;border-bottom:2px solid transparent;transition:all 0.3s ease}
+a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:translateY(-1px)}
 
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:24px}
-.card{grid-column:span 12;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 16px}
-@media(min-width:900px){.card{padding:22px}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-8{grid-column:span 8}}
-.card h3{margin-bottom:8px;font-size:18px}
-.muted{color:#c9c9c9}
-.list{margin:8px 0 0;padding-left:18px}
-.list li{margin:6px 0}
-.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#111;padding:2px 6px;border:1px solid rgba(255,255,255,.15);border-radius:6px;font-size:12px}
+.wrap{max-width:var(--max);margin:0 auto;padding:32px 24px}
 
-.quick-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff}
-.btn:hover{background:rgba(245,175,0,.18);border-color:var(--cf-gold)}
-.btn.gold{background:var(--cf-gold);color:#000;border-color:transparent}
-.btn.gold:hover{filter:brightness(.95)}
+.hero{
+  position:relative;
+  padding:60px 24px 40px;
+  background:linear-gradient(135deg,var(--cf-white) 0%,var(--cf-light-gray) 100%);
+  border-radius:24px;
+  margin-bottom:32px;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
 
-.footer{padding:30px 20px;color:#bdbdbd;text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:26px}
-.kicker{font-size:12px;color:#a9a9a9}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f5af00" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%238b5cf6" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ec4899" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity:0.3;
+}
 
-.two-col{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:900px){.two-col{grid-template-columns:1.1fr .9fr}}
-.drive-embed{width:100%;height:560px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
-/* Inline viewer */
-.viewer{display:grid;gap:12px}
-.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.field{flex:1 1 320px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0f0f0f;color:#fff}
-.viewer-iframe{width:100%;height:620px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
-/* Unified workspace iframes */
-.apps-grid{display:grid;grid-template-columns:1fr;gap:18px}
-.app-embed{display:grid;gap:10px}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.toolbar .title{font-weight:600;margin-right:auto}
-.app-frame{width:100%;height:860px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#000}
-.hint{font-size:12px;color:#a9a9a9}
-.fullscreen{position:fixed;inset:0;width:100vw;height:100vh;background:#000;padding:16px 16px 0 16px;margin:0;z-index:9999}
-.fullscreen .app-frame{height:calc(100vh - 72px)}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:relative;
+  z-index:2;
+}
+
+.brand img{
+  width:64px;
+  height:auto;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-5px)}
+}
+
+.tag{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin:12px 0;
+  box-shadow:var(--shadow);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+
+.intro{
+  color:var(--cf-gray);
+  max-width:900px;
+  font-size:18px;
+  line-height:1.7;
+  position:relative;
+  z-index:2;
+}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:32px}
+
+.card{
+  grid-column:span 12;
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.05);
+  border-radius:20px;
+  padding:28px 24px;
+  box-shadow:var(--shadow);
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple));
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+@media(min-width:900px){
+  .card{padding:32px 28px}
+  .span-6{grid-column:span 6}
+  .span-4{grid-column:span 4}
+  .span-8{grid-column:span 8}
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:20px;
+  color:var(--cf-black);
+}
+
+.muted{color:var(--cf-gray)}
+
+.list{
+  margin:12px 0 0;
+  padding-left:20px;
+}
+
+.list li{
+  margin:8px 0;
+  color:var(--cf-gray);
+  position:relative;
+}
+
+.list li::marker{
+  color:var(--cf-gold);
+  font-weight:bold;
+}
+
+.quick-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:16px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:12px;
+  border:2px solid transparent;
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+  transition:left 0.5s;
+}
+
+.btn:hover::before{left:100%}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold:hover{
+  background:linear-gradient(135deg,var(--cf-gold-dark),var(--cf-gold));
+  transform:translateY(-2px) scale(1.02);
+}
+
+.footer{
+  padding:40px 24px;
+  color:var(--cf-gray);
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.1);
+  margin-top:40px;
+  background:var(--cf-white);
+  border-radius:20px 20px 0 0;
+}
+
+.kicker{font-size:14px;color:var(--cf-gray)}
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+@media(min-width:900px){
+  .two-col{grid-template-columns:1.1fr .9fr}
+}
+
+.drive-embed{
+  width:100%;
+  height:560px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.viewer{
+  display:grid;
+  gap:16px;
+}
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.field{
+  flex:1 1 320px;
+  padding:12px 16px;
+  border-radius:12px;
+  border:2px solid rgba(0,0,0,0.1);
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.field:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+  box-shadow:0 0 0 3px rgba(245,175,0,0.1);
+}
+
+.viewer-iframe{
+  width:100%;
+  height:620px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.apps-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+.app-embed{
+  display:grid;
+  gap:16px;
+}
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  padding:16px;
+  background:var(--cf-light-gray);
+  border-radius:12px;
+}
+
+.toolbar .title{
+  font-weight:700;
+  margin-right:auto;
+  color:var(--cf-black);
+  font-size:18px;
+}
+
+.app-frame{
+  width:100%;
+  height:860px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.hint{
+  font-size:14px;
+  color:var(--cf-gray);
+  font-style:italic;
+}
+
+.fullscreen{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  background:var(--cf-white);
+  padding:20px;
+  margin:0;
+  z-index:9999;
+  border-radius:0;
+}
+
+.fullscreen .app-frame{
+  height:calc(100vh - 100px);
+}
+
+/* Scroll animations */
+@keyframes slideInUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card{
+  animation:slideInUp 0.6s ease-out;
+}
+
+.card:nth-child(2){animation-delay:0.1s}
+.card:nth-child(3){animation-delay:0.2s}
+.card:nth-child(4){animation-delay:0.3s}
+.card:nth-child(5){animation-delay:0.4s}
 </style>
 </head>
 <body>
@@ -71,9 +383,9 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       <div class="brand">
         <img src="CF_Logo_White2025.png" alt="Cochran Films logo" onerror="this.src='CF_Logo_Black2025.png'">
         <div>
-          <div class="tag">Assistant Onboarding</div>
-          <h1>Welcome, Shanylah — You’re part of the Cochran Films family</h1>
-          <p class="intro">This page is your hub for expectations, tools, and quick links. Keep it bookmarked — we’ll keep enhancing it with documents and workflows to help you succeed.</p>
+          <div class="tag">🎬 Welcome to the Team! 🎬</div>
+          <h1>Hey Shanylah! You're officially part of the Cochran Films family! 🚀</h1>
+          <p class="intro">This is your personal command center — everything you need to rock your role as our amazing assistant. Bookmark this page because we're constantly adding new tools and resources to help you succeed and grow with us!</p>
         </div>
       </div>
       <div class="quick-links" style="margin-top:14px">
@@ -88,7 +400,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
   <main class="wrap">
     <section class="grid">
       <article class="card span-8">
-        <h2>1) Welcome + What You’ve Already Completed</h2>
+        <h2>🎉 1) Welcome + What You've Already Completed</h2>
         <ul class="list">
           <li>Reviewed and signed your Assistant Contract ✅</li>
           <li>Reviewed the Cochran Films SOP ✅</li>
@@ -99,7 +411,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <aside class="card span-4">
-        <h3>Quick Access</h3>
+        <h3>⚡ Quick Access</h3>
         <div class="quick-links">
           <a class="btn" href="https://www.hubspot.com/" target="_blank" rel="noopener">HubSpot</a>
           <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a>
@@ -110,7 +422,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </aside>
 
       <article class="card span-12">
-        <h2>2) Overview of Cochran Films</h2>
+        <h2>🎬 2) Overview of Cochran Films</h2>
         <p>Cochran Films LLC is a full-stack media powerhouse based in Georgia, specializing in high-end video production, branding, web development, content strategy, on-site photo printing, and AI-driven systems via our sister brand Marketing Mousetrap Agency. Founded by Cody Cochran, we focus on quality, innovation, client satisfaction, and empowering stories through film, education, and technology.</p>
         <div class="two-col">
           <div>
@@ -136,7 +448,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-6">
-        <h2>3) Your Role as an Assistant</h2>
+        <h2>💼 3) Your Role as an Assistant</h2>
         <h3>Primary Responsibilities</h3>
         <ul class="list">
           <li>Email sorting and response</li>
@@ -160,7 +472,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-6">
-        <h2>4) Calendly — Overview</h2>
+        <h2>📅 4) Calendly — Overview</h2>
         <p>Calendly powers discovery calls, onboarding meetings, and consultations.</p>
         <h3>Your Use</h3>
         <ul class="list">
@@ -177,7 +489,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-6">
-        <h2>5) HubSpot — Overview</h2>
+        <h2>🎯 5) HubSpot — Overview</h2>
         <p>HubSpot is our CRM to manage leads, clients, templates, and the pipeline.</p>
         <h3>Your Use</h3>
         <ul class="list">
@@ -194,7 +506,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-6">
-        <h2>6) Tools You’ll Use Often</h2>
+        <h2>🛠️ 6) Tools You'll Use Often</h2>
         <ul class="list">
           <li>Gmail: inquiries and replies</li>
           <li>LinkedIn (Cody’s): leads and client data — <a href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">open</a></li>
@@ -207,7 +519,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-12">
-        <h2>7) Quick Links</h2>
+        <h2>🔗 7) Quick Links</h2>
         <div class="quick-links">
           <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Discovery Call Booking</a>
           <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Media Inquiry Form</a>
@@ -219,7 +531,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
       </article>
 
       <article class="card span-12">
-        <h2>8) First Week Goals</h2>
+        <h2>🎯 8) First Week Goals</h2>
         <ul class="list">
           <li>Get familiar with the HubSpot dashboard — <a href="https://www.hubspot.com/" target="_blank" rel="noopener">hubspot.com</a></li>
           <li>Log into Calendly and view upcoming bookings — <a href="https://calendly.com/" target="_blank" rel="noopener">calendly.com</a></li>
@@ -232,7 +544,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
     </section>
 
     <section class="card" style="margin-top:18px">
-      <h3>File Handoff</h3>
+      <h3>📁 File Handoff</h3>
       <p>
         • Team resources live here: <a href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Cochran Films Internal Drive</a><br>
         • Upload your work here: <a href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Shanylah Personal Folder</a>
@@ -254,7 +566,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
     </section>
 
     <section class="card" style="margin-top:18px">
-      <h2>Inline File Viewer</h2>
+      <h2>👀 Inline File Viewer</h2>
       <p class="muted">Paste any Google Drive link (Docs, Sheets, Slides, PDFs, images, videos) and preview it here. Works with items shared to “Anyone with the link”.</p>
       <div class="viewer">
         <div class="controls">
@@ -269,7 +581,7 @@ a:hover{color:var(--cf-gold);border-color:var(--cf-gold)}
     </section>
 
     <section class="card" style="margin-top:18px">
-      <h2>Unified Workspace</h2>
+      <h2>🚀 Unified Workspace</h2>
       <p class="muted">Quick access to key platforms. Most services block iframe embedding for security, so we've provided direct links with embedded Calendly (which works).</p>
       <div class="apps-grid">
         <div class="app-embed" data-name="Calendly" data-url="https://calendly.com/">
