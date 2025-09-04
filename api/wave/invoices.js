@@ -1,62 +1,80 @@
-// Mock Wave Invoices API
+// Wave Invoices API (GraphQL)
 export default async function handler(req, res) {
+  const token = process.env.WAVE_API_TOKEN;
+  const businessId = process.env.WAVE_BUSINESS_ID;
+  if (!token || !businessId) {
+    return res.status(500).json({ error: 'Missing WAVE_API_TOKEN or WAVE_BUSINESS_ID' });
+  }
+
+  const endpoint = 'https://gql.waveapps.com/graphql/public';
+
   try {
     if (req.method === 'GET') {
-      const invoices = [
-        {
-          id: '1001',
-          invoiceNumber: 'INV-1001',
-          customerName: 'Acme Corp',
-          total: 1500.0,
-          currency: 'USD',
-          status: 'sent',
-          createdAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-          dueDate: new Date(Date.now() + 86400000 * 2).toISOString()
-        },
-        {
-          id: '1002',
-          invoiceNumber: 'INV-1002',
-          customerName: 'Globex',
-          total: 750.0,
-          currency: 'USD',
-          status: 'paid',
-          createdAt: new Date(Date.now() - 86400000 * 12).toISOString(),
-          dueDate: new Date(Date.now() - 86400000 * 2).toISOString()
-        },
-        {
-          id: '1003',
-          invoiceNumber: 'INV-1003',
-          customerName: 'Initech',
-          total: 980.0,
-          currency: 'USD',
-          status: 'overdue',
-          createdAt: new Date(Date.now() - 86400000 * 20).toISOString(),
-          dueDate: new Date(Date.now() - 86400000 * 1).toISOString()
+      const query = `
+        query Invoices($businessId: ID!, $page: Int) {
+          invoices(businessId: $businessId, page: $page) {
+            pageInfo { currentPage totalPages }
+            edges { node {
+              id
+              invoiceNumber
+              status
+              createdAt
+              dueAt
+              currency { code }
+              customer { id name }
+              total { value }
+            } }
+          }
         }
-      ];
+      `;
+      const r = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, variables: { businessId } })
+      });
+      const json = await r.json();
+      if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
+      const invoices = (json.data?.invoices?.edges || []).map(e => ({
+        id: e.node.id,
+        invoiceNumber: e.node.invoiceNumber,
+        customerName: e.node.customer?.name,
+        total: e.node.total?.value,
+        currency: e.node.currency?.code,
+        status: (e.node.status || '').toLowerCase(),
+        createdAt: e.node.createdAt,
+        dueDate: e.node.dueAt
+      }));
       return res.status(200).json({ invoices });
     }
 
     if (req.method === 'POST') {
       const { customer = {}, currency = 'USD', items = [] } = req.body || {};
-      const total = (items || []).reduce((sum, item) => {
-        const qty = Number(item?.quantity || 0);
-        const price = Number(item?.unitPrice || 0);
-        return sum + qty * price;
-      }, 0);
-
-      const id = String(Date.now());
-      const invoice = {
-        id,
-        invoiceNumber: `INV-${id.slice(-6)}`,
-        customerName: customer?.name || 'Unnamed',
-        total: Number(total.toFixed(2)),
-        currency,
-        status: 'draft',
-        createdAt: new Date().toISOString(),
-        dueDate: new Date(Date.now() + 7 * 86400000).toISOString()
+      const mutation = `
+        mutation CreateInvoice($input: InvoiceCreateInput!) {
+          invoiceCreate(input: $input) { didSucceed inputErrors { message } invoice { id invoiceNumber } }
+        }
+      `;
+      const lineItems = (items || []).map(it => ({
+        description: it.description,
+        unitPrice: { value: Number(it.unitPrice || 0), currency: currency },
+        quantity: Number(it.quantity || 1)
+      }));
+      const input = {
+        businessId,
+        customerId: customer.id,
+        currency: { code: currency },
+        items: lineItems
       };
-      return res.status(201).json({ success: true, invoice });
+      const r = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: mutation, variables: { input } })
+      });
+      const json = await r.json();
+      if (json.errors || !json.data?.invoiceCreate?.didSucceed) {
+        return res.status(500).json({ error: 'Wave create invoice failed', details: json.errors || json.data?.invoiceCreate?.inputErrors });
+      }
+      return res.status(201).json({ success: true, invoice: json.data.invoiceCreate.invoice });
     }
 
     return res.status(405).json({ error: 'Method not allowed' });
