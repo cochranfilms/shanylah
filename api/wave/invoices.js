@@ -1,5 +1,6 @@
 // Wave Invoices API (GraphQL)
 export default async function handler(req, res) {
+  try { res.setHeader('Cache-Control', 'no-store'); } catch (_) {}
   const token = process.env.WAVE_API_TOKEN || process.env.WAVE_API_KEY;
   const businessId = process.env.WAVE_BUSINESS_ID;
   if (!token || !businessId) {

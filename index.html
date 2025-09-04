@@ -2661,7 +2661,7 @@ async function checkWaveConnection(){
   const text = document.getElementById('waveStatusText');
   if(!dot || !text) return;
   try{
-    const res = await fetch('/api/wave/status');
+    const res = await fetch('/api/wave/status', { cache: 'no-store' });
     if(res.ok){
       dot.classList.add('connected');
       text.textContent = 'WaveApps connected successfully';
@@ -2677,8 +2677,8 @@ async function checkWaveConnection(){
 async function loadWaveOverview(){
   try{
     const [invRes, custRes] = await Promise.all([
-      fetch('/api/wave/invoices'),
-      fetch('/api/wave/customers')
+      fetch('/api/wave/invoices', { cache: 'no-store' }),
+      fetch('/api/wave/customers', { cache: 'no-store' })
     ]);
     const invoicesData = await invRes.json().catch(()=>({ invoices: [] }));
     const customersData = await custRes.json().catch(()=>({ customers: [] }));
@@ -2728,7 +2728,7 @@ async function loadWaveInvoices(){
   const container = document.getElementById('waveInvoicesList');
   if(container) container.innerHTML = '<div class="loading-state">Loading invoices...</div>';
   try{
-    const res = await fetch('/api/wave/invoices');
+    const res = await fetch('/api/wave/invoices', { cache: 'no-store' });
     if (!res.ok) throw new Error('Wave invoices API not available');
     const data = await res.json();
     waveCache.invoices = data.invoices || [];
@@ -2770,7 +2770,7 @@ async function loadWaveCustomers(){
   const container = document.getElementById('waveCustomersList');
   if(container) container.innerHTML = '<div class="loading-state">Loading customers...</div>';
   try{
-    const res = await fetch('/api/wave/customers');
+    const res = await fetch('/api/wave/customers', { cache: 'no-store' });
     const data = await res.json();
     waveCache.customers = data.customers || [];
     if(!waveCache.customers.length){
@@ -2797,7 +2797,7 @@ async function loadWaveProducts(){
   const container = document.getElementById('waveProductsList');
   if(container) container.innerHTML = '<div class="loading-state">Loading products...</div>';
   try{
-    const res = await fetch('/api/wave/products');
+    const res = await fetch('/api/wave/products', { cache: 'no-store' });
     const data = await res.json();
     waveCache.products = data.products || [];
     if(!waveCache.products.length){

@@ -1,5 +1,6 @@
 // Wave Products API (GraphQL products are "products" graph type)
 export default async function handler(req, res) {
+  try { res.setHeader('Cache-Control', 'no-store'); } catch (_) {}
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
