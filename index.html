@@ -2346,23 +2346,8 @@ async function loadContacts() {
   try {
     const response = await fetch('/api/hubspot/contacts');
     const data = await response.json();
-    
-    if (data.contacts && data.contacts.length > 0) {
-      contactsList.innerHTML = data.contacts.map(contact => `
-        <div class="data-item">
-          <div class="item-info">
-            <h4>${contact.firstName} ${contact.lastName}</h4>
-            <p>${contact.email} • ${contact.company || 'No company'}</p>
-          </div>
-          <div class="item-actions">
-            <button class="btn" onclick="viewContact('${contact.id}')">👁️ View</button>
-            <button class="btn" onclick="editContact('${contact.id}')">✏️ Edit</button>
-          </div>
-        </div>
-      `).join('');
-    } else {
-      contactsList.innerHTML = '<div class="loading-state">No contacts found</div>';
-    }
+    window.__hsContactsCache = Array.isArray(data.contacts) ? data.contacts : [];
+    renderContacts(window.__hsContactsCache);
   } catch (error) {
     contactsList.innerHTML = '<div class="loading-state">Error loading contacts - Check API configuration</div>';
   }
@@ -2428,9 +2413,9 @@ async function loadTasks() {
 
 // Search functions
 function searchContacts() {
-  const query = document.getElementById('contactSearch').value;
-  // Implement search functionality
-  console.log('Searching contacts:', query);
+  const query = (document.getElementById('contactSearch').value || '').toLowerCase();
+  const filtered = getFilteredContacts({ query });
+  renderContacts(filtered);
 }
 
 function searchDeals() {
@@ -2504,8 +2489,41 @@ function refreshTasks() { loadTasks(); }
 // Filter functions
 function filterContacts() {
   const filter = document.getElementById('contactFilter').value;
-  // Implement filtering logic
-  console.log('Filtering contacts by:', filter);
+  const filtered = getFilteredContacts({ status: filter, query: (document.getElementById('contactSearch').value||'').toLowerCase() });
+  renderContacts(filtered);
+}
+
+function getFilteredContacts({ status = '', query = '' } = {}){
+  const list = Array.isArray(window.__hsContactsCache) ? window.__hsContactsCache : [];
+  return list.filter(c => {
+    const matchesStatus = !status || (c.leadStatus || '').toLowerCase() === status;
+    const matchesQuery = !query || [c.firstName, c.lastName, c.email, c.company].join(' ').toLowerCase().includes(query);
+    return matchesStatus && matchesQuery;
+  });
+}
+
+function renderContacts(contacts){
+  const target = document.getElementById('contactsList');
+  if(!Array.isArray(contacts) || contacts.length === 0){
+    target.innerHTML = '<div class="loading-state">No contacts found</div>';
+    return;
+  }
+  target.innerHTML = contacts.map(contact => `
+    <div class="data-item">
+      <div class="item-info">
+        <h4>${contact.firstName} ${contact.lastName}</h4>
+        <p>${contact.email} • ${contact.company || 'No company'}</p>
+        <div class="item-meta">
+          <span class="item-tag">Status: ${(contact.leadStatus||'new')}</span>
+          ${contact.createdAt ? `<span class="item-tag">Added: ${new Date(contact.createdAt).toLocaleDateString()}</span>` : ''}
+        </div>
+      </div>
+      <div class="item-actions">
+        <button class="btn" onclick="viewContact('${contact.id}')">👁️ View</button>
+        <button class="btn" onclick="editContact('${contact.id}')">✏️ Edit</button>
+      </div>
+    </div>
+  `).join('');
 }
 
 function filterDeals() {

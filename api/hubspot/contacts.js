@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       // Fetch contacts
-      const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts?limit=20&properties=firstname,lastname,email,company,phone,hs_lead_status', {
+      const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts?limit=50&properties=firstname,lastname,email,company,phone,hs_lead_status,createdate', {
         headers,
       });
 
@@ -34,7 +34,8 @@ export default async function handler(req, res) {
         email: contact.properties.email || '',
         company: contact.properties.company || '',
         phone: contact.properties.phone || '',
-        leadStatus: contact.properties.hs_lead_status || 'new'
+        leadStatus: contact.properties.hs_lead_status || 'new',
+        createdAt: contact.properties.createdate
       }));
 
       return res.status(200).json({ contacts });
