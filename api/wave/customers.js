@@ -13,9 +13,11 @@ export default async function handler(req, res) {
   const endpoint = 'https://gql.waveapps.com/graphql/public';
   const query = `
     query Customers($businessId: ID!, $page: Int) {
-      customers(businessId: $businessId, page: $page) {
-        pageInfo { currentPage totalPages }
-        edges { node { id name email firstName lastName address { city } } }
+      business(id: $businessId) {
+        customers(page: $page) {
+          pageInfo { currentPage totalPages }
+          edges { node { id name email firstName lastName address { city } } }
+        }
       }
     }
   `;
@@ -27,7 +29,8 @@ export default async function handler(req, res) {
     });
     const json = await r.json();
     if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
-    const customers = (json.data?.customers?.edges || []).map(e => ({
+    const edges = json.data?.business?.customers?.edges || [];
+    const customers = edges.map(e => ({
       id: e.node.id,
       name: e.node.name || `${e.node.firstName || ''} ${e.node.lastName || ''}`.trim(),
       email: e.node.email,

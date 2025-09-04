@@ -11,8 +11,10 @@ export default async function handler(req, res) {
   const endpoint = 'https://gql.waveapps.com/graphql/public';
   const query = `
     query Products($businessId: ID!, $page: Int){
-      products(businessId: $businessId, page: $page){
-        edges { node { id name unitPrice { value currency { code } } description } }
+      business(id: $businessId) {
+        products(page: $page){
+          edges { node { id name unitPrice { value currency { code } } description } }
+        }
       }
     }
   `;
@@ -24,7 +26,8 @@ export default async function handler(req, res) {
     });
     const json = await r.json();
     if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
-    const products = (json.data?.products?.edges || []).map(e => ({
+    const edges = json.data?.business?.products?.edges || [];
+    const products = edges.map(e => ({
       id: e.node.id,
       name: e.node.name,
       unitPrice: e.node.unitPrice?.value,

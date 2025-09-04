@@ -12,18 +12,20 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       const query = `
         query Invoices($businessId: ID!, $page: Int) {
-          invoices(businessId: $businessId, page: $page) {
-            pageInfo { currentPage totalPages }
-            edges { node {
-              id
-              invoiceNumber
-              status
-              createdAt
-              dueAt
-              currency { code }
-              customer { id name }
-              total { value }
-            } }
+          business(id: $businessId) {
+            invoices(page: $page) {
+              pageInfo { currentPage totalPages }
+              edges { node {
+                id
+                invoiceNumber
+                status
+                createdAt
+                dueAt
+                currency { code }
+                customer { id name }
+                total { value }
+              } }
+            }
           }
         }
       `;
@@ -34,7 +36,8 @@ export default async function handler(req, res) {
       });
       const json = await r.json();
       if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
-      const invoices = (json.data?.invoices?.edges || []).map(e => ({
+      const edges = json.data?.business?.invoices?.edges || [];
+      const invoices = edges.map(e => ({
         id: e.node.id,
         invoiceNumber: e.node.invoiceNumber,
         customerName: e.node.customer?.name,
