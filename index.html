@@ -1038,6 +1038,163 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       </div>
     </section>
 
+    <section class="card" style="margin-top:18px">
+      <h2>💰 WaveApps Invoicing Dashboard</h2>
+      <p class="muted">Create and manage invoices, customers, and products. Uses placeholder API endpoints under <code>/api/wave/*</code>.</p>
+
+      <div class="hubspot-dashboard" id="wave-dashboard">
+        <div class="dashboard-header">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">🧾</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveInvoicesCount">-</div>
+                <div class="stat-label">Invoices</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">👤</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveCustomersCount">-</div>
+                <div class="stat-label">Customers</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💵</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveRevenueCount">$-</div>
+                <div class="stat-label">Total Invoiced</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⏰</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveOverdueCount">-</div>
+                <div class="stat-label">Overdue</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-tabs">
+          <button class="tab-btn active" data-tab="wave-overview">📊 Overview</button>
+          <button class="tab-btn" data-tab="wave-invoices">🧾 Invoices</button>
+          <button class="tab-btn" data-tab="wave-customers">👥 Customers</button>
+          <button class="tab-btn" data-tab="wave-products">📦 Products</button>
+          <button class="tab-btn" data-tab="wave-create">➕ Create Invoice</button>
+        </div>
+
+        <div class="tab-content active" id="wave-overview-tab">
+          <div class="overview-grid">
+            <div class="overview-card">
+              <h3>Recent Invoices</h3>
+              <div id="waveRecentInvoices" class="activity-list">
+                <div class="loading-state">Loading recent invoices...</div>
+              </div>
+            </div>
+            <div class="overview-card">
+              <h3>Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="action-btn" onclick="waveSwitchTab('wave-create')"><span class="action-icon">➕</span><span>Create Invoice</span></button>
+                <button class="action-btn" onclick="waveSwitchTab('wave-invoices')"><span class="action-icon">🧾</span><span>View Invoices</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-invoices-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveInvoiceSearch" placeholder="Search invoices by number, customer, or amount..." class="search-input">
+              <button class="btn gold" onclick="searchWaveInvoices()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveInvoices()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="waveInvoiceFilter" onchange="filterWaveInvoices()">
+                <option value="">All</option>
+                <option value="draft">Draft</option>
+                <option value="sent">Sent</option>
+                <option value="paid">Paid</option>
+                <option value="overdue">Overdue</option>
+              </select>
+            </div>
+          </div>
+          <div id="waveInvoicesList" class="data-list">
+            <div class="loading-state">Loading invoices...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-customers-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveCustomerSearch" placeholder="Search customers..." class="search-input">
+              <button class="btn gold" onclick="searchWaveCustomers()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveCustomers()">🔄 Refresh</button>
+            </div>
+          </div>
+          <div id="waveCustomersList" class="data-list">
+            <div class="loading-state">Loading customers...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-products-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveProductSearch" placeholder="Search products/services..." class="search-input">
+              <button class="btn gold" onclick="searchWaveProducts()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveProducts()">🔄 Refresh</button>
+            </div>
+          </div>
+          <div id="waveProductsList" class="data-list">
+            <div class="loading-state">Loading products...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-create-tab">
+          <div class="form-container">
+            <h3>➕ Create Invoice</h3>
+            <form id="waveCreateInvoiceForm" class="contact-form">
+              <div class="form-section">
+                <h4>Customer</h4>
+                <div class="form-row">
+                  <input type="text" id="waveCustomerName" placeholder="Customer Name *" required>
+                  <input type="email" id="waveCustomerEmail" placeholder="Customer Email *" required>
+                </div>
+                <div class="form-row">
+                  <input type="text" id="waveCustomerAddress" placeholder="Address">
+                  <input type="text" id="waveCustomerCity" placeholder="City">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Line Item</h4>
+                <div class="form-row">
+                  <input type="text" id="waveItemDescription" placeholder="Description *" required>
+                  <input type="number" id="waveItemQuantity" min="1" step="1" placeholder="Qty *" required>
+                </div>
+                <div class="form-row">
+                  <input type="number" id="waveItemUnitPrice" min="0" step="0.01" placeholder="Unit Price *" required>
+                  <input type="text" id="waveCurrency" placeholder="Currency (e.g. USD)" value="USD">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn gold">🧾 Create Invoice</button>
+                <button type="button" class="btn" onclick="waveClearCreateForm()">🗑️ Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="api-status">
+        <div class="status-indicator">
+          <span class="status-dot" id="waveStatusDot"></span>
+          <span class="status-text" id="waveStatusText">Checking WaveApps connection...</span>
+        </div>
+      </div>
+    </section>
+
     <section class="grid">
       <article class="card span-8">
         <h2>🎉 1) Welcome + What You've Already Completed</h2>
@@ -2406,6 +2563,280 @@ function createQuote() {
   console.log('Creating new quote');
   alert('Quote creation feature coming soon!');
 }
+
+// WaveApps Dashboard
+const waveCache = {
+  invoices: [],
+  customers: [],
+  products: []
+};
+
+async function checkWaveConnection(){
+  const dot = document.getElementById('waveStatusDot');
+  const text = document.getElementById('waveStatusText');
+  if(!dot || !text) return;
+  try{
+    const res = await fetch('/api/wave/status');
+    if(res.ok){
+      dot.classList.add('connected');
+      text.textContent = 'WaveApps connected successfully';
+    } else {
+      throw new Error('Status not OK');
+    }
+  }catch(e){
+    dot.classList.add('error');
+    text.textContent = 'WaveApps connection failed - Check API configuration';
+  }
+}
+
+async function loadWaveOverview(){
+  try{
+    const [invRes, custRes] = await Promise.all([
+      fetch('/api/wave/invoices'),
+      fetch('/api/wave/customers')
+    ]);
+    const invoicesData = await invRes.json().catch(()=>({ invoices: [] }));
+    const customersData = await custRes.json().catch(()=>({ customers: [] }));
+    waveCache.invoices = invoicesData.invoices || [];
+    waveCache.customers = customersData.customers || [];
+
+    // Stats
+    document.getElementById('waveInvoicesCount').textContent = waveCache.invoices.length || 0;
+    document.getElementById('waveCustomersCount').textContent = waveCache.customers.length || 0;
+    const total = (waveCache.invoices || []).reduce((sum, inv)=> sum + (parseFloat(inv.total) || 0), 0);
+    document.getElementById('waveRevenueCount').textContent = `$${total.toLocaleString()}`;
+    const now = new Date();
+    const overdue = (waveCache.invoices || []).filter(inv => {
+      const status = (inv.status || '').toLowerCase();
+      if(status === 'overdue') return true;
+      if(status !== 'paid' && inv.dueDate){
+        const due = new Date(inv.dueDate);
+        return due < now;
+      }
+      return false;
+    }).length;
+    document.getElementById('waveOverdueCount').textContent = overdue;
+
+    // Recent invoices
+    const list = document.getElementById('waveRecentInvoices');
+    if(!list) return;
+    if(!waveCache.invoices.length){
+      list.innerHTML = '<div class="loading-state">No invoices found</div>';
+      return;
+    }
+    const sorted = [...waveCache.invoices].sort((a,b)=> new Date(b.createdAt||0) - new Date(a.createdAt||0)).slice(0,5);
+    list.innerHTML = sorted.map(inv => `
+      <div class="activity-item">
+        <div class="activity-icon">🧾</div>
+        <div class="activity-content">
+          <p class="activity-text">Invoice #${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</p>
+          <p class="activity-time">$${(parseFloat(inv.total)||0).toLocaleString()} • ${(inv.status||'').toString()}</p>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    console.error('Wave overview error:', e);
+  }
+}
+
+async function loadWaveInvoices(){
+  const container = document.getElementById('waveInvoicesList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading invoices...</div>';
+  try{
+    const res = await fetch('/api/wave/invoices');
+    const data = await res.json();
+    waveCache.invoices = data.invoices || [];
+    renderWaveInvoices(waveCache.invoices);
+  }catch(e){
+    if(container) container.innerHTML = '<div class="loading-state">Error loading invoices - Check API configuration</div>';
+  }
+}
+
+function renderWaveInvoices(invoices){
+  const container = document.getElementById('waveInvoicesList');
+  if(!container) return;
+  if(!invoices || !invoices.length){
+    container.innerHTML = '<div class="loading-state">No invoices found</div>';
+    return;
+  }
+  container.innerHTML = invoices.map(inv => `
+    <div class="data-item">
+      <div class="item-info">
+        <h4>#${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</h4>
+        <p>$${(parseFloat(inv.total)||0).toLocaleString()} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
+      </div>
+      <div class="item-actions">
+        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}')">👁️ View</button>
+        <button class="btn" onclick="sendWaveInvoice('${inv.id || ''}')">📧 Send</button>
+        <button class="btn" onclick="markWaveInvoicePaid('${inv.id || ''}')">✅ Mark Paid</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadWaveCustomers(){
+  const container = document.getElementById('waveCustomersList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading customers...</div>';
+  try{
+    const res = await fetch('/api/wave/customers');
+    const data = await res.json();
+    waveCache.customers = data.customers || [];
+    if(!waveCache.customers.length){
+      container.innerHTML = '<div class="loading-state">No customers found</div>';
+      return;
+    }
+    container.innerHTML = waveCache.customers.map(c => `
+      <div class="data-item">
+        <div class="item-info">
+          <h4>${c.name || 'Unnamed'}</h4>
+          <p>${c.email || 'No email'}${c.city? ' • '+c.city: ''}</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn" onclick="viewWaveCustomer('${c.id || ''}')">👁️ View</button>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    if(container) container.innerHTML = '<div class="loading-state">Error loading customers - Check API configuration</div>';
+  }
+}
+
+async function loadWaveProducts(){
+  const container = document.getElementById('waveProductsList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading products...</div>';
+  try{
+    const res = await fetch('/api/wave/products');
+    const data = await res.json();
+    waveCache.products = data.products || [];
+    if(!waveCache.products.length){
+      container.innerHTML = '<div class="loading-state">No products found</div>';
+      return;
+    }
+    container.innerHTML = waveCache.products.map(p => `
+      <div class="data-item">
+        <div class="item-info">
+          <h4>${p.name || 'Unnamed'}</h4>
+          <p>$${(parseFloat(p.unitPrice)||0).toLocaleString()} • ${p.description || ''}</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn" onclick="addWaveProductToForm('${p.id || ''}')">➕ Add to Invoice</button>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    if(container) container.innerHTML = '<div class="loading-state">Error loading products - Check API configuration</div>';
+  }
+}
+
+// Wave search/filter/refresh helpers
+function searchWaveInvoices(){
+  const q = (document.getElementById('waveInvoiceSearch')?.value || '').toLowerCase();
+  const filtered = (waveCache.invoices||[]).filter(inv => {
+    return String(inv.invoiceNumber||'').toLowerCase().includes(q)
+      || String(inv.customerName||inv.customer?.name||'').toLowerCase().includes(q)
+      || String(inv.total||'').toLowerCase().includes(q);
+  });
+  renderWaveInvoices(filtered);
+}
+
+function filterWaveInvoices(){
+  const f = (document.getElementById('waveInvoiceFilter')?.value || '').toLowerCase();
+  if(!f) { renderWaveInvoices(waveCache.invoices); return; }
+  const filtered = (waveCache.invoices||[]).filter(inv => (inv.status||'').toLowerCase() === f);
+  renderWaveInvoices(filtered);
+}
+
+function refreshWaveInvoices(){ loadWaveInvoices(); }
+function refreshWaveCustomers(){ loadWaveCustomers(); }
+function refreshWaveProducts(){ loadWaveProducts(); }
+function searchWaveCustomers(){ /* TODO: optional */ refreshWaveCustomers(); }
+function searchWaveProducts(){ /* TODO: optional */ refreshWaveProducts(); }
+
+// Wave actions
+function viewWaveInvoice(id){ if(!id) return; window.open(`https://next.waveapps.com/invoices/${id}`, '_blank'); }
+function sendWaveInvoice(id){ if(!id) return; alert('Sending via API not implemented in this demo.'); }
+function markWaveInvoicePaid(id){ if(!id) return; alert('Mark paid via API not implemented in this demo.'); }
+function viewWaveCustomer(id){ if(!id) return; window.open(`https://next.waveapps.com/contacts/${id}`, '_blank'); }
+function addWaveProductToForm(productId){
+  const p = (waveCache.products||[]).find(x=>String(x.id)===String(productId));
+  if(!p) return;
+  const desc = document.getElementById('waveItemDescription');
+  const price = document.getElementById('waveItemUnitPrice');
+  if(desc) desc.value = p.name || '';
+  if(price) price.value = p.unitPrice || '';
+  waveSwitchTab('wave-create');
+}
+
+function waveClearCreateForm(){
+  document.getElementById('waveCreateInvoiceForm')?.reset();
+}
+
+function waveSwitchTab(tabName){
+  const btn = document.querySelector(`#wave-dashboard [data-tab="${tabName}"]`);
+  if(btn) btn.click();
+}
+
+(function(){
+  // Bind Wave tab loads
+  const waveBtns = document.querySelectorAll('#wave-dashboard .tab-btn');
+  waveBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-tab');
+      switch(tab){
+        case 'wave-overview': loadWaveOverview(); break;
+        case 'wave-invoices': loadWaveInvoices(); break;
+        case 'wave-customers': loadWaveCustomers(); break;
+        case 'wave-products': loadWaveProducts(); break;
+      }
+    });
+  });
+
+  // Create invoice form
+  const form = document.getElementById('waveCreateInvoiceForm');
+  if(form){
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        customer: {
+          name: document.getElementById('waveCustomerName')?.value,
+          email: document.getElementById('waveCustomerEmail')?.value,
+          address: document.getElementById('waveCustomerAddress')?.value,
+          city: document.getElementById('waveCustomerCity')?.value
+        },
+        currency: document.getElementById('waveCurrency')?.value || 'USD',
+        items: [
+          {
+            description: document.getElementById('waveItemDescription')?.value,
+            quantity: Number(document.getElementById('waveItemQuantity')?.value || 1),
+            unitPrice: Number(document.getElementById('waveItemUnitPrice')?.value || 0)
+          }
+        ]
+      };
+      try{
+        const res = await fetch('/api/wave/invoices', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if(res.ok){
+          alert('Invoice created successfully!');
+          waveClearCreateForm();
+          loadWaveInvoices();
+          waveSwitchTab('wave-invoices');
+        } else {
+          throw new Error('Failed to create invoice');
+        }
+      }catch(err){
+        console.error('Wave create invoice error:', err);
+        alert('Error creating invoice. Please check Wave API configuration.');
+      }
+    });
+  }
+
+  // Initial load
+  checkWaveConnection();
+  loadWaveOverview();
+})();
 </script>
 
 </body>
