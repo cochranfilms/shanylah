@@ -32,10 +32,17 @@ OPENAI_API_KEY=your_openai_api_key_here
   - `crm.objects.contacts.write`
   - `crm.objects.deals.read`
   - `crm.objects.deals.write`
-  - `crm.objects.tasks.read`
-  - `crm.objects.tasks.write`
-  - `crm.associations.contacts.read`
-  - `crm.associations.contacts.write`
+  - `crm.objects.companies.read`
+  - `crm.objects.companies.write`
+  - `crm.objects.owners.read`
+  - `crm.schemas.contacts.read`
+  - `crm.schemas.deals.read`
+  - `crm.schemas.companies.read`
+  - `crm.objects.leads.read`
+  - `crm.objects.leads.write`
+  - `crm.objects.products.read`
+  - `crm.objects.quotes.read`
+  - `crm.objects.quotes.write`
 
 6. Click **Create app**
 7. Copy the **Access Token** (this is your `HUBSPOT_API_KEY`)
@@ -138,6 +145,15 @@ All HubSpot dashboard styles are in the `<style>` section of `index.html`:
    - Verify API key permissions
    - Check HubSpot API status
    - Review browser console for errors
+
+4. **"500 Internal Server Error"**
+   - Test API connection: Visit `/api/hubspot/test` on your deployed site
+   - Check Vercel environment variables are set
+   - Verify HubSpot private app is active
+   - Ensure all required scopes are selected
+
+### Quick Test:
+Visit `https://your-domain.vercel.app/api/hubspot/test` to test your API connection and see detailed error messages.
 
 ### Debug Mode:
 Add `?debug=true` to the URL to see detailed error messages.
