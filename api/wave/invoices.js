@@ -7,6 +7,13 @@ export default async function handler(req, res) {
   }
 
   const endpoint = process.env.WAVE_API_URL || 'https://gql.waveapps.com/graphql/public';
+  const controller = new AbortController();
+  const timeoutMs = Number(process.env.WAVE_TIMEOUT_MS || 20000);
+  const timeout = setTimeout(() => {
+    try { controller.abort(); } catch (_) {}
+  }, timeoutMs);
+  req.on('aborted', () => { try { controller.abort(); } catch (_) {} });
+  req.on('close', () => { try { controller.abort(); } catch (_) {} });
 
   try {
     if (req.method === 'GET') {
@@ -21,9 +28,6 @@ export default async function handler(req, res) {
                 status
                 createdAt
                 dueAt
-                currency { code }
-                customer { id name }
-                total { value }
               } }
             }
           }
@@ -32,7 +36,8 @@ export default async function handler(req, res) {
       const r = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query, variables: { businessId } })
+        body: JSON.stringify({ query, variables: { businessId } }),
+        signal: controller.signal
       });
       const json = await r.json();
       if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
@@ -40,9 +45,6 @@ export default async function handler(req, res) {
       const invoices = edges.map(e => ({
         id: e.node.id,
         invoiceNumber: e.node.invoiceNumber,
-        customerName: e.node.customer?.name,
-        total: e.node.total?.value,
-        currency: e.node.currency?.code,
         status: (e.node.status || '').toLowerCase(),
         createdAt: e.node.createdAt,
         dueDate: e.node.dueAt
@@ -71,7 +73,8 @@ export default async function handler(req, res) {
       const r = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: mutation, variables: { input } })
+        body: JSON.stringify({ query: mutation, variables: { input } }),
+        signal: controller.signal
       });
       const json = await r.json();
       if (json.errors || !json.data?.invoiceCreate?.didSucceed) {
@@ -82,8 +85,14 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error) {
+    if (error?.name === 'AbortError' || error?.code === 'ABORT_ERR') {
+      if (!res.headersSent) return res.status(499).json({ error: 'Request aborted by client or timeout' });
+      return;
+    }
     console.error('Wave Invoices API Error:', error);
     return res.status(500).json({ error: 'Failed to process invoices request', details: error.message });
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
