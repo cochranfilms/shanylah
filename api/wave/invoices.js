@@ -76,9 +76,40 @@ export default async function handler(req, res) {
 
     if (req.method === 'POST') {
       const { customer = {}, currency = 'USD', items = [] } = req.body || {};
-      const mutation = `
+
+      // Ensure we have a customerId; if not, create the customer first
+      let customerId = customer.id;
+      if (!customerId) {
+        const customerMutation = `
+          mutation CreateCustomer($input: CustomerCreateInput!) {
+            customerCreate(input: $input) { didSucceed inputErrors { message field } customer { id name email } }
+          }
+        `;
+        const customerInput = {
+          businessId,
+          name: customer.name || 'New Customer',
+          email: customer.email || null,
+          address: {
+            city: customer.city || undefined,
+            line1: customer.address || undefined
+          }
+        };
+        const cr = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: customerMutation, variables: { input: customerInput } }),
+          signal: controller.signal
+        });
+        const cjson = await cr.json();
+        if (cjson.errors || !cjson.data?.customerCreate?.didSucceed) {
+          return res.status(500).json({ error: 'Wave create customer failed', details: cjson.errors || cjson.data?.customerCreate?.inputErrors });
+        }
+        customerId = cjson.data.customerCreate.customer.id;
+      }
+
+      const invoiceMutation = `
         mutation CreateInvoice($input: InvoiceCreateInput!) {
-          invoiceCreate(input: $input) { didSucceed inputErrors { message } invoice { id invoiceNumber } }
+          invoiceCreate(input: $input) { didSucceed inputErrors { message field } invoice { id invoiceNumber } }
         }
       `;
       const lineItems = (items || []).map(it => ({
@@ -88,19 +119,19 @@ export default async function handler(req, res) {
       }));
       const input = {
         businessId,
-        customerId: customer.id,
+        customerId,
         currency: { code: currency },
         items: lineItems
       };
       const r = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: mutation, variables: { input } }),
+        body: JSON.stringify({ query: invoiceMutation, variables: { input } }),
         signal: controller.signal
       });
       const json = await r.json();
       if (json.errors || !json.data?.invoiceCreate?.didSucceed) {
-        return res.status(500).json({ error: 'Wave create invoice failed', details: json.errors || json.data?.invoiceCreate?.inputErrors });
+        return res.status(500).json({ error: 'Wave create invoice failed', details: json.errors || json.data?.invoiceCreate?.inputErrors, request: input });
       }
       return res.status(201).json({ success: true, invoice: json.data.invoiceCreate.invoice });
     }

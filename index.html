@@ -3013,6 +3013,16 @@ function waveSwitchTab(tabName){
   loadWaveOverview();
 })();
 </script>
+<script>
+// Quiet duplicate Ada start and Ketch "no purposes" noise in console
+window.addEventListener('unhandledrejection', function(e){
+  try{
+    const msg = String((e && e.reason && (e.reason.message || e.reason)) || '').toLowerCase();
+    if(msg.includes('ada embed has already been started')) { e.preventDefault && e.preventDefault(); return; }
+    if(msg.includes('no purposes')) { e.preventDefault && e.preventDefault(); return; }
+  }catch(_){}
+});
+</script>
 
 </body>
 </html>
