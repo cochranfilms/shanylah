@@ -12,6 +12,43 @@
 <link rel="icon" href="CF_Logo_Black2025.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="CF_Logo_Black2025.png">
 <meta name="theme-color" content="#1a1a1a">
+<script>
+(function(){
+  // Suppress noisy third‑party Ketch CMP "no purposes" errors if present
+  window.addEventListener('unhandledrejection', function(e){
+    try{ if(e && e.reason && String(e.reason && e.reason.message || e.reason).toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  });
+  window.addEventListener('error', function(e){
+    try{ if((e && e.filename && /ketch\.js/.test(e.filename)) && String(e.message||'').toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  }, true);
+  // Early Ada guard similar to index.html
+  function makeIdempotent(ada){
+    try{
+      if(!ada || ada.__cfWrapped) return ada;
+      var originalStart = typeof ada.start === 'function' ? ada.start.bind(ada) : null;
+      ada.start = function(){
+        if(ada.__cfStarted) return Promise.resolve();
+        ada.__cfStarted = true;
+        try{ return originalStart ? Promise.resolve(originalStart.apply(this, arguments)).catch(()=>Promise.resolve()) : Promise.resolve(); }
+        catch(e){ return Promise.resolve(); }
+      };
+      ada.__cfWrapped = true;
+      return ada;
+    }catch(e){ return ada; }
+  }
+  function guardKey(key){
+    try{
+      if(window[key]) window[key] = makeIdempotent(window[key]);
+      Object.defineProperty(window, key, {
+        configurable: true,
+        set: function(v){ this['__'+key] = makeIdempotent(v); },
+        get: function(){ return this['__'+key]; }
+      });
+    }catch(e){}
+  }
+  ['AdaEmbed','adaEmbed','Ada','AdaChaperone'].forEach(guardKey);
+})();
+</script>
 <style>
 /* Brand palette - Secure theme */
 :root{

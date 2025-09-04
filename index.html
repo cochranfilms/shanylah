@@ -29,21 +29,24 @@
       return ada;
     }catch(e){ return ada; }
   }
-  try{
-    if(window.AdaEmbed) window.AdaEmbed = makeIdempotent(window.AdaEmbed);
-    Object.defineProperty(window, 'AdaEmbed', {
-      configurable: true,
-      set: function(v){ this.__AdaEmbed = makeIdempotent(v); },
-      get: function(){ return this.__AdaEmbed; }
-    });
-  }catch(e){}
+  function guardKey(key){
+    try{
+      if(window[key]) window[key] = makeIdempotent(window[key]);
+      Object.defineProperty(window, key, {
+        configurable: true,
+        set: function(v){ this['__'+key] = makeIdempotent(v); },
+        get: function(){ return this['__'+key]; }
+      });
+    }catch(e){}
+  }
+  ['AdaEmbed','adaEmbed','Ada','AdaChaperone'].forEach(guardKey);
 
   // Suppress noisy third‑party Ketch CMP "no purposes" errors if present
   window.addEventListener('unhandledrejection', function(e){
-    try{ if((e && e.reason && (''+e.reason.message).toLowerCase().includes('no purposes'))) { e.preventDefault && e.preventDefault(); } }catch(_){}
+    try{ if(e && e.reason && String(e.reason && e.reason.message || e.reason).toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
   });
   window.addEventListener('error', function(e){
-    try{ if((e && e.filename && /ketch\.js/.test(e.filename)) && (''+e.message).toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+    try{ if((e && e.filename && /ketch\.js/.test(e.filename)) && String(e.message||'').toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
   }, true);
 })();
 </script>
