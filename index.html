@@ -8,6 +8,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="32x32" type="image/png">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="CF_Logo_Black2025.png">
+<meta name="theme-color" content="#1a1a1a">
+<script>
+(function(){
+  // Early Ada guard: make start() idempotent even if vendor script loads twice
+  function makeIdempotent(ada){
+    try{
+      if(!ada || ada.__cfWrapped) return ada;
+      var originalStart = typeof ada.start === 'function' ? ada.start.bind(ada) : null;
+      ada.start = function(){
+        if(ada.__cfStarted) return Promise.resolve();
+        ada.__cfStarted = true;
+        try{ return originalStart ? originalStart.apply(this, arguments) : Promise.resolve(); }
+        catch(e){ return Promise.resolve(); }
+      };
+      ada.__cfWrapped = true;
+      return ada;
+    }catch(e){ return ada; }
+  }
+  try{
+    if(window.AdaEmbed) window.AdaEmbed = makeIdempotent(window.AdaEmbed);
+    Object.defineProperty(window, 'AdaEmbed', {
+      configurable: true,
+      set: function(v){ this.__AdaEmbed = makeIdempotent(v); },
+      get: function(){ return this.__AdaEmbed; }
+    });
+  }catch(e){}
+
+  // Suppress noisy third‑party Ketch CMP "no purposes" errors if present
+  window.addEventListener('unhandledrejection', function(e){
+    try{ if((e && e.reason && (''+e.reason.message).toLowerCase().includes('no purposes'))) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  });
+  window.addEventListener('error', function(e){
+    try{ if((e && e.filename && /ketch\.js/.test(e.filename)) && (''+e.message).toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  }, true);
+})();
+</script>
 <style>
 /* Brand palette - Light theme */
 :root{
