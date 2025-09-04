@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       business(id: $businessId) {
         products(page: $page, pageSize: $pageSize){
           pageInfo { currentPage totalPages totalCount }
-          edges { node { id name unitPrice { value currency { code } } description } }
+          edges { node { id name unitPrice description } }
         }
       }
     }
@@ -36,8 +36,7 @@ export default async function handler(req, res) {
       all.push(...edges.map(e => ({
         id: e.node.id,
         name: e.node.name,
-        unitPrice: e.node.unitPrice?.value,
-        currency: e.node.unitPrice?.currency?.code,
+        unitPrice: e.node.unitPrice,
         description: e.node.description
       })));
       const pageInfo = slice?.pageInfo;
