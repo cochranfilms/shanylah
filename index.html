@@ -1720,9 +1720,9 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       </div>
 
       <div class="api-status">
-        <div id="apiStatus" class="status-indicator">
-          <span class="status-dot"></span>
-          <span class="status-text">Checking HubSpot connection...</span>
+        <div id="hubspotApiStatus" class="status-indicator">
+          <span class="status-dot" id="hubspotStatusDot"></span>
+          <span class="status-text" id="hubspotStatusText">Checking HubSpot connection...</span>
         </div>
       </div>
     </section>
@@ -2364,8 +2364,8 @@ async function loadQuotes() {
 
 // HubSpot API functions
 async function checkHubSpotConnection() {
-  const statusDot = document.querySelector('.status-dot');
-  const statusText = document.querySelector('.status-text');
+  const statusDot = document.getElementById('hubspotStatusDot');
+  const statusText = document.getElementById('hubspotStatusText');
   
   try {
     const response = await fetch('/api/hubspot/status');
