@@ -1,39 +1,5 @@
 export default async function handler(req, res) {
   const hubspotApiKey = process.env.HUBSPOT_API_KEY;
-  if (!hubspotApiKey) {
-    return res.status(500).json({ error: 'HUBSPOT_API_KEY not configured' });
-  }
-  const headers = {
-    'Authorization': `Bearer ${hubspotApiKey}`,
-    'Content-Type': 'application/json'
-  };
-
-  try {
-    if (req.method === 'GET') {
-      const response = await fetch('https://api.hubapi.com/crm/v3/objects/deals?limit=20&properties=dealname,amount,dealstage,createdate', { headers });
-      if (!response.ok) {
-        throw new Error('HubSpot deals request failed');
-      }
-      const data = await response.json();
-      const deals = (data.results || []).map(d => ({
-        id: d.id,
-        dealName: d.properties.dealname || 'Untitled',
-        amount: d.properties.amount || 0,
-        dealStage: d.properties.dealstage || 'unknown',
-        createdAt: d.properties.createdate
-      }));
-      return res.status(200).json({ deals });
-    }
-    return res.status(405).json({ error: 'Method not allowed' });
-  } catch (error) {
-    console.error('HubSpot Deals API Error:', error);
-    return res.status(500).json({ error: 'Failed to fetch deals', details: error.message });
-  }
-}
-
-// HubSpot Deals API
-export default async function handler(req, res) {
-  const hubspotApiKey = process.env.HUBSPOT_API_KEY;
   
   if (!hubspotApiKey) {
     return res.status(500).json({ 
