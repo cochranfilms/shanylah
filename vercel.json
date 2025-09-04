@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/favicon.ico", "destination": "/CF_Logo_Black2025.png" }
+  ]
+}
