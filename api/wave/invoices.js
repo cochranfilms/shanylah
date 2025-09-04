@@ -18,16 +18,14 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const query = `
-        query Invoices($businessId: ID!, $page: Int) {
+        query Invoices($businessId: ID!) {
           business(id: $businessId) {
-            invoices(page: $page) {
-              pageInfo { currentPage totalPages }
+            invoices {
               edges { node {
                 id
                 invoiceNumber
                 status
                 createdAt
-                dueAt
               } }
             }
           }
@@ -46,8 +44,7 @@ export default async function handler(req, res) {
         id: e.node.id,
         invoiceNumber: e.node.invoiceNumber,
         status: (e.node.status || '').toLowerCase(),
-        createdAt: e.node.createdAt,
-        dueDate: e.node.dueAt
+        createdAt: e.node.createdAt
       }));
       return res.status(200).json({ invoices });
     }
