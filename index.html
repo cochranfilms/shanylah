@@ -1659,6 +1659,73 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   </footer>
 
 <script>
+// Authentication Check
+(function(){
+  // Check if user is authenticated
+  if (sessionStorage.getItem('cf_authenticated') !== 'true') {
+    // Redirect to login page
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Check session timeout (24 hours)
+  const loginTime = parseInt(sessionStorage.getItem('cf_login_time') || '0');
+  const now = Date.now();
+  const sessionTimeout = 24 * 60 * 60 * 1000; // 24 hours
+  
+  if (now - loginTime >= sessionTimeout) {
+    // Session expired, clear storage and redirect
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Add logout functionality
+  function addLogoutButton() {
+    const header = document.querySelector('.hero');
+    if (header) {
+      const logoutBtn = document.createElement('button');
+      logoutBtn.innerHTML = '🚪 Logout';
+      logoutBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      `;
+      
+      logoutBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to logout?')) {
+          sessionStorage.clear();
+          window.location.href = 'login.html';
+        }
+      });
+      
+      logoutBtn.addEventListener('mouseenter', () => {
+        logoutBtn.style.background = 'rgba(239, 68, 68, 0.2)';
+        logoutBtn.style.transform = 'translateY(-1px)';
+      });
+      
+      logoutBtn.addEventListener('mouseleave', () => {
+        logoutBtn.style.background = 'rgba(239, 68, 68, 0.1)';
+        logoutBtn.style.transform = 'translateY(0)';
+      });
+      
+      header.style.position = 'relative';
+      header.appendChild(logoutBtn);
+    }
+  }
+
+  // Add logout button when page loads
+  document.addEventListener('DOMContentLoaded', addLogoutButton);
+})();
+
 (function(){
   const input = document.getElementById('driveUrl');
   const previewBtn = document.getElementById('previewBtn');
