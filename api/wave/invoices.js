@@ -34,6 +34,7 @@ export default async function handler(req, res) {
                 invoiceDate
                 dueDate
                 amountDue { value currency { code } }
+                total { value currency { code } }
                 customer { id name }
               } }
             }
@@ -53,19 +54,23 @@ export default async function handler(req, res) {
         if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
         const slice = json.data?.business?.invoices;
         const edges = slice?.edges || [];
-        all.push(...edges.map(e => ({
-          id: e.node.id,
-          invoiceNumber: e.node.invoiceNumber,
-          status: (e.node.status || '').toLowerCase(),
-          createdAt: e.node.createdAt,
-          invoiceDate: e.node.invoiceDate,
-          dueDate: e.node.dueDate,
-          // Map to frontend-expected names
-          total: e.node.amountDue?.value,
-          currency: e.node.amountDue?.currency?.code,
-          customerName: e.node.customer?.name,
-          customer: e.node.customer
-        })));
+        all.push(...edges.map(e => {
+          const totalValue = (e.node.total && (e.node.total.value ?? e.node.total?.amount)) ?? e.node.amountDue?.value;
+          const currencyCode = e.node.total?.currency?.code || e.node.amountDue?.currency?.code;
+          return {
+            id: e.node.id,
+            invoiceNumber: e.node.invoiceNumber,
+            status: (e.node.status || '').toLowerCase(),
+            createdAt: e.node.createdAt,
+            invoiceDate: e.node.invoiceDate,
+            dueDate: e.node.dueDate,
+            // Prefer total over amountDue so paid invoices don't read $0
+            total: Number(totalValue ?? 0),
+            currency: currencyCode,
+            customerName: e.node.customer?.name,
+            customer: e.node.customer
+          };
+        }));
         const pageInfo = slice?.pageInfo; lastPageInfo = pageInfo || lastPageInfo;
         if (!pageInfo || pageInfo.currentPage >= pageInfo.totalPages) break;
         page += 1;

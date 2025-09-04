@@ -2824,7 +2824,7 @@ function renderWaveInvoices(invoices){
     <div class="data-item">
       <div class="item-info">
         <h4>#${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</h4>
-        <p>$${(parseFloat(inv.total)||0).toLocaleString()} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
+        <p>$${(Number(inv.total ?? inv.amountDue)?.toLocaleString() || '0')} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
       </div>
       <div class="item-actions">
         <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}')">👁️ View</button>
