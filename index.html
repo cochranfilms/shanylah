@@ -446,6 +446,211 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   border-color:var(--cf-gold);
   transform:translateY(-1px);
 }
+
+/* HubSpot Dashboard Styles */
+.hubspot-dashboard{
+  background:var(--cf-white);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.dashboard-tabs{
+  display:flex;
+  background:var(--cf-light-gray);
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.tab-btn{
+  flex:1;
+  padding:16px 20px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  color:var(--cf-gray);
+  transition:all 0.3s ease;
+  border-bottom:3px solid transparent;
+}
+
+.tab-btn:hover{
+  background:rgba(245,175,0,0.1);
+  color:var(--cf-black);
+}
+
+.tab-btn.active{
+  background:var(--cf-white);
+  color:var(--cf-gold);
+  border-bottom-color:var(--cf-gold);
+}
+
+.tab-content{
+  display:none;
+  padding:24px;
+  min-height:400px;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+.search-bar{
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+  align-items:center;
+}
+
+.search-input{
+  flex:1;
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.search-input:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.data-list{
+  max-height:400px;
+  overflow-y:auto;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  background:var(--cf-white);
+}
+
+.data-item{
+  padding:16px;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background 0.3s ease;
+}
+
+.data-item:hover{
+  background:var(--cf-light-gray);
+}
+
+.data-item:last-child{
+  border-bottom:none;
+}
+
+.item-info h4{
+  margin:0 0 4px 0;
+  color:var(--cf-black);
+  font-size:16px;
+}
+
+.item-info p{
+  margin:0;
+  color:var(--cf-gray);
+  font-size:14px;
+}
+
+.item-actions{
+  display:flex;
+  gap:8px;
+}
+
+.item-actions .btn{
+  padding:6px 12px;
+  font-size:12px;
+}
+
+.loading-state{
+  padding:40px;
+  text-align:center;
+  color:var(--cf-gray);
+  font-style:italic;
+}
+
+.contact-form{
+  display:grid;
+  gap:16px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.form-row input,
+.form-row select{
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.contact-form textarea{
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  min-height:80px;
+  resize:vertical;
+  font-family:inherit;
+}
+
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.api-status{
+  margin-top:16px;
+  padding:12px 16px;
+  background:var(--cf-light-gray);
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.status-indicator{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.status-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--cf-gray);
+  animation:pulse 2s infinite;
+}
+
+.status-dot.connected{
+  background:var(--cf-green);
+  animation:none;
+}
+
+.status-dot.error{
+  background:#ef4444;
+  animation:none;
+}
+
+.status-text{
+  font-size:14px;
+  color:var(--cf-gray);
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.5}
+}
 </style>
 </head>
 <body>
@@ -711,6 +916,83 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
             </div>
             <p class="hint" style="margin-top: 12px;">These platforms block iframe embedding for security. Click any button to open in a new tab.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>🎯 HubSpot CRM Dashboard</h2>
+      <p class="muted">Manage contacts, deals, and tasks directly from this page. Real-time CRM integration for maximum efficiency.</p>
+      
+      <div class="hubspot-dashboard">
+        <div class="dashboard-tabs">
+          <button class="tab-btn active" data-tab="contacts">👥 Contacts</button>
+          <button class="tab-btn" data-tab="deals">💰 Deals</button>
+          <button class="tab-btn" data-tab="tasks">✅ Tasks</button>
+          <button class="tab-btn" data-tab="add-contact">➕ Add Contact</button>
+        </div>
+
+        <div class="tab-content active" id="contacts-tab">
+          <div class="search-bar">
+            <input type="text" id="contactSearch" placeholder="Search contacts..." class="search-input">
+            <button class="btn gold" onclick="searchContacts()">🔍 Search</button>
+          </div>
+          <div id="contactsList" class="data-list">
+            <div class="loading-state">Loading contacts...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="deals-tab">
+          <div class="search-bar">
+            <input type="text" id="dealSearch" placeholder="Search deals..." class="search-input">
+            <button class="btn gold" onclick="searchDeals()">🔍 Search</button>
+          </div>
+          <div id="dealsList" class="data-list">
+            <div class="loading-state">Loading deals...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tasks-tab">
+          <div class="search-bar">
+            <input type="text" id="taskSearch" placeholder="Search tasks..." class="search-input">
+            <button class="btn gold" onclick="searchTasks()">🔍 Search</button>
+          </div>
+          <div id="tasksList" class="data-list">
+            <div class="loading-state">Loading tasks...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="add-contact-tab">
+          <form id="addContactForm" class="contact-form">
+            <div class="form-row">
+              <input type="text" id="firstName" placeholder="First Name *" required>
+              <input type="text" id="lastName" placeholder="Last Name *" required>
+            </div>
+            <div class="form-row">
+              <input type="email" id="email" placeholder="Email *" required>
+              <input type="tel" id="phone" placeholder="Phone">
+            </div>
+            <div class="form-row">
+              <input type="text" id="company" placeholder="Company">
+              <select id="leadSource">
+                <option value="">Lead Source</option>
+                <option value="website">Website</option>
+                <option value="referral">Referral</option>
+                <option value="social_media">Social Media</option>
+                <option value="google">Google</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <textarea id="notes" placeholder="Notes about this contact..."></textarea>
+            <button type="submit" class="btn gold">➕ Add Contact</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="api-status">
+        <div id="apiStatus" class="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text">Checking HubSpot connection...</span>
         </div>
       </div>
     </section>
@@ -1034,6 +1316,233 @@ function clearResponse() {
 function setSuggestion(text) {
   document.getElementById('aiSearchInput').value = text;
   document.getElementById('aiSearchInput').focus();
+}
+
+// HubSpot Dashboard functionality
+(function(){
+  // Tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      
+      // Remove active class from all tabs and contents
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked tab and corresponding content
+      btn.classList.add('active');
+      document.getElementById(targetTab + '-tab').classList.add('active');
+      
+      // Load data when switching to a tab
+      if (targetTab === 'contacts') loadContacts();
+      else if (targetTab === 'deals') loadDeals();
+      else if (targetTab === 'tasks') loadTasks();
+    });
+  });
+
+  // Add contact form submission
+  document.getElementById('addContactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      company: document.getElementById('company').value,
+      leadSource: document.getElementById('leadSource').value,
+      notes: document.getElementById('notes').value
+    };
+    
+    try {
+      const response = await fetch('/api/hubspot/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Contact added successfully!');
+        document.getElementById('addContactForm').reset();
+        loadContacts(); // Refresh contacts list
+      } else {
+        throw new Error('Failed to add contact');
+      }
+    } catch (error) {
+      console.error('Error adding contact:', error);
+      alert('Error adding contact. Please check your HubSpot API configuration.');
+    }
+  });
+
+  // Load initial data
+  checkHubSpotConnection();
+  loadContacts();
+})();
+
+// HubSpot API functions
+async function checkHubSpotConnection() {
+  const statusDot = document.querySelector('.status-dot');
+  const statusText = document.querySelector('.status-text');
+  
+  try {
+    const response = await fetch('/api/hubspot/status');
+    if (response.ok) {
+      statusDot.classList.add('connected');
+      statusText.textContent = 'HubSpot connected successfully';
+    } else {
+      throw new Error('Connection failed');
+    }
+  } catch (error) {
+    statusDot.classList.add('error');
+    statusText.textContent = 'HubSpot connection failed - Check API configuration';
+  }
+}
+
+async function loadContacts() {
+  const contactsList = document.getElementById('contactsList');
+  contactsList.innerHTML = '<div class="loading-state">Loading contacts...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/contacts');
+    const data = await response.json();
+    
+    if (data.contacts && data.contacts.length > 0) {
+      contactsList.innerHTML = data.contacts.map(contact => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${contact.firstName} ${contact.lastName}</h4>
+            <p>${contact.email} • ${contact.company || 'No company'}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewContact('${contact.id}')">👁️ View</button>
+            <button class="btn" onclick="editContact('${contact.id}')">✏️ Edit</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      contactsList.innerHTML = '<div class="loading-state">No contacts found</div>';
+    }
+  } catch (error) {
+    contactsList.innerHTML = '<div class="loading-state">Error loading contacts - Check API configuration</div>';
+  }
+}
+
+async function loadDeals() {
+  const dealsList = document.getElementById('dealsList');
+  dealsList.innerHTML = '<div class="loading-state">Loading deals...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/deals');
+    const data = await response.json();
+    
+    if (data.deals && data.deals.length > 0) {
+      dealsList.innerHTML = data.deals.map(deal => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${deal.dealName}</h4>
+            <p>$${deal.amount} • ${deal.dealStage}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewDeal('${deal.id}')">👁️ View</button>
+            <button class="btn" onclick="editDeal('${deal.id}')">✏️ Edit</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      dealsList.innerHTML = '<div class="loading-state">No deals found</div>';
+    }
+  } catch (error) {
+    dealsList.innerHTML = '<div class="loading-state">Error loading deals - Check API configuration</div>';
+  }
+}
+
+async function loadTasks() {
+  const tasksList = document.getElementById('tasksList');
+  tasksList.innerHTML = '<div class="loading-state">Loading tasks...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/tasks');
+    const data = await response.json();
+    
+    if (data.tasks && data.tasks.length > 0) {
+      tasksList.innerHTML = data.tasks.map(task => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${task.taskName}</h4>
+            <p>Due: ${task.dueDate} • ${task.taskStatus}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewTask('${task.id}')">👁️ View</button>
+            <button class="btn" onclick="completeTask('${task.id}')">✅ Complete</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      tasksList.innerHTML = '<div class="loading-state">No tasks found</div>';
+    }
+  } catch (error) {
+    tasksList.innerHTML = '<div class="loading-state">Error loading tasks - Check API configuration</div>';
+  }
+}
+
+// Search functions
+function searchContacts() {
+  const query = document.getElementById('contactSearch').value;
+  // Implement search functionality
+  console.log('Searching contacts:', query);
+}
+
+function searchDeals() {
+  const query = document.getElementById('dealSearch').value;
+  // Implement search functionality
+  console.log('Searching deals:', query);
+}
+
+function searchTasks() {
+  const query = document.getElementById('taskSearch').value;
+  // Implement search functionality
+  console.log('Searching tasks:', query);
+}
+
+// Action functions
+function viewContact(id) {
+  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
+}
+
+function editContact(id) {
+  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
+}
+
+function viewDeal(id) {
+  window.open(`https://app.hubspot.com/deals/${id}`, '_blank');
+}
+
+function editDeal(id) {
+  window.open(`https://app.hubspot.com/deals/${id}`, '_blank');
+}
+
+function viewTask(id) {
+  window.open(`https://app.hubspot.com/tasks/${id}`, '_blank');
+}
+
+async function completeTask(id) {
+  try {
+    const response = await fetch(`/api/hubspot/tasks/${id}/complete`, {
+      method: 'POST'
+    });
+    
+    if (response.ok) {
+      loadTasks(); // Refresh tasks list
+    } else {
+      throw new Error('Failed to complete task');
+    }
+  } catch (error) {
+    console.error('Error completing task:', error);
+    alert('Error completing task');
+  }
 }
 </script>
 
