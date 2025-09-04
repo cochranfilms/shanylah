@@ -43,6 +43,20 @@ export default async function handler(req, res) {
       // Create new contact
       const { firstName, lastName, email, phone, company, leadSource, notes } = req.body;
 
+      // Map frontend lead source values to HubSpot values
+      const leadSourceMap = {
+        'website': 'DIRECT_TRAFFIC',
+        'referral': 'REFERRALS',
+        'social_media': 'SOCIAL_MEDIA',
+        'google': 'ORGANIC_SEARCH',
+        'linkedin': 'SOCIAL_MEDIA',
+        'email': 'EMAIL_MARKETING',
+        'phone': 'OFFLINE',
+        'other': 'OTHER_CAMPAIGNS'
+      };
+
+      const mappedLeadSource = leadSourceMap[leadSource] || 'DIRECT_TRAFFIC';
+
       const contactData = {
         properties: {
           firstname: firstName,
@@ -50,7 +64,7 @@ export default async function handler(req, res) {
           email: email,
           phone: phone,
           company: company,
-          hs_analytics_source: leadSource || 'website',
+          hs_analytics_source: mappedLeadSource,
           hs_lead_status: 'NEW'
         }
       };
