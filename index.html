@@ -469,6 +469,36 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   </header>
 
   <main class="wrap">
+    <section class="card" style="margin-bottom:24px">
+      <h2>🤖 AI Assistant Search</h2>
+      <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
+      <div class="ai-search-container">
+        <div class="search-input-group">
+          <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
+          <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
+            <span class="btn-text">Search</span>
+            <span class="btn-loading" style="display:none;">⏳</span>
+          </button>
+        </div>
+        <div id="aiResponse" class="ai-response" style="display:none;">
+          <div class="ai-response-content"></div>
+          <div class="ai-response-actions">
+            <button class="btn" onclick="copyResponse()">📋 Copy</button>
+            <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
+          </div>
+        </div>
+        <div class="ai-suggestions">
+          <p class="suggestion-label">💡 Try asking:</p>
+          <div class="suggestion-chips">
+            <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="grid">
       <article class="card span-8">
         <h2>🎉 1) Welcome + What You've Already Completed</h2>
@@ -680,36 +710,6 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
               <a class="btn" href="https://calendar.google.com/" target="_blank" rel="noopener">Google Calendar</a>
             </div>
             <p class="hint" style="margin-top: 12px;">These platforms block iframe embedding for security. Click any button to open in a new tab.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:18px">
-      <h2>🤖 AI Assistant Search</h2>
-      <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
-      <div class="ai-search-container">
-        <div class="search-input-group">
-          <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
-          <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
-            <span class="btn-text">Search</span>
-            <span class="btn-loading" style="display:none;">⏳</span>
-          </button>
-        </div>
-        <div id="aiResponse" class="ai-response" style="display:none;">
-          <div class="ai-response-content"></div>
-          <div class="ai-response-actions">
-            <button class="btn" onclick="copyResponse()">📋 Copy</button>
-            <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
-          </div>
-        </div>
-        <div class="ai-suggestions">
-          <p class="suggestion-label">💡 Try asking:</p>
-          <div class="suggestion-chips">
-            <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
           </div>
         </div>
       </div>
