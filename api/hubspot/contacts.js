@@ -50,9 +50,8 @@ export default async function handler(req, res) {
           email: email,
           phone: phone,
           company: company,
-          hs_lead_source: leadSource,
-          notes_last_contacted: notes,
-          hs_lead_status: 'new'
+          hs_analytics_source: leadSource || 'website',
+          hs_lead_status: 'NEW'
         }
       };
 
