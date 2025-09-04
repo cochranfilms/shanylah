@@ -55,7 +55,8 @@ export default async function handler(req, res) {
         const slice = json.data?.business?.invoices;
         const edges = slice?.edges || [];
         all.push(...edges.map(e => {
-          const totalValue = (e.node.total && (e.node.total.value ?? e.node.total?.amount)) ?? e.node.amountDue?.value;
+          const amountDueValue = (e.node.amountDue && (e.node.amountDue.value ?? e.node.amountDue?.amount)) ?? null;
+          const totalValue = (e.node.total && (e.node.total.value ?? e.node.total?.amount)) ?? null;
           const currencyCode = e.node.total?.currency?.code || e.node.amountDue?.currency?.code;
           return {
             id: e.node.id,
@@ -64,8 +65,9 @@ export default async function handler(req, res) {
             createdAt: e.node.createdAt,
             invoiceDate: e.node.invoiceDate,
             dueDate: e.node.dueDate,
-            // Prefer total over amountDue so paid invoices don't read $0
-            total: Number(totalValue ?? 0),
+            // Store both amounts; UI will choose best to display
+            amountDue: (amountDueValue != null ? Number(amountDueValue) : null),
+            total: (totalValue != null ? Number(totalValue) : null),
             currency: currencyCode,
             customerName: e.node.customer?.name,
             customer: e.node.customer
