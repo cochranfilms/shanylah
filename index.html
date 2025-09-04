@@ -1879,49 +1879,118 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     return;
   }
 
-  // Add logout functionality
+  // Add fancy logout button + custom modal
   function addLogoutButton() {
     const header = document.querySelector('.hero');
-    if (header) {
-      const logoutBtn = document.createElement('button');
-      logoutBtn.innerHTML = '🚪 Logout';
-      logoutBtn.style.cssText = `
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: rgba(239, 68, 68, 0.1);
-        color: #ef4444;
-        border: 1px solid rgba(239, 68, 68, 0.3);
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      `;
-      
-      logoutBtn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to logout?')) {
-          sessionStorage.clear();
-          window.location.href = 'login.html';
+    if (!header) return;
+
+    // Inject styles once
+    if (!document.getElementById('cf-logout-styles')) {
+      const style = document.createElement('style');
+      style.id = 'cf-logout-styles';
+      style.textContent = `
+        .cf-logout-btn{
+          position:absolute;top:20px;right:20px;
+          display:inline-flex;align-items:center;gap:10px;
+          padding:10px 16px;border-radius:999px;
+          border:1px solid rgba(239,68,68,.25);
+          background:linear-gradient(135deg, rgba(255,240,241,.95) 0%, rgba(255,228,230,.95) 100%);
+          color:#b91c1c;font-weight:600;letter-spacing:.2px;
+          box-shadow:0 6px 16px rgba(239,68,68,.12);
+          cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+          backdrop-filter:saturate(1.2) blur(2px);
         }
-      });
-      
-      logoutBtn.addEventListener('mouseenter', () => {
-        logoutBtn.style.background = 'rgba(239, 68, 68, 0.2)';
-        logoutBtn.style.transform = 'translateY(-1px)';
-      });
-      
-      logoutBtn.addEventListener('mouseleave', () => {
-        logoutBtn.style.background = 'rgba(239, 68, 68, 0.1)';
-        logoutBtn.style.transform = 'translateY(0)';
+        .cf-logout-btn:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(239,68,68,.18);} 
+        .cf-logout-btn svg{ width:22px;height:22px; }
+        .cf-tree{ transform-origin:50% 80%; }
+        .cf-axe{ transform-origin:14px 18px; animation:cf-axe-swing 2.2s ease-in-out infinite; }
+        @keyframes cf-axe-swing{ 0%,100%{ transform:rotate(0deg) translateY(0);} 40%{ transform:rotate(-28deg) translateY(0);} 60%{ transform:rotate(6deg) translateY(0);} }
+
+        /* Modal */
+        .cf-logout-overlay{ position:fixed; inset:0; display:grid; place-items:center; background:rgba(15,23,42,.4); backdrop-filter:blur(6px); opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:40; }
+        .cf-logout-overlay.show{ opacity:1; pointer-events:auto; }
+        .cf-logout-modal{ width:min(560px,92vw); background:linear-gradient(135deg,#ffffff 0%, #fff7ed 100%);
+          border:1px solid rgba(0,0,0,.06); border-radius:24px; box-shadow:0 30px 60px rgba(0,0,0,.18);
+          padding:28px; position:relative; overflow:hidden; }
+        .cf-logout-modal::after{ content:''; position:absolute; inset:auto -40% -40% auto; width:200px;height:200px; border-radius:50%; background:radial-gradient(closest-side, rgba(245,175,0,.25), transparent 70%); filter:blur(4px);}
+        .cf-logout-header{ display:flex; align-items:center; gap:14px; margin-bottom:8px; }
+        .cf-logout-title{ font-family:Montserrat,Inter,sans-serif; font-weight:700; font-size:22px; color:#0f172a; }
+        .cf-logout-sub{ color:#475569; margin:0 0 18px; }
+        .cf-logout-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:10px; }
+        .cf-btn{ padding:12px 18px; border-radius:12px; font-weight:600; border:1px solid transparent; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+        .cf-btn:active{ transform:translateY(1px); }
+        .cf-btn.cancel{ background:#fff; border-color:#e2e8f0; color:#0f172a; }
+        .cf-btn.cancel:hover{ box-shadow:0 8px 18px rgba(2,6,23,.1); }
+        .cf-btn.logout{ background:linear-gradient(135deg,#fda4af,#fb7185); color:#fff; box-shadow:0 12px 24px rgba(190,18,60,.25); }
+        .cf-btn.logout:hover{ box-shadow:0 16px 32px rgba(190,18,60,.35); }
+        .cf-illustration{ width:64px;height:64px; border-radius:16px; display:grid;place-items:center; background:linear-gradient(135deg,#fff7ed,#fffbeb); border:1px solid #fee2e2; box-shadow:inset 0 0 0 6px #fff; }
+        .cf-illustration svg{ width:40px;height:40px; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Build modal once
+    if (!document.querySelector('.cf-logout-overlay')){
+      const overlay = document.createElement('div');
+      overlay.className = 'cf-logout-overlay';
+      overlay.innerHTML = `
+        <div class="cf-logout-modal" role="dialog" aria-modal="true" aria-labelledby="cfLogoutTitle">
+          <div class="cf-logout-header">
+            <div class="cf-illustration" aria-hidden="true">
+              ${getTreeSvg('40','40')}
+            </div>
+            <div>
+              <div class="cf-logout-title" id="cfLogoutTitle">Ready to head out?</div>
+              <p class="cf-logout-sub">You can sign back in anytime. Your work will be here.</p>
+            </div>
+          </div>
+          <div class="cf-logout-actions">
+            <button class="cf-btn cancel" type="button">Stay</button>
+            <button class="cf-btn logout" type="button">Logout</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      // Close handlers
+      overlay.addEventListener('click', (e)=>{ if(e.target === overlay){ overlay.classList.remove('show'); } });
+      overlay.querySelector('.cancel').addEventListener('click', ()=> overlay.classList.remove('show'));
+      overlay.querySelector('.logout').addEventListener('click', ()=>{ sessionStorage.clear(); window.location.href = 'login.html'; });
+    }
+
+    // Create animated button
+    const logoutBtn = document.createElement('button');
+    logoutBtn.className = 'cf-logout-btn';
+    logoutBtn.type = 'button';
+    logoutBtn.setAttribute('aria-label','Logout');
+    logoutBtn.innerHTML = `${getTreeSvg('22','22')}<span>Logout</span>`;
+    logoutBtn.addEventListener('click', ()=>{
+      const overlay = document.querySelector('.cf-logout-overlay');
+      overlay && overlay.classList.add('show');
       });
       
       header.style.position = 'relative';
       header.appendChild(logoutBtn);
+
+    // Helper to provide SVG
+    function getTreeSvg(w,h){
+      return `
+        <svg viewBox="0 0 48 48" width="${w}" height="${h}" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="cf-tree">
+            <ellipse cx="24" cy="40" rx="12" ry="3" fill="#eab308" opacity=".2"/>
+            <rect x="22" y="22" width="4" height="12" rx="2" fill="#92400e"/>
+            <circle cx="24" cy="18" r="10" fill="#22c55e"/>
+            <circle cx="18" cy="20" r="6" fill="#16a34a"/>
+            <circle cx="30" cy="21" r="7" fill="#16a34a"/>
+          </g>
+          <g class="cf-axe">
+            <rect x="12" y="12" width="3" height="18" rx="1.5" fill="#b45309"/>
+            <path d="M9 16 L17 14 L17 20 L9 18 Z" fill="#f87171" stroke="#7f1d1d" stroke-width=".6"/>
+          </g>
+        </svg>`;
     }
   }
 
-  // Add logout button when page loads
+  // Initialize when page loads
   document.addEventListener('DOMContentLoaded', addLogoutButton);
 })();
 
@@ -2869,19 +2938,33 @@ function waveSwitchTab(tabName){
 }
 
 (function(){
-  // Bind Wave tab loads
-  const waveBtns = document.querySelectorAll('#wave-dashboard .tab-btn');
-  waveBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.getAttribute('data-tab');
-      switch(tab){
-        case 'wave-overview': loadWaveOverview(); break;
-        case 'wave-invoices': loadWaveInvoices(); break;
-        case 'wave-customers': loadWaveCustomers(); break;
-        case 'wave-products': loadWaveProducts(); break;
-      }
+  // Bind Wave tab loads + visual switching
+  const container = document.getElementById('wave-dashboard');
+  if (container) {
+    const waveBtns = container.querySelectorAll('.tab-btn');
+    const waveContents = container.querySelectorAll('.tab-content');
+    
+    waveBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        // Toggle active states within Wave dashboard
+        waveBtns.forEach(b => b.classList.remove('active'));
+        waveContents.forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const target = container.querySelector('#' + tab + '-tab');
+        if (target) target.classList.add('active');
+        
+        // Load data for selected tab
+        switch(tab){
+          case 'wave-overview': loadWaveOverview(); break;
+          case 'wave-invoices': loadWaveInvoices(); break;
+          case 'wave-customers': loadWaveCustomers(); break;
+          case 'wave-products': loadWaveProducts(); break;
+          case 'wave-create': /* no async load needed */ break;
+        }
+      });
     });
-  });
+  }
 
   // Create invoice form
   const form = document.getElementById('waveCreateInvoiceForm');
