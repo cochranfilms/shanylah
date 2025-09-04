@@ -18,6 +18,8 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
+      const url = (()=>{ try{ return new URL(req.url, 'http://local'); }catch(_){ return null; } })();
+      const debug = url?.searchParams?.get('debug');
       const pageSize = Number(process.env.WAVE_PAGE_SIZE || 50);
       const query = `
         query Invoices($businessId: ID!, $page: Int!, $pageSize: Int!) {
@@ -39,7 +41,7 @@ export default async function handler(req, res) {
         }
       `;
 
-      let page = 1; const all = [];
+      let page = 1; const all = []; let lastPageInfo = null;
       while (true) {
         const r = await fetch(endpoint, {
           method: 'POST',
@@ -64,10 +66,11 @@ export default async function handler(req, res) {
           customerName: e.node.customer?.name,
           customer: e.node.customer
         })));
-        const pageInfo = slice?.pageInfo;
+        const pageInfo = slice?.pageInfo; lastPageInfo = pageInfo || lastPageInfo;
         if (!pageInfo || pageInfo.currentPage >= pageInfo.totalPages) break;
         page += 1;
       }
+      if (debug) return res.status(200).json({ invoices: all, pageInfo: lastPageInfo });
       return res.status(200).json({ invoices: all });
     }
 
