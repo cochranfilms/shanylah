@@ -16,28 +16,36 @@ export default async function handler(req, res) {
   const timeout = setTimeout(() => { try { controller.abort(); } catch (_) {} }, timeoutMs);
   req.on('aborted', () => { try { controller.abort(); } catch (_) {} });
   req.on('close', () => { try { controller.abort(); } catch (_) {} });
+  const pageSize = Number(process.env.WAVE_PAGE_SIZE || 50);
   const query = `
-    query Customers($businessId: ID!, $page: Int) {
+    query Customers($businessId: ID!, $page: Int!, $pageSize: Int!) {
       business(id: $businessId) {
-        customers(page: $page) {
-          pageInfo { currentPage totalPages }
-          edges { node { id name email } }
+        customers(page: $page, pageSize: $pageSize) {
+          pageInfo { currentPage totalPages totalCount }
+          edges { node { id name email address { city } } }
         }
       }
     }
   `;
   try {
-    const r = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, variables: { businessId } }),
-      signal: controller.signal
-    });
-    const json = await r.json();
-    if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
-    const edges = json.data?.business?.customers?.edges || [];
-    const customers = edges.map(e => ({ id: e.node.id, name: e.node.name, email: e.node.email }));
-    return res.status(200).json({ customers });
+    let page = 1; const all = [];
+    while (true) {
+      const r = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, variables: { businessId, page, pageSize } }),
+        signal: controller.signal
+      });
+      const json = await r.json();
+      if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
+      const slice = json.data?.business?.customers;
+      const edges = slice?.edges || [];
+      all.push(...edges.map(e => ({ id: e.node.id, name: e.node.name, email: e.node.email, city: e.node.address?.city })));
+      const pageInfo = slice?.pageInfo;
+      if (!pageInfo || pageInfo.currentPage >= pageInfo.totalPages) break;
+      page += 1;
+    }
+    return res.status(200).json({ customers: all });
   } catch (e) {
     if (e?.name === 'AbortError' || e?.code === 'ABORT_ERR') {
       if (!res.headersSent) return res.status(499).json({ error: 'Request aborted by client or timeout' });

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   const endpoint = process.env.WAVE_API_URL || 'https://gql.waveapps.com/graphql/public';
-  const query = `query WaveStatus($id: ID!) { business(id: $id) { id name } }`;
+  const query = `query WaveStatus($id: ID!) { business(id: $id) { id name isClassicInvoicing } }`;
   try {
     const r = await fetch(endpoint, {
       method: 'POST',
@@ -24,7 +24,8 @@ export default async function handler(req, res) {
     if (json.errors) {
       return res.status(500).json({ ok: false, error: 'Wave GraphQL error', details: json.errors });
     }
-    return res.status(200).json({ ok: true, business: json.data?.business });
+    const business = json.data?.business;
+    return res.status(200).json({ ok: true, business });
   } catch (e) {
     return res.status(500).json({ ok: false, error: 'Wave request failed', details: e.message });
   }

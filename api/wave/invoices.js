@@ -17,36 +17,57 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
+      const pageSize = Number(process.env.WAVE_PAGE_SIZE || 50);
       const query = `
-        query Invoices($businessId: ID!) {
+        query Invoices($businessId: ID!, $page: Int!, $pageSize: Int!) {
           business(id: $businessId) {
-            invoices {
+            invoices(page: $page, pageSize: $pageSize) {
+              pageInfo { currentPage totalPages totalCount }
               edges { node {
                 id
                 invoiceNumber
                 status
                 createdAt
+                invoiceDate
+                dueDate
+                amountDue { value currency { code } }
+                customer { id name }
               } }
             }
           }
         }
       `;
-      const r = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query, variables: { businessId } }),
-        signal: controller.signal
-      });
-      const json = await r.json();
-      if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
-      const edges = json.data?.business?.invoices?.edges || [];
-      const invoices = edges.map(e => ({
-        id: e.node.id,
-        invoiceNumber: e.node.invoiceNumber,
-        status: (e.node.status || '').toLowerCase(),
-        createdAt: e.node.createdAt
-      }));
-      return res.status(200).json({ invoices });
+
+      let page = 1; const all = [];
+      while (true) {
+        const r = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, variables: { businessId, page, pageSize } }),
+          signal: controller.signal
+        });
+        const json = await r.json();
+        if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
+        const slice = json.data?.business?.invoices;
+        const edges = slice?.edges || [];
+        all.push(...edges.map(e => ({
+          id: e.node.id,
+          invoiceNumber: e.node.invoiceNumber,
+          status: (e.node.status || '').toLowerCase(),
+          createdAt: e.node.createdAt,
+          invoiceDate: e.node.invoiceDate,
+          dueDate: e.node.dueDate,
+          // Map to frontend-expected names
+          total: e.node.amountDue?.value,
+          currency: e.node.amountDue?.currency?.code,
+          customerName: e.node.customer?.name,
+          customer: e.node.customer
+        })));
+        const pageInfo = slice?.pageInfo;
+        if (!pageInfo || pageInfo.currentPage >= pageInfo.totalPages) break;
+        page += 1;
+      }
+      return res.status(200).json({ invoices: all });
     }
 
     if (req.method === 'POST') {
