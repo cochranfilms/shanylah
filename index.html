@@ -375,6 +375,77 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 .card:nth-child(3){animation-delay:0.2s}
 .card:nth-child(4){animation-delay:0.3s}
 .card:nth-child(5){animation-delay:0.4s}
+
+/* AI Search Components */
+.ai-search-container{display:grid;gap:20px}
+.search-input-group{display:flex;gap:12px;align-items:stretch}
+.ai-search-field{
+  flex:1;
+  padding:16px 20px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:12px;
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-size:16px;
+  transition:all 0.3s ease;
+  font-family:inherit;
+}
+.ai-search-field:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+  box-shadow:0 0 0 3px rgba(245,175,0,0.1);
+}
+.ai-search-btn{
+  padding:16px 24px;
+  white-space:nowrap;
+  min-width:120px;
+}
+.ai-response{
+  background:var(--cf-light-gray);
+  border:2px solid rgba(0,0,0,0.05);
+  border-radius:12px;
+  padding:20px;
+  margin-top:16px;
+}
+.ai-response-content{
+  color:var(--cf-black);
+  line-height:1.6;
+  margin-bottom:16px;
+}
+.ai-response-actions{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+.ai-suggestions{margin-top:16px}
+.suggestion-label{
+  font-size:14px;
+  color:var(--cf-gray);
+  margin-bottom:8px;
+  font-weight:600;
+}
+.suggestion-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.suggestion-chip{
+  padding:8px 16px;
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:20px;
+  color:var(--cf-gray);
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-family:inherit;
+}
+.suggestion-chip:hover{
+  background:var(--cf-gold);
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+  transform:translateY(-1px);
+}
 </style>
 </head>
 <body>
@@ -615,6 +686,36 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     </section>
 
     <section class="card" style="margin-top:18px">
+      <h2>🤖 AI Assistant Search</h2>
+      <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
+      <div class="ai-search-container">
+        <div class="search-input-group">
+          <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
+          <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
+            <span class="btn-text">Search</span>
+            <span class="btn-loading" style="display:none;">⏳</span>
+          </button>
+        </div>
+        <div id="aiResponse" class="ai-response" style="display:none;">
+          <div class="ai-response-content"></div>
+          <div class="ai-response-actions">
+            <button class="btn" onclick="copyResponse()">📋 Copy</button>
+            <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
+          </div>
+        </div>
+        <div class="ai-suggestions">
+          <p class="suggestion-label">💡 Try asking:</p>
+          <div class="suggestion-chips">
+            <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
+            <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
       <h2>📖 Complete Onboarding Guide</h2>
       <p class="muted">Your comprehensive reference guide with all the details, links, and resources you need to succeed.</p>
       <div class="quick-links" style="margin-bottom:16px">
@@ -731,6 +832,95 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     });
   });
 })();
+
+// AI Search functionality
+(function(){
+  const searchInput = document.getElementById('aiSearchInput');
+  const searchBtn = document.getElementById('aiSearchBtn');
+  const responseDiv = document.getElementById('aiResponse');
+  const responseContent = responseDiv.querySelector('.ai-response-content');
+  const btnText = searchBtn.querySelector('.btn-text');
+  const btnLoading = searchBtn.querySelector('.btn-loading');
+
+  async function searchAI(query) {
+    if (!query.trim()) return;
+    
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    searchBtn.disabled = true;
+    
+    try {
+      // This will be replaced with your Vercel API endpoint
+      const response = await fetch('/api/chatgpt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: query,
+          context: 'Cochran Films Assistant Onboarding'
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      
+      const data = await response.json();
+      responseContent.innerHTML = data.response || 'No response received.';
+      responseDiv.style.display = 'block';
+      
+    } catch (error) {
+      console.error('AI Search Error:', error);
+      responseContent.innerHTML = `
+        <div style="color: #ef4444; padding: 16px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;">
+          <strong>⚠️ API Integration Needed</strong><br>
+          The ChatGPT API is not yet connected. Please set up the Vercel environment variables and API endpoint.<br><br>
+          <strong>Your question:</strong> "${query}"<br><br>
+          <em>Once the API is connected, this will provide AI-powered responses about Cochran Films procedures and tools.</em>
+        </div>
+      `;
+      responseDiv.style.display = 'block';
+    } finally {
+      // Reset button state
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      searchBtn.disabled = false;
+    }
+  }
+
+  // Event listeners
+  searchBtn.addEventListener('click', () => searchAI(searchInput.value));
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchAI(searchInput.value);
+    }
+  });
+})();
+
+// Helper functions for response actions
+function copyResponse() {
+  const content = document.querySelector('.ai-response-content').textContent;
+  navigator.clipboard.writeText(content).then(() => {
+    // Show brief success feedback
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = originalText, 2000);
+  });
+}
+
+function clearResponse() {
+  document.getElementById('aiResponse').style.display = 'none';
+  document.getElementById('aiSearchInput').value = '';
+}
+
+function setSuggestion(text) {
+  document.getElementById('aiSearchInput').value = text;
+  document.getElementById('aiSearchInput').focus();
+}
 </script>
 
 </body>
