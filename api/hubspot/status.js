@@ -1,14 +1,3 @@
-export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-  const hubspotApiKey = process.env.HUBSPOT_API_KEY;
-  if (!hubspotApiKey) {
-    return res.status(500).json({ ok: false, error: 'HUBSPOT_API_KEY not configured' });
-  }
-  return res.status(200).json({ ok: true });
-}
-
 // HubSpot API status check
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -19,9 +8,7 @@ export default async function handler(req, res) {
     const hubspotApiKey = process.env.HUBSPOT_API_KEY;
     
     if (!hubspotApiKey) {
-      return res.status(500).json({ 
-        error: 'HubSpot API key not configured. Please set HUBSPOT_API_KEY in Vercel environment variables.' 
-      });
+      return res.status(500).json({ ok: false, error: 'HUBSPOT_API_KEY not configured' });
     }
 
     // Test HubSpot connection by fetching account info
@@ -33,19 +20,13 @@ export default async function handler(req, res) {
     });
 
     if (response.ok) {
-      return res.status(200).json({ 
-        status: 'connected',
-        message: 'HubSpot API connection successful' 
-      });
+      return res.status(200).json({ ok: true, status: 'connected' });
     } else {
       throw new Error(`HubSpot API error: ${response.status}`);
     }
 
   } catch (error) {
     console.error('HubSpot API Error:', error);
-    return res.status(500).json({ 
-      error: 'Failed to connect to HubSpot',
-      details: error.message 
-    });
+    return res.status(500).json({ ok: false, error: 'Failed to connect to HubSpot', details: error.message });
   }
 }
