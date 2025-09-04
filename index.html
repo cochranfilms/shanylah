@@ -1415,7 +1415,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       <h2>🎯 HubSpot CRM Dashboard</h2>
       <p class="muted">Complete business management hub with real-time CRM integration for maximum efficiency.</p>
       
-      <div class="hubspot-dashboard">
+      <div class="hubspot-dashboard" id="hubspot-dashboard">
         <!-- Enhanced Header with Quick Stats -->
         <div class="dashboard-header">
           <div class="stats-grid">
@@ -2075,21 +2075,24 @@ function setSuggestion(text) {
 
 // Enhanced HubSpot Dashboard functionality
 (function(){
-  // Tab switching
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
+  // Tab switching (scoped to HubSpot dashboard)
+  const container = document.getElementById('hubspot-dashboard');
+  if (!container) return;
+  const tabBtns = container.querySelectorAll('.tab-btn');
+  const tabContents = container.querySelectorAll('.tab-content');
   
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetTab = btn.getAttribute('data-tab');
       
-      // Remove active class from all tabs and contents
+      // Remove active class only within HubSpot dashboard
       tabBtns.forEach(b => b.classList.remove('active'));
       tabContents.forEach(c => c.classList.remove('active'));
       
       // Add active class to clicked tab and corresponding content
       btn.classList.add('active');
-      document.getElementById(targetTab + '-tab').classList.add('active');
+      const target = container.querySelector('#' + targetTab + '-tab');
+      if (target) target.classList.add('active');
       
       // Load data when switching to a tab
       switch(targetTab) {
