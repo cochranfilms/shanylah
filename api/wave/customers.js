@@ -4,13 +4,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const token = process.env.WAVE_API_TOKEN;
+  const token = process.env.WAVE_API_TOKEN || process.env.WAVE_API_KEY;
   const businessId = process.env.WAVE_BUSINESS_ID;
   if (!token || !businessId) {
     return res.status(500).json({ error: 'Missing WAVE_API_TOKEN or WAVE_BUSINESS_ID' });
   }
 
-  const endpoint = 'https://gql.waveapps.com/graphql/public';
+  const endpoint = process.env.WAVE_API_URL || 'https://gql.waveapps.com/graphql/public';
   const query = `
     query Customers($businessId: ID!, $page: Int) {
       business(id: $businessId) {
