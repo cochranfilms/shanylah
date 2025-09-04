@@ -651,6 +651,340 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   0%,100%{opacity:1}
   50%{opacity:0.5}
 }
+
+/* Enhanced Dashboard Styles */
+.dashboard-header{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));
+  padding:24px;
+  border-radius:16px 16px 0 0;
+  margin:-24px -24px 0 -24px;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+}
+
+.stat-card{
+  background:rgba(255,255,255,0.95);
+  padding:20px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:transform 0.3s ease;
+}
+
+.stat-card:hover{
+  transform:translateY(-2px);
+}
+
+.stat-icon{
+  font-size:32px;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(245,175,0,0.1);
+  border-radius:12px;
+}
+
+.stat-content{
+  flex:1;
+}
+
+.stat-number{
+  font-size:28px;
+  font-weight:700;
+  color:var(--cf-black);
+  line-height:1;
+}
+
+.stat-label{
+  font-size:14px;
+  color:var(--cf-gray);
+  margin-top:4px;
+}
+
+.tab-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.filter-bar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.filter-bar select{
+  padding:8px 12px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:14px;
+  background:var(--cf-white);
+  transition:border-color 0.3s ease;
+}
+
+.filter-bar select:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.overview-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.overview-card{
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:12px;
+  padding:20px;
+}
+
+.overview-card h3{
+  margin:0 0 16px 0;
+  color:var(--cf-black);
+  font-size:18px;
+}
+
+.activity-list{
+  max-height:300px;
+  overflow-y:auto;
+}
+
+.activity-item{
+  padding:12px 0;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.activity-item:last-child{
+  border-bottom:none;
+}
+
+.activity-icon{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--cf-light-gray);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+}
+
+.activity-content{
+  flex:1;
+}
+
+.activity-text{
+  font-size:14px;
+  color:var(--cf-black);
+  margin:0;
+}
+
+.activity-time{
+  font-size:12px;
+  color:var(--cf-gray);
+  margin:0;
+}
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.action-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  background:var(--cf-white);
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-size:14px;
+  font-weight:500;
+}
+
+.action-btn:hover{
+  border-color:var(--cf-gold);
+  background:rgba(245,175,0,0.05);
+  transform:translateY(-1px);
+}
+
+.action-icon{
+  font-size:16px;
+}
+
+.form-container{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.form-container h3{
+  margin:0 0 24px 0;
+  color:var(--cf-black);
+  font-size:24px;
+  text-align:center;
+}
+
+.form-section{
+  margin-bottom:32px;
+  padding:20px;
+  background:var(--cf-light-gray);
+  border-radius:12px;
+}
+
+.form-section h4{
+  margin:0 0 16px 0;
+  color:var(--cf-black);
+  font-size:16px;
+  font-weight:600;
+}
+
+.form-actions{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  margin-top:32px;
+}
+
+.form-actions .btn{
+  min-width:120px;
+}
+
+/* Enhanced Data List Styles */
+.data-list{
+  max-height:500px;
+  overflow-y:auto;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  background:var(--cf-white);
+}
+
+.data-item{
+  padding:16px;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background 0.3s ease;
+  position:relative;
+}
+
+.data-item:hover{
+  background:var(--cf-light-gray);
+}
+
+.data-item:last-child{
+  border-bottom:none;
+}
+
+.item-info{
+  flex:1;
+  min-width:0;
+}
+
+.item-info h4{
+  margin:0 0 4px 0;
+  color:var(--cf-black);
+  font-size:16px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.item-info p{
+  margin:0;
+  color:var(--cf-gray);
+  font-size:14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.item-meta{
+  display:flex;
+  gap:8px;
+  margin-top:4px;
+}
+
+.item-tag{
+  background:rgba(245,175,0,0.1);
+  color:var(--cf-gold);
+  padding:2px 8px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:500;
+}
+
+.item-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.item-actions .btn{
+  padding:6px 12px;
+  font-size:12px;
+  min-width:auto;
+}
+
+/* Status Indicators */
+.status-new{color:#10b981}
+.status-qualified{color:#3b82f6}
+.status-unqualified{color:#ef4444}
+.status-converted{color:#8b5cf6}
+
+.stage-appointmentscheduled{color:#f59e0b}
+.stage-qualifiedtobuy{color:#3b82f6}
+.stage-presentationscheduled{color:#8b5cf6}
+.stage-decisionmakerboughtin{color:#10b981}
+.stage-closedwon{color:#059669}
+
+/* Responsive Design */
+@media (max-width:768px){
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  
+  .overview-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .quick-actions{
+    grid-template-columns:1fr;
+  }
+  
+  .tab-header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  
+  .form-row{
+    grid-template-columns:1fr;
+  }
+  
+  .form-actions{
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 <body>
@@ -922,70 +1256,267 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 
     <section class="card" style="margin-top:18px">
       <h2>🎯 HubSpot CRM Dashboard</h2>
-      <p class="muted">Manage contacts, deals, and tasks directly from this page. Real-time CRM integration for maximum efficiency.</p>
+      <p class="muted">Complete business management hub with real-time CRM integration for maximum efficiency.</p>
       
       <div class="hubspot-dashboard">
+        <!-- Enhanced Header with Quick Stats -->
+        <div class="dashboard-header">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-content">
+                <div class="stat-number" id="contactsCount">-</div>
+                <div class="stat-label">Contacts</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💰</div>
+              <div class="stat-content">
+                <div class="stat-number" id="dealsCount">-</div>
+                <div class="stat-label">Deals</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📈</div>
+              <div class="stat-content">
+                <div class="stat-number" id="revenueCount">$-</div>
+                <div class="stat-label">Pipeline Value</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✅</div>
+              <div class="stat-content">
+                <div class="stat-number" id="tasksCount">-</div>
+                <div class="stat-label">Active Tasks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Navigation Tabs -->
         <div class="dashboard-tabs">
-          <button class="tab-btn active" data-tab="contacts">👥 Contacts</button>
+          <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+          <button class="tab-btn" data-tab="contacts">👥 Contacts</button>
           <button class="tab-btn" data-tab="deals">💰 Deals</button>
-          <button class="tab-btn" data-tab="tasks">✅ Tasks</button>
+          <button class="tab-btn" data-tab="companies">🏢 Companies</button>
+          <button class="tab-btn" data-tab="leads">🎯 Leads</button>
+          <button class="tab-btn" data-tab="quotes">📋 Quotes</button>
           <button class="tab-btn" data-tab="add-contact">➕ Add Contact</button>
         </div>
 
-        <div class="tab-content active" id="contacts-tab">
-          <div class="search-bar">
-            <input type="text" id="contactSearch" placeholder="Search contacts..." class="search-input">
-            <button class="btn gold" onclick="searchContacts()">🔍 Search</button>
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overview-tab">
+          <div class="overview-grid">
+            <div class="overview-card">
+              <h3>📊 Recent Activity</h3>
+              <div id="recentActivity" class="activity-list">
+                <div class="loading-state">Loading recent activity...</div>
+              </div>
+            </div>
+            <div class="overview-card">
+              <h3>🎯 Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="action-btn" onclick="switchTab('add-contact')">
+                  <span class="action-icon">➕</span>
+                  <span>Add Contact</span>
+                </button>
+                <button class="action-btn" onclick="createDeal()">
+                  <span class="action-icon">💰</span>
+                  <span>Create Deal</span>
+                </button>
+                <button class="action-btn" onclick="createQuote()">
+                  <span class="action-icon">📋</span>
+                  <span>Create Quote</span>
+                </button>
+                <button class="action-btn" onclick="switchTab('leads')">
+                  <span class="action-icon">🎯</span>
+                  <span>View Leads</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Contacts Tab -->
+        <div class="tab-content" id="contacts-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="contactSearch" placeholder="Search contacts by name, email, or company..." class="search-input">
+              <button class="btn gold" onclick="searchContacts()">🔍 Search</button>
+              <button class="btn" onclick="refreshContacts()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="contactFilter" onchange="filterContacts()">
+                <option value="">All Contacts</option>
+                <option value="new">New Leads</option>
+                <option value="existing">Existing Clients</option>
+                <option value="recent">Recently Added</option>
+              </select>
+            </div>
           </div>
           <div id="contactsList" class="data-list">
             <div class="loading-state">Loading contacts...</div>
           </div>
         </div>
 
+        <!-- Enhanced Deals Tab -->
         <div class="tab-content" id="deals-tab">
-          <div class="search-bar">
-            <input type="text" id="dealSearch" placeholder="Search deals..." class="search-input">
-            <button class="btn gold" onclick="searchDeals()">🔍 Search</button>
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="dealSearch" placeholder="Search deals by name or amount..." class="search-input">
+              <button class="btn gold" onclick="searchDeals()">🔍 Search</button>
+              <button class="btn" onclick="refreshDeals()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="dealFilter" onchange="filterDeals()">
+                <option value="">All Deals</option>
+                <option value="appointmentscheduled">Discovery Calls</option>
+                <option value="qualifiedtobuy">Qualified</option>
+                <option value="presentationscheduled">Presentations</option>
+                <option value="decisionmakerboughtin">Decision Made</option>
+                <option value="closedwon">Closed Won</option>
+              </select>
+            </div>
           </div>
           <div id="dealsList" class="data-list">
             <div class="loading-state">Loading deals...</div>
           </div>
         </div>
 
-        <div class="tab-content" id="tasks-tab">
-          <div class="search-bar">
-            <input type="text" id="taskSearch" placeholder="Search tasks..." class="search-input">
-            <button class="btn gold" onclick="searchTasks()">🔍 Search</button>
+        <!-- Companies Tab -->
+        <div class="tab-content" id="companies-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="companySearch" placeholder="Search companies..." class="search-input">
+              <button class="btn gold" onclick="searchCompanies()">🔍 Search</button>
+              <button class="btn" onclick="refreshCompanies()">🔄 Refresh</button>
+            </div>
           </div>
-          <div id="tasksList" class="data-list">
-            <div class="loading-state">Loading tasks...</div>
+          <div id="companiesList" class="data-list">
+            <div class="loading-state">Loading companies...</div>
           </div>
         </div>
 
-        <div class="tab-content" id="add-contact-tab">
-          <form id="addContactForm" class="contact-form">
-            <div class="form-row">
-              <input type="text" id="firstName" placeholder="First Name *" required>
-              <input type="text" id="lastName" placeholder="Last Name *" required>
+        <!-- Leads Tab -->
+        <div class="tab-content" id="leads-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="leadSearch" placeholder="Search leads..." class="search-input">
+              <button class="btn gold" onclick="searchLeads()">🔍 Search</button>
+              <button class="btn" onclick="refreshLeads()">🔄 Refresh</button>
             </div>
-            <div class="form-row">
-              <input type="email" id="email" placeholder="Email *" required>
-              <input type="tel" id="phone" placeholder="Phone">
-            </div>
-            <div class="form-row">
-              <input type="text" id="company" placeholder="Company">
-              <select id="leadSource">
-                <option value="">Lead Source</option>
-                <option value="website">Website</option>
-                <option value="referral">Referral</option>
-                <option value="social_media">Social Media</option>
-                <option value="google">Google</option>
-                <option value="other">Other</option>
+            <div class="filter-bar">
+              <select id="leadFilter" onchange="filterLeads()">
+                <option value="">All Leads</option>
+                <option value="new">New Leads</option>
+                <option value="qualified">Qualified</option>
+                <option value="unqualified">Unqualified</option>
               </select>
             </div>
-            <textarea id="notes" placeholder="Notes about this contact..."></textarea>
-            <button type="submit" class="btn gold">➕ Add Contact</button>
-          </form>
+          </div>
+          <div id="leadsList" class="data-list">
+            <div class="loading-state">Loading leads...</div>
+          </div>
+        </div>
+
+        <!-- Quotes Tab -->
+        <div class="tab-content" id="quotes-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="quoteSearch" placeholder="Search quotes..." class="search-input">
+              <button class="btn gold" onclick="searchQuotes()">🔍 Search</button>
+              <button class="btn" onclick="refreshQuotes()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="quoteFilter" onchange="filterQuotes()">
+                <option value="">All Quotes</option>
+                <option value="draft">Draft</option>
+                <option value="sent">Sent</option>
+                <option value="accepted">Accepted</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+          <div id="quotesList" class="data-list">
+            <div class="loading-state">Loading quotes...</div>
+          </div>
+        </div>
+
+        <!-- Enhanced Add Contact Tab -->
+        <div class="tab-content" id="add-contact-tab">
+          <div class="form-container">
+            <h3>➕ Add New Contact</h3>
+            <form id="addContactForm" class="contact-form">
+              <div class="form-section">
+                <h4>Personal Information</h4>
+                <div class="form-row">
+                  <input type="text" id="firstName" placeholder="First Name *" required>
+                  <input type="text" id="lastName" placeholder="Last Name *" required>
+                </div>
+                <div class="form-row">
+                  <input type="email" id="email" placeholder="Email *" required>
+                  <input type="tel" id="phone" placeholder="Phone">
+                </div>
+              </div>
+              
+              <div class="form-section">
+                <h4>Company Information</h4>
+                <div class="form-row">
+                  <input type="text" id="company" placeholder="Company">
+                  <input type="text" id="jobTitle" placeholder="Job Title">
+                </div>
+                <div class="form-row">
+                  <input type="text" id="website" placeholder="Website">
+                  <input type="text" id="industry" placeholder="Industry">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Lead Information</h4>
+                <div class="form-row">
+                  <select id="leadSource">
+                    <option value="">Lead Source</option>
+                    <option value="website">Website</option>
+                    <option value="referral">Referral</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="google">Google</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <select id="leadStatus">
+                    <option value="new">New</option>
+                    <option value="qualified">Qualified</option>
+                    <option value="unqualified">Unqualified</option>
+                    <option value="converted">Converted</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <input type="text" id="leadScore" placeholder="Lead Score (1-100)">
+                  <input type="date" id="lastContactDate" placeholder="Last Contact Date">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Additional Information</h4>
+                <textarea id="notes" placeholder="Notes about this contact..."></textarea>
+                <div class="form-row">
+                  <input type="text" id="address" placeholder="Address">
+                  <input type="text" id="city" placeholder="City">
+                </div>
+                <div class="form-row">
+                  <input type="text" id="state" placeholder="State">
+                  <input type="text" id="zipCode" placeholder="ZIP Code">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn gold">➕ Add Contact</button>
+                <button type="button" class="btn" onclick="clearForm()">🗑️ Clear Form</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -1318,7 +1849,7 @@ function setSuggestion(text) {
   document.getElementById('aiSearchInput').focus();
 }
 
-// HubSpot Dashboard functionality
+// Enhanced HubSpot Dashboard functionality
 (function(){
   // Tab switching
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -1337,9 +1868,15 @@ function setSuggestion(text) {
       document.getElementById(targetTab + '-tab').classList.add('active');
       
       // Load data when switching to a tab
-      if (targetTab === 'contacts') loadContacts();
-      else if (targetTab === 'deals') loadDeals();
-      else if (targetTab === 'tasks') loadTasks();
+      switch(targetTab) {
+        case 'overview': loadOverview(); break;
+        case 'contacts': loadContacts(); break;
+        case 'deals': loadDeals(); break;
+        case 'companies': loadCompanies(); break;
+        case 'leads': loadLeads(); break;
+        case 'quotes': loadQuotes(); break;
+        case 'tasks': loadTasks(); break;
+      }
     });
   });
 
@@ -1379,8 +1916,182 @@ function setSuggestion(text) {
 
   // Load initial data
   checkHubSpotConnection();
-  loadContacts();
+  loadOverview();
 })();
+
+// Enhanced API functions
+async function loadOverview() {
+  try {
+    // Load stats
+    const [contactsRes, dealsRes] = await Promise.all([
+      fetch('/api/hubspot/contacts'),
+      fetch('/api/hubspot/deals')
+    ]);
+    
+    const contactsData = await contactsRes.json();
+    const dealsData = await dealsRes.json();
+    
+    // Update stats
+    document.getElementById('contactsCount').textContent = contactsData.contacts?.length || 0;
+    document.getElementById('dealsCount').textContent = dealsData.deals?.length || 0;
+    
+    // Calculate pipeline value
+    const totalValue = dealsData.deals?.reduce((sum, deal) => sum + (parseFloat(deal.amount) || 0), 0) || 0;
+    document.getElementById('revenueCount').textContent = `$${totalValue.toLocaleString()}`;
+    
+    // Load recent activity
+    loadRecentActivity(contactsData.contacts, dealsData.deals);
+    
+  } catch (error) {
+    console.error('Error loading overview:', error);
+  }
+}
+
+async function loadRecentActivity(contacts, deals) {
+  const activityList = document.getElementById('recentActivity');
+  
+  if (!contacts || !deals) {
+    activityList.innerHTML = '<div class="loading-state">No recent activity</div>';
+    return;
+  }
+  
+  // Combine and sort recent items
+  const activities = [];
+  
+  contacts.slice(0, 3).forEach(contact => {
+    activities.push({
+      type: 'contact',
+      icon: '👤',
+      text: `New contact: ${contact.firstName} ${contact.lastName}`,
+      time: new Date(contact.createdAt).toLocaleDateString()
+    });
+  });
+  
+  deals.slice(0, 3).forEach(deal => {
+    activities.push({
+      type: 'deal',
+      icon: '💰',
+      text: `Deal: ${deal.dealName} - $${deal.amount}`,
+      time: new Date(deal.createdAt).toLocaleDateString()
+    });
+  });
+  
+  // Sort by date and take first 5
+  activities.sort((a, b) => new Date(b.time) - new Date(a.time));
+  
+  if (activities.length === 0) {
+    activityList.innerHTML = '<div class="loading-state">No recent activity</div>';
+    return;
+  }
+  
+  activityList.innerHTML = activities.slice(0, 5).map(activity => `
+    <div class="activity-item">
+      <div class="activity-icon">${activity.icon}</div>
+      <div class="activity-content">
+        <p class="activity-text">${activity.text}</p>
+        <p class="activity-time">${activity.time}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadCompanies() {
+  const companiesList = document.getElementById('companiesList');
+  companiesList.innerHTML = '<div class="loading-state">Loading companies...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/companies');
+    const data = await response.json();
+    
+    if (data.companies && data.companies.length > 0) {
+      companiesList.innerHTML = data.companies.map(company => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${company.name || 'Unnamed Company'}</h4>
+            <p>${company.domain || 'No website'} • ${company.industry || 'No industry'}</p>
+            <div class="item-meta">
+              <span class="item-tag">${company.type || 'Company'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewCompany('${company.id}')">👁️ View</button>
+            <button class="btn" onclick="editCompany('${company.id}')">✏️ Edit</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      companiesList.innerHTML = '<div class="loading-state">No companies found</div>';
+    }
+  } catch (error) {
+    companiesList.innerHTML = '<div class="loading-state">Error loading companies - Check API configuration</div>';
+  }
+}
+
+async function loadLeads() {
+  const leadsList = document.getElementById('leadsList');
+  leadsList.innerHTML = '<div class="loading-state">Loading leads...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/leads');
+    const data = await response.json();
+    
+    if (data.leads && data.leads.length > 0) {
+      leadsList.innerHTML = data.leads.map(lead => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${lead.firstName} ${lead.lastName}</h4>
+            <p>${lead.email} • ${lead.company || 'No company'}</p>
+            <div class="item-meta">
+              <span class="item-tag status-${lead.status}">${lead.status}</span>
+              <span class="item-tag">Score: ${lead.score || 'N/A'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewLead('${lead.id}')">👁️ View</button>
+            <button class="btn" onclick="qualifyLead('${lead.id}')">✅ Qualify</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      leadsList.innerHTML = '<div class="loading-state">No leads found</div>';
+    }
+  } catch (error) {
+    leadsList.innerHTML = '<div class="loading-state">Error loading leads - Check API configuration</div>';
+  }
+}
+
+async function loadQuotes() {
+  const quotesList = document.getElementById('quotesList');
+  quotesList.innerHTML = '<div class="loading-state">Loading quotes...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/quotes');
+    const data = await response.json();
+    
+    if (data.quotes && data.quotes.length > 0) {
+      quotesList.innerHTML = data.quotes.map(quote => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${quote.title || 'Untitled Quote'}</h4>
+            <p>$${quote.amount} • ${quote.status || 'Draft'}</p>
+            <div class="item-meta">
+              <span class="item-tag">${quote.status || 'Draft'}</span>
+              <span class="item-tag">Due: ${quote.dueDate || 'No date'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewQuote('${quote.id}')">👁️ View</button>
+            <button class="btn" onclick="sendQuote('${quote.id}')">📧 Send</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      quotesList.innerHTML = '<div class="loading-state">No quotes found</div>';
+    }
+  } catch (error) {
+    quotesList.innerHTML = '<div class="loading-state">Error loading quotes - Check API configuration</div>';
+  }
+}
 
 // HubSpot API functions
 async function checkHubSpotConnection() {
@@ -1543,6 +2254,90 @@ async function completeTask(id) {
     console.error('Error completing task:', error);
     alert('Error completing task');
   }
+}
+
+// Enhanced utility functions
+function switchTab(tabName) {
+  const tabBtn = document.querySelector(`[data-tab="${tabName}"]`);
+  if (tabBtn) tabBtn.click();
+}
+
+function clearForm() {
+  document.getElementById('addContactForm').reset();
+}
+
+// Refresh functions
+function refreshContacts() { loadContacts(); }
+function refreshDeals() { loadDeals(); }
+function refreshCompanies() { loadCompanies(); }
+function refreshLeads() { loadLeads(); }
+function refreshQuotes() { loadQuotes(); }
+function refreshTasks() { loadTasks(); }
+
+// Filter functions
+function filterContacts() {
+  const filter = document.getElementById('contactFilter').value;
+  // Implement filtering logic
+  console.log('Filtering contacts by:', filter);
+}
+
+function filterDeals() {
+  const filter = document.getElementById('dealFilter').value;
+  // Implement filtering logic
+  console.log('Filtering deals by:', filter);
+}
+
+function filterLeads() {
+  const filter = document.getElementById('leadFilter').value;
+  // Implement filtering logic
+  console.log('Filtering leads by:', filter);
+}
+
+function filterQuotes() {
+  const filter = document.getElementById('quoteFilter').value;
+  // Implement filtering logic
+  console.log('Filtering quotes by:', filter);
+}
+
+// Action functions for new entities
+function viewCompany(id) {
+  window.open(`https://app.hubspot.com/companies/${id}`, '_blank');
+}
+
+function editCompany(id) {
+  window.open(`https://app.hubspot.com/companies/${id}`, '_blank');
+}
+
+function viewLead(id) {
+  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
+}
+
+function qualifyLead(id) {
+  // Implement lead qualification logic
+  console.log('Qualifying lead:', id);
+  alert('Lead qualification feature coming soon!');
+}
+
+function viewQuote(id) {
+  window.open(`https://app.hubspot.com/quotes/${id}`, '_blank');
+}
+
+function sendQuote(id) {
+  // Implement quote sending logic
+  console.log('Sending quote:', id);
+  alert('Quote sending feature coming soon!');
+}
+
+function createDeal() {
+  // Implement deal creation
+  console.log('Creating new deal');
+  alert('Deal creation feature coming soon!');
+}
+
+function createQuote() {
+  // Implement quote creation
+  console.log('Creating new quote');
+  alert('Quote creation feature coming soon!');
 }
 </script>
 
