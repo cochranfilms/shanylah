@@ -352,13 +352,21 @@ body::before{
   .footer-info{ position:static; margin:16px 0; font-size:11px; }
 }
 
-/* Wider card and two-column layout on small laptops to reduce vertical scroll */
-@media (max-width:820px){
+/* Wider card and two-column layout only on small laptops/tablets */
+@media (min-width:640px) and (max-width:820px){
   .login-card{ max-width:720px; }
   .login-form{ grid-template-columns:1fr 1fr; align-items:end; }
   .login-form > .error-message{ grid-column:1 / -1; }
   .login-form > .form-group{ grid-column:span 1; }
   .login-form > .login-btn{ grid-column:1 / -1; }
+}
+
+/* Phone optimization: full-width single column and tighter spacing */
+@media (max-width:639px){
+  .login-card{ max-width:96vw; margin:12px auto; padding:28px 18px; }
+  .login-form{ grid-template-columns:1fr; gap:16px; }
+  .form-input{ padding:14px 14px; font-size:16px; }
+  .login-btn{ width:100%; padding:14px 18px; }
 }
 
 /* Make the card wider and two-column on small laptops even when viewport width is larger */
