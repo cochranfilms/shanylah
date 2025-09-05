@@ -103,6 +103,60 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   overflow:hidden;
 }
 
+/* Name badge (lanyard style) */
+.name-badge{
+  position:absolute;
+  top:-18px;
+  right:24px;
+  width:200px;
+  perspective:800px;
+  z-index:3;
+}
+.name-badge .lanyard{
+  position:absolute;
+  top:0;left:50%;
+  width:8px;height:70px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#8b5cf6,#ec4899);
+  border-radius:6px 6px 0 0;
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+  opacity:.9;
+}
+.name-badge .clip{
+  position:absolute;top:58px;left:50%;transform:translateX(-50%);
+  width:40px;height:18px;border-radius:10px;
+  background:linear-gradient(180deg,#e5e7eb,#cbd5e1);
+  border:1px solid rgba(0,0,0,.1);
+  box-shadow:inset 0 1px 0 #fff,0 4px 10px rgba(0,0,0,.08);
+}
+.name-badge .card{
+  margin-top:72px;
+  width:200px;height:120px;
+  background:linear-gradient(135deg,#ffffff 0%, #fff7ed 100%);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  box-shadow:0 16px 30px rgba(0,0,0,.16);
+  transform-style:preserve-3d;
+  transition:transform .25s ease, box-shadow .25s ease;
+  display:grid;grid-template-rows:auto 1fr auto;align-items:center;
+  padding:10px 12px; cursor:pointer;
+}
+.name-badge .card:hover{ box-shadow:0 24px 40px rgba(0,0,0,.2); }
+.name-badge .top{
+  display:flex; align-items:center; gap:8px; width:100%;
+}
+.name-badge .top img{ width:22px; height:22px; border-radius:4px; }
+.name-badge .company{ font-size:12px; font-weight:700; letter-spacing:.3px; color:#0f172a; }
+.name-badge .hello{ position:absolute; inset:auto auto 6px 8px; font-size:10px; color:#6b7280; }
+.name-badge .name{ font-family:Montserrat,Inter,sans-serif; font-weight:800; font-size:18px; color:#111827; text-transform:capitalize; }
+.name-badge .title{ font-size:12px; font-weight:600; color:#9ca3af; margin-top:-2px; }
+.name-badge .stripe{ position:absolute; inset:auto 0 0 0; height:6px; border-radius:0 0 14px 14px; background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); }
+
+@media(max-width:640px){
+  .name-badge{ right:12px; width:180px; }
+  .name-badge .card{ width:180px; height:110px; }
+}
+
 .hero::before{
   content:'';
   position:absolute;
@@ -1072,6 +1126,21 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           <p class="intro">This is your personal command center — everything you need to rock your role as our amazing assistant. Bookmark this page because we're constantly adding new tools and resources to help you succeed and grow with us!</p>
         </div>
       </div>
+      <!-- Interactive Name Badge -->
+      <div class="name-badge" id="nameBadge" aria-label="Name badge for Shanylah Sainvil">
+        <div class="lanyard" aria-hidden="true"></div>
+        <div class="clip" aria-hidden="true"></div>
+        <div class="card" tabindex="0" role="button" aria-pressed="false">
+          <div class="top">
+            <img src="CF_Logo_Black2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
+            <div class="company">Cochran Films</div>
+          </div>
+          <div class="name">Shanylah Sainvil</div>
+          <div class="title">Assistant</div>
+          <div class="hello">Welcome aboard</div>
+          <div class="stripe" aria-hidden="true"></div>
+        </div>
+      </div>
       <div class="quick-links" style="margin-top:14px">
         <a class="btn gold" href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Team Files (Read)</a>
         <a class="btn" href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Your Drive Folder (Upload)</a>
@@ -1929,6 +1998,26 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   </footer>
 
 <script>
+// Name badge tilt/hover interaction
+(function(){
+  var badge = document.getElementById('nameBadge');
+  if(!badge) return;
+  var card = badge.querySelector('.card');
+  function setTilt(e){
+    var rect = card.getBoundingClientRect();
+    var x = (e.clientX || (rect.left + rect.width/2)) - rect.left;
+    var y = (e.clientY || (rect.top + rect.height/2)) - rect.top;
+    var rx = ((y/rect.height) - 0.5) * -8;
+    var ry = ((x/rect.width) - 0.5) * 8;
+    card.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+  }
+  function reset(){ card.style.transform = 'rotateX(0) rotateY(0)'; }
+  card.addEventListener('mousemove', setTilt);
+  card.addEventListener('mouseleave', reset);
+  card.addEventListener('focus', function(){ card.style.boxShadow = '0 26px 48px rgba(0,0,0,.22)'; });
+  card.addEventListener('blur', function(){ card.style.boxShadow = ''; reset(); });
+})();
+
 // Authentication Check
 (function(){
   // Check if user is authenticated
