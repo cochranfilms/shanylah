@@ -2876,7 +2876,7 @@ function renderWaveInvoices(invoices){
         })()} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
       </div>
       <div class="item-actions">
-        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}')">👁️ View</button>
+        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}','${inv.invoiceNumber || ''}')">👁️ View</button>
         <button class="btn" onclick="sendWaveInvoice('${inv.id || ''}')">📧 Send</button>
         <button class="btn" onclick="markWaveInvoicePaid('${inv.id || ''}')">✅ Mark Paid</button>
       </div>
@@ -2963,7 +2963,17 @@ function searchWaveCustomers(){ /* TODO: optional */ refreshWaveCustomers(); }
 function searchWaveProducts(){ /* TODO: optional */ refreshWaveProducts(); }
 
 // Wave actions
-function viewWaveInvoice(id){ if(!id) return; window.open(`https://next.waveapps.com/invoices/${id}`, '_blank'); }
+function viewWaveInvoice(id, number){
+  // Prefer a search view by invoice number to avoid 404s on direct deep-links
+  if(number){
+    const num = String(number).replace(/^INV-/, '');
+    window.open(`https://next.waveapps.com/invoices?search=${encodeURIComponent(num)}`, '_blank');
+    return;
+  }
+  if(!id) return;
+  const encoded = encodeURIComponent(String(id));
+  window.open(`https://next.waveapps.com/invoices/${encoded}`,'_blank');
+}
 function sendWaveInvoice(id){ if(!id) return; alert('Sending via API not implemented in this demo.'); }
 function markWaveInvoicePaid(id){ if(!id) return; alert('Mark paid via API not implemented in this demo.'); }
 function viewWaveCustomer(id){ if(!id) return; window.open(`https://next.waveapps.com/contacts/${id}`, '_blank'); }
