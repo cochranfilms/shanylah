@@ -2876,7 +2876,7 @@ function renderWaveInvoices(invoices){
         })()} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
       </div>
       <div class="item-actions">
-        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}','${inv.invoiceNumber || ''}')">👁️ View</button>
+        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}','${inv.invoiceNumber || ''}','${inv.customerName || (inv.customer && inv.customer.name) || ''}')">👁️ View</button>
         <button class="btn" onclick="sendWaveInvoice('${inv.id || ''}')">📧 Send</button>
         <button class="btn" onclick="markWaveInvoicePaid('${inv.id || ''}')">✅ Mark Paid</button>
       </div>
@@ -2963,7 +2963,7 @@ function searchWaveCustomers(){ /* TODO: optional */ refreshWaveCustomers(); }
 function searchWaveProducts(){ /* TODO: optional */ refreshWaveProducts(); }
 
 // Wave actions
-function viewWaveInvoice(id, number){
+function viewWaveInvoice(id, number, customerName){
   // Prefer a search view by invoice number to avoid 404s on direct deep-links
   if(number){
     const num = String(number).replace(/^INV-/, '');
