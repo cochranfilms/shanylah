@@ -2566,13 +2566,19 @@ function searchTasks() {
 }
 
 // Action functions
-function viewContact(id) {
-  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
+async function viewContact(id) {
+  try{
+    // Resolve portalId once to build a stable deep link
+    if(!window.__hsPortalId){
+      const s = await fetch('/api/hubspot/status', { cache: 'no-store' }).then(r=>r.json()).catch(()=>({}));
+      if(s && s.portalId) window.__hsPortalId = s.portalId;
+    }
+  }catch(_){}
+  const portalPart = window.__hsPortalId ? `${window.__hsPortalId}/` : '';
+  window.open(`https://app.hubspot.com/contacts/${portalPart}record/${id}`, '_blank');
 }
 
-function editContact(id) {
-  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
-}
+function editContact(id) { viewContact(id); }
 
 function viewDeal(id) {
   window.open(`https://app.hubspot.com/deals/${id}`, '_blank');

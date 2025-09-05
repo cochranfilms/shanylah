@@ -11,7 +11,18 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'HUBSPOT_API_KEY not configured' });
     }
 
-    // Test HubSpot connection by fetching account info
+    // Fetch portal/account info to expose portalId for deep links
+    const acctRes = await fetch('https://api.hubapi.com/integrations/v1/me', {
+      headers: {
+        'Authorization': `Bearer ${hubspotApiKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    if (!acctRes.ok) throw new Error(`HubSpot account API error: ${acctRes.status}`);
+    const acct = await acctRes.json();
+    const portalId = acct?.portalId || acct?.portals?.[0]?.portalId || null;
+
+    // Quick connectivity check (optional)
     const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts?limit=1', {
       headers: {
         'Authorization': `Bearer ${hubspotApiKey}`,
@@ -20,7 +31,7 @@ export default async function handler(req, res) {
     });
 
     if (response.ok) {
-      return res.status(200).json({ ok: true, status: 'connected' });
+      return res.status(200).json({ ok: true, status: 'connected', portalId });
     } else {
       throw new Error(`HubSpot API error: ${response.status}`);
     }
