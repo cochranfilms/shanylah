@@ -106,16 +106,17 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 /* Name badge (lanyard style) */
 .name-badge{
   position:absolute;
-  top:-18px;
-  right:24px;
-  width:200px;
+  top:8px;
+  left:24px;
+  width:180px;
   perspective:800px;
   z-index:3;
+  animation:badgeBob 6s ease-in-out infinite;
 }
 .name-badge .lanyard{
   position:absolute;
-  top:0;left:50%;
-  width:8px;height:70px;
+  top:-6px;left:50%;
+  width:6px;height:58px;
   transform:translateX(-50%);
   background:linear-gradient(180deg,#8b5cf6,#ec4899);
   border-radius:6px 6px 0 0;
@@ -124,14 +125,14 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 }
 .name-badge .clip{
   position:absolute;top:58px;left:50%;transform:translateX(-50%);
-  width:40px;height:18px;border-radius:10px;
+  width:34px;height:16px;border-radius:10px;
   background:linear-gradient(180deg,#e5e7eb,#cbd5e1);
   border:1px solid rgba(0,0,0,.1);
   box-shadow:inset 0 1px 0 #fff,0 4px 10px rgba(0,0,0,.08);
 }
 .name-badge .card{
-  margin-top:72px;
-  width:200px;height:120px;
+  margin-top:60px;
+  width:180px;height:104px;
   background:linear-gradient(135deg,#ffffff 0%, #fff7ed 100%);
   border:1px solid rgba(0,0,0,.08);
   border-radius:14px;
@@ -146,15 +147,24 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   display:flex; align-items:center; gap:8px; width:100%;
 }
 .name-badge .top img{ width:22px; height:22px; border-radius:4px; }
-.name-badge .company{ font-size:12px; font-weight:700; letter-spacing:.3px; color:#0f172a; }
-.name-badge .hello{ position:absolute; inset:auto auto 6px 8px; font-size:10px; color:#6b7280; }
-.name-badge .name{ font-family:Montserrat,Inter,sans-serif; font-weight:800; font-size:18px; color:#111827; text-transform:capitalize; }
-.name-badge .title{ font-size:12px; font-weight:600; color:#9ca3af; margin-top:-2px; }
+.name-badge .company{ font-size:11px; font-weight:800; letter-spacing:.4px; color:#0f172a; }
+.name-badge .hello{ position:absolute; inset:auto auto 6px 10px; font-size:10px; color:#6b7280; }
+.name-badge .name{ font-family:Montserrat,Inter,sans-serif; font-weight:900; font-size:16px; color:#111827; text-transform:capitalize; line-height:1.1; }
+.name-badge .title{ font-size:11px; font-weight:700; color:#64748b; margin-top:-2px; }
 .name-badge .stripe{ position:absolute; inset:auto 0 0 0; height:6px; border-radius:0 0 14px 14px; background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); }
 
+/* Extra polish: holographic sticker + shine */
+.name-badge .holo{ position:absolute; right:8px; top:8px; width:18px; height:18px; border-radius:4px; background:conic-gradient(from 0deg,#ffd700,#8b5cf6,#ec4899,#10b981,#ffd700); opacity:.6; box-shadow:0 1px 3px rgba(0,0,0,.15); }
+.name-badge .card::after{ content:''; position:absolute; inset:2px; border-radius:12px; background:linear-gradient(120deg,transparent 40%, rgba(255,255,255,.45) 50%, transparent 60%); filter:blur(0.5px); transform:translateX(-110%); animation:badgeShine 6s ease-in-out infinite; pointer-events:none; }
+
+@keyframes badgeShine{ 0%,20%{ transform:translateX(-110%);} 50%{ transform:translateX(110%);} 100%{ transform:translateX(110%);} }
+@keyframes badgeBob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(2px);} }
+
 @media(max-width:640px){
-  .name-badge{ right:12px; width:180px; }
-  .name-badge .card{ width:180px; height:110px; }
+  .name-badge{ left:12px; width:160px; top:6px; }
+  .name-badge .card{ width:160px; height:96px; }
+  .name-badge .name{ font-size:14px; }
+  .name-badge .title{ font-size:10px; }
 }
 
 .hero::before{
@@ -1138,6 +1148,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           <div class="name">Shanylah Sainvil</div>
           <div class="title">Assistant</div>
           <div class="hello">Welcome aboard</div>
+          <div class="holo" aria-hidden="true" title="Official"></div>
           <div class="stripe" aria-hidden="true"></div>
         </div>
       </div>
