@@ -2574,8 +2574,12 @@ async function viewContact(id) {
       if(s && s.portalId) window.__hsPortalId = s.portalId;
     }
   }catch(_){}
-  const portalPart = window.__hsPortalId ? `${window.__hsPortalId}/` : '';
-  window.open(`https://app.hubspot.com/contacts/${portalPart}record/${id}`, '_blank');
+  if(window.__hsPortalId){
+    window.open(`https://app.hubspot.com/contacts/${window.__hsPortalId}/record/0-1/${id}`, '_blank');
+  } else {
+    // Legacy fallback without portalId
+    window.open(`https://app.hubspot.com/contacts/contact/${id}`, '_blank');
+  }
 }
 
 function editContact(id) { viewContact(id); }
