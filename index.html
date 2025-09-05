@@ -103,6 +103,26 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   overflow:hidden;
 }
 
+/* Dark theme variant for the hero banner */
+.hero.dark{
+  background:linear-gradient(135deg,#0f172a 0%, #111827 45%, #0b1220 100%);
+  color:var(--cf-white);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.hero.dark .intro{ color:rgba(255,255,255,0.85); }
+.hero.dark .tag{ box-shadow:0 6px 18px rgba(245,175,0,.18); }
+.hero.dark::before{ opacity:.18; }
+
+/* Theme toggle chip */
+.theme-toggle{
+  position:absolute; right:18px; bottom:16px; z-index:4;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06); color:#e5e7eb; font-weight:600;
+  backdrop-filter:blur(8px) saturate(1.2); cursor:pointer;
+}
+.theme-toggle:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
+
 /* Name badge (lanyard style) */
 .name-badge{
   position:absolute;
@@ -1163,6 +1183,34 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       </div>
     </div>
   </header>
+  
+  <script>
+  // Simple theme toggle for hero banner (dark/light)
+  (function(){
+    try{
+      var hero = document.querySelector('.hero');
+      if(!hero) return;
+      // Create toggle
+      var btn = document.createElement('button');
+      btn.className = 'theme-toggle';
+      btn.type = 'button';
+      btn.setAttribute('aria-label','Toggle hero theme');
+      btn.textContent = '🌙 Dark';
+      hero.appendChild(btn);
+      function apply(mode){
+        if(mode === 'dark'){ hero.classList.add('dark'); btn.textContent = '☀️ Light'; }
+        else { hero.classList.remove('dark'); btn.textContent = '🌙 Dark'; }
+      }
+      var saved = localStorage.getItem('cf_hero_theme') || 'dark';
+      apply(saved);
+      btn.addEventListener('click', function(){
+        var now = hero.classList.contains('dark') ? 'light' : 'dark';
+        localStorage.setItem('cf_hero_theme', now);
+        apply(now);
+      });
+    }catch(e){}
+  })();
+  </script>
 
   <main id="cf-main" class="wrap">
     <section id="ai-tools" class="card" style="margin-bottom:24px">
