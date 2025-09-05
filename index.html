@@ -1274,6 +1274,22 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
               <span class="btn-loading" style="display:none;">⏳</span>
             </button>
           </div>
+          <div id="aiResponse" class="ai-response" style="display:none; margin-top:10px;">
+            <div class="ai-response-content"></div>
+            <div class="ai-response-actions">
+              <button class="btn" onclick="copyResponse()">📋 Copy</button>
+              <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
+            </div>
+          </div>
+          <div class="ai-suggestions" style="margin-top:10px;">
+            <p class="suggestion-label">💡 Try asking:</p>
+            <div class="suggestion-chips">
+              <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1314,13 +1330,8 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       <h2>🤖 AI Assistant Search</h2>
       <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
       <div class="ai-search-container">
-        <div id="aiResponse" class="ai-response" style="display:none;">
-          <div class="ai-response-content"></div>
-          <div class="ai-response-actions">
-            <button class="btn" onclick="copyResponse()">📋 Copy</button>
-            <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
-          </div>
-        </div>
+        <!-- The interactive input now lives in the hero; this section mirrors results/suggestions -->
+        <div id="aiResponse" class="ai-response" style="display:none;"></div>
         <div class="ai-suggestions">
           <p class="suggestion-label">💡 Try asking:</p>
           <div class="suggestion-chips">
