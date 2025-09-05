@@ -224,6 +224,18 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 .rocket-logo{ width:48px; height:auto; margin-left:10px; vertical-align:middle; filter:drop-shadow(0 6px 12px rgba(0,0,0,.15)); animation:float 3s ease-in-out infinite; }
 @media(max-width:640px){ .rocket-logo{ width:32px; } }
 
+/* AI input embedded in hero */
+.hero-ai{
+  margin-top:16px;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 14px 28px rgba(0,0,0,.35);
+}
+.hero-ai .search-input-group{ display:flex; gap:10px; align-items:stretch }
+@media(max-width:640px){ .hero-ai{ padding:12px; } .hero-ai .search-input-group{ flex-direction:column; } }
+
 /* Onboarding video callout */
 .video-callout{
   max-width:var(--max);
@@ -1251,6 +1263,20 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           </div>
         </div>
       </aside>
+      
+      <!-- Embedded AI input inside hero -->
+      <div class="hero-ai">
+        <div class="ai-search-container">
+          <div class="search-input-group">
+            <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
+            <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
+              <span class="btn-text">Search</span>
+              <span class="btn-loading" style="display:none;">⏳</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Interactive Name Badge -->
       <div class="name-badge" id="nameBadge" aria-label="Name badge for Shanylah Sainvil">
         <div class="lanyard" aria-hidden="true"></div>
@@ -1288,13 +1314,6 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       <h2>🤖 AI Assistant Search</h2>
       <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
       <div class="ai-search-container">
-        <div class="search-input-group">
-          <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
-          <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
-            <span class="btn-text">Search</span>
-            <span class="btn-loading" style="display:none;">⏳</span>
-          </button>
-        </div>
         <div id="aiResponse" class="ai-response" style="display:none;">
           <div class="ai-response-content"></div>
           <div class="ai-response-actions">
