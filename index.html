@@ -2963,11 +2963,20 @@ function searchWaveCustomers(){ /* TODO: optional */ refreshWaveCustomers(); }
 function searchWaveProducts(){ /* TODO: optional */ refreshWaveProducts(); }
 
 // Wave actions
-function viewWaveInvoice(id, number, customerName){
-  // Prefer a search view by invoice number to avoid 404s on direct deep-links
-  if(number){
-    const num = String(number).replace(/^INV-/, '');
-    window.open(`https://next.waveapps.com/invoices?search=${encodeURIComponent(num)}`, '_blank');
+async function viewWaveInvoice(id, number, customerName){
+  const num = number ? String(number).replace(/^INV-/, '') : '';
+  try{
+    // Try business-scoped invoices list (more reliable)
+    const st = await fetch('/api/wave/status', { cache: 'no-store' }).then(r=>r.json()).catch(()=>({}));
+    const bizId = st && st.business && st.business.id;
+    if (bizId && num){
+      const url = `https://next.waveapps.com/businesses/${encodeURIComponent(bizId)}/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`;
+      window.open(url, '_blank');
+      return;
+    }
+  }catch(_){}
+  if(num){
+    window.open(`https://next.waveapps.com/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`,'_blank');
     return;
   }
   if(!id) return;
