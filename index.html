@@ -96,7 +96,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 .hero{
   position:relative;
   padding:100px 24px 40px;
-  background:linear-gradient(135deg,var(--cf-white) 0%,var(--cf-light-gray) 100%);
+  background:#000;
   border-radius:24px;
   margin-bottom:32px;
   box-shadow:var(--shadow-lg);
@@ -105,23 +105,16 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 
 /* Dark theme variant for the hero banner */
 .hero.dark{
-  background:linear-gradient(135deg,#0f172a 0%, #111827 45%, #0b1220 100%);
+  background:#000;
   color:var(--cf-white);
   border:1px solid rgba(255,255,255,0.06);
 }
 .hero.dark .intro{ color:rgba(255,255,255,0.85); }
 .hero.dark .tag{ display:none; }
-.hero.dark::before{ opacity:.18; }
+.hero.dark::before{ opacity:.12; }
 
 /* Theme toggle chip */
-.theme-toggle{
-  position:absolute; right:18px; bottom:16px; z-index:4;
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.06); color:#e5e7eb; font-weight:600;
-  backdrop-filter:blur(8px) saturate(1.2); cursor:pointer;
-}
-.theme-toggle:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
+/* Theme toggle removed; always dark */
 
 /* Name badge (lanyard style) */
 .name-badge{
@@ -1195,7 +1188,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           <div class="ring" aria-hidden="true"></div>
         </div>
         <div class="meta">
-          <img src="CF_Logo_White2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
+          <img src="CF_Logo_Black2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
           <div>
             <div class="name">Shanylah Sainvil</div>
             <div class="title">Assistant • Cochran Films</div>
@@ -1227,31 +1220,8 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   </header>
   
   <script>
-  // Simple theme toggle for hero banner (dark/light)
-  (function(){
-    try{
-      var hero = document.querySelector('.hero');
-      if(!hero) return;
-      // Create toggle
-      var btn = document.createElement('button');
-      btn.className = 'theme-toggle';
-      btn.type = 'button';
-      btn.setAttribute('aria-label','Toggle hero theme');
-      btn.textContent = '🌙 Dark';
-      hero.appendChild(btn);
-      function apply(mode){
-        if(mode === 'dark'){ hero.classList.add('dark'); btn.textContent = '☀️ Light'; }
-        else { hero.classList.remove('dark'); btn.textContent = '🌙 Dark'; }
-      }
-      var saved = localStorage.getItem('cf_hero_theme') || 'dark';
-      apply(saved);
-      btn.addEventListener('click', function(){
-        var now = hero.classList.contains('dark') ? 'light' : 'dark';
-        localStorage.setItem('cf_hero_theme', now);
-        apply(now);
-      });
-    }catch(e){}
-  })();
+  // Force dark mode for hero (no toggle)
+  (function(){ try{ var hero=document.querySelector('.hero'); if(hero) hero.classList.add('dark'); }catch(e){} })();
   </script>
 
   <main id="cf-main" class="wrap">
