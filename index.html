@@ -2976,7 +2976,12 @@ async function viewWaveInvoice(id, number, customerName){
     }
   }catch(_){}
   if(num){
-    window.open(`https://next.waveapps.com/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`,'_blank');
+    // Fallbacks: global search, then classic domain
+    const candidateUrls = [
+      `https://next.waveapps.com/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`,
+      `https://my.waveapps.com/invoices?search=${encodeURIComponent(num)}`
+    ];
+    window.open(candidateUrls[0],'_blank');
     return;
   }
   if(!id) return;
