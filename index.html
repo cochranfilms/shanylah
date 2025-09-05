@@ -213,6 +213,27 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 .rocket-logo{ width:48px; height:auto; margin-left:10px; vertical-align:middle; filter:drop-shadow(0 6px 12px rgba(0,0,0,.15)); animation:float 3s ease-in-out infinite; }
 @media(max-width:640px){ .rocket-logo{ width:32px; } }
 
+/* Onboarding video callout */
+.video-callout{
+  max-width:var(--max);
+  margin:0 auto 24px;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+.video-callout .video-header{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.video-callout .watch-badge{
+  display:inline-flex; align-items:center; gap:8px; padding:8px 14px;
+  font-weight:800; color:#111827; background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));
+  border-radius:999px; box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.video-callout .video-title{ margin:0; font-weight:800; color:#fff; font-size:22px; }
+.video-callout .video-embed{ position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:#000; }
+.video-callout .video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; }
+@media(max-width:640px){ .video-callout .video-title{ font-size:18px; } }
+
 /* Professional profile card */
 .profile-card{
   position:absolute; right:20px; top:84px; z-index:3;
@@ -1219,6 +1240,22 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     </div>
   </header>
   
+  <!-- Important onboarding video for Shanylah -->
+  <section class="video-callout">
+    <div class="video-header">
+      <span class="watch-badge">▶ Watch this first</span>
+      <h2 class="video-title">Welcome message — important context for your first week</h2>
+    </div>
+    <div class="video-embed">
+      <iframe
+        src="https://www.youtube.com/embed/d7hvFxe8Zwg?rel=0&modestbranding=1&fs=1&autoplay=0"
+        title="Welcome video"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+  </section>
+
   <script>
   // Force dark mode for hero (no toggle)
   (function(){ try{ var hero=document.querySelector('.hero'); if(hero) hero.classList.add('dark'); }catch(e){} })();
