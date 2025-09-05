@@ -1275,27 +1275,14 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     </div>
   </header>
   
-  <!-- Important onboarding video for Shanylah -->
-  <section class="video-callout">
-    <div class="video-header">
-      <span class="watch-badge">▶ Watch this first</span>
-      <h2 class="video-title">Welcome message — important context for your first week</h2>
-    </div>
-    <div class="video-embed">
-      <iframe
-        src="https://www.youtube.com/embed/d7hvFxe8Zwg?rel=0&modestbranding=1&fs=1&autoplay=0"
-        title="Welcome video"
-        frameborder="0"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-  </section>
+  
 
   <script>
   // Force dark mode for hero (no toggle)
   (function(){ try{ var hero=document.querySelector('.hero'); if(hero) hero.classList.add('dark'); }catch(e){} })();
   </script>
 
+  <!-- Important onboarding video for Shanylah (kept after AI section) -->
   <main id="cf-main" class="wrap">
     <section id="ai-tools" class="card" style="margin-bottom:24px">
       <h2>🤖 AI Assistant Search</h2>
@@ -1324,6 +1311,21 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
             <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="video-callout">
+      <div class="video-header">
+        <span class="watch-badge">▶ Watch this first</span>
+        <h2 class="video-title">Welcome message — important context for your first week</h2>
+      </div>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/d7hvFxe8Zwg?rel=0&modestbranding=1&fs=1&autoplay=0"
+          title="Welcome video"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
     </section>
 
