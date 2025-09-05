@@ -112,7 +112,7 @@ body::before{
   padding:48px 40px;
   box-shadow:var(--shadow-lg);
   width:100%;
-  max-width:420px;
+  max-width:640px;
   border:1px solid rgba(255,255,255,0.2);
   position:relative;
   overflow:hidden;
@@ -341,7 +341,7 @@ body::before{
 /* Additional responsive refinements for small laptops and phones */
 @media (max-width:768px){
   .login-container{ padding:12px; }
-  .login-card{ max-width:560px; padding:36px 28px; border-radius:20px; }
+  .login-card{ max-width:640px; padding:36px 28px; border-radius:20px; }
   .brand-logo{ height:72px; }
   .brand-title{ font-size:24px; }
   .brand-subtitle{ font-size:14px; }
@@ -354,10 +354,18 @@ body::before{
 
 /* Wider card and two-column layout on small laptops to reduce vertical scroll */
 @media (max-width:820px){
-  .login-card{ max-width:600px; }
+  .login-card{ max-width:720px; }
   .login-form{ grid-template-columns:1fr 1fr; align-items:end; }
   .login-form > .error-message{ grid-column:1 / -1; }
   .login-form > .form-group{ grid-column:span 1; }
+  .login-form > .login-btn{ grid-column:1 / -1; }
+}
+
+/* Make the card wider and two-column on small laptops even when viewport width is larger */
+@media (min-width:821px) and (max-width:1280px){
+  .login-card{ max-width:760px; }
+  .login-form{ grid-template-columns:1fr 1fr; align-items:end; }
+  .login-form > .error-message{ grid-column:1 / -1; }
   .login-form > .login-btn{ grid-column:1 / -1; }
 }
 
@@ -369,6 +377,16 @@ body::before{
   .brand-title{ font-size:22px; }
   .brand-subtitle{ font-size:13px; }
   .security-features, .footer-info{ display:none; }
+}
+
+/* Tighten spacing on modest-height laptops (e.g., MacBook Air) */
+@media (max-height:820px){
+  .login-card{ padding:32px 28px; }
+  .brand-section{ margin-bottom:24px; }
+  .brand-logo{ height:72px; }
+  .login-form{ gap:16px; }
+  .security-features{ margin-top:16px; }
+  .footer-info{ display:none; }
 }
 
 @media (max-width:360px){
