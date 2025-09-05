@@ -375,6 +375,15 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   box-shadow:var(--shadow);
 }
 
+.calendar-embed{
+  width:100%;
+  height:800px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
 .hint{
   font-size:14px;
   color:var(--cf-gray);
@@ -1474,6 +1483,20 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>📆 Cochran Films Google Calendar</h2>
+      <p class="muted">Live view of our team calendar. Use the direct link if the embed asks you to sign in.</p>
+      <div class="quick-links" style="margin-bottom:12px">
+        <a class="btn gold" href="https://calendar.google.com/calendar/u/0?cid=aW5mb0Bjb2NocmFuZmlsbXMuY29t" target="_blank" rel="noopener">Open in Google Calendar</a>
+      </div>
+      <iframe
+        class="calendar-embed"
+        title="Cochran Films Calendar"
+        src="https://calendar.google.com/calendar/embed?src=info%40cochranfilms.com&ctz=America%2FNew_York&mode=AGENDA"
+        frameborder="0"
+        scrolling="no"></iframe>
     </section>
 
     <section class="card" style="margin-top:18px">
