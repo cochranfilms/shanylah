@@ -204,6 +204,11 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   z-index:2;
 }
 
+/* Ensure heading clears the hanging name badge */
+.brand h1{ margin-top:84px; }
+@media(max-width:900px){ .brand h1{ margin-top:96px; } }
+@media(max-width:640px){ .brand h1{ margin-top:110px; } }
+
 .brand img{
   width:64px;
   height:auto;
