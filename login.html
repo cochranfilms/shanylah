@@ -338,6 +338,27 @@ body::before{
   }
 }
 
+/* Additional responsive refinements for small laptops and phones */
+@media (max-width:768px){
+  .login-container{ padding:12px; }
+  .login-card{ max-width:380px; padding:36px 28px; border-radius:20px; }
+  .brand-logo{ height:72px; }
+  .brand-title{ font-size:24px; }
+  .brand-subtitle{ font-size:14px; }
+  .login-btn{ padding:14px 20px; font-size:15px; }
+  .form-input{ padding:14px 16px; font-size:15px; }
+  .security-features{ margin-top:24px; }
+  .security-list{ grid-template-columns:1fr; }
+  .footer-info{ position:static; margin:16px 0; font-size:11px; }
+}
+
+@media (max-width:360px){
+  .login-card{ padding:28px 18px; }
+  .brand-logo{ height:60px; }
+  .brand-title{ font-size:20px; }
+  .login-btn{ padding:12px 16px; font-size:14px; }
+}
+
 /* Animation for form appearance */
 .login-card{
   animation:slideInUp 0.8s ease-out;
