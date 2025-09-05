@@ -111,7 +111,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   border-radius:24px;
   margin-bottom:32px;
   box-shadow:var(--shadow-lg);
-  overflow:hidden;
+  overflow:visible;
 }
 
 /* Dark theme variant for the hero banner */
@@ -232,7 +232,9 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   border-radius:16px;
   padding:14px;
   box-shadow:0 14px 28px rgba(0,0,0,.35);
+  position:relative; z-index:10;
 }
+.hero-ai-title{ margin:0 0 8px; font-weight:800; color:#fff; display:flex; align-items:center; gap:10px; }
 .hero-ai .search-input-group{ display:flex; gap:10px; align-items:stretch }
 @media(max-width:640px){ .hero-ai{ padding:12px; } .hero-ai .search-input-group{ flex-direction:column; } }
 
@@ -1266,6 +1268,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       
       <!-- Embedded AI input inside hero -->
       <div class="hero-ai">
+        <h3 class="hero-ai-title">🤖 AI Assistant Search</h3>
         <div class="ai-search-container">
           <div class="search-input-group">
             <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
@@ -1326,23 +1329,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
 
   <!-- Important onboarding video for Shanylah (kept after AI section) -->
   <main id="cf-main" class="wrap">
-    <section id="ai-tools" class="card" style="margin-bottom:24px">
-      <h2>🤖 AI Assistant Search</h2>
-      <p class="muted">Ask questions about Cochran Films procedures, tools, or get help with your tasks. Powered by ChatGPT integration.</p>
-      <div class="ai-search-container">
-        <!-- The interactive input now lives in the hero; this section mirrors results/suggestions -->
-        <div id="aiResponse" class="ai-response" style="display:none;"></div>
-        <div class="ai-suggestions">
-          <p class="suggestion-label">💡 Try asking:</p>
-          <div class="suggestion-chips">
-            <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
-            <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- AI tools section removed as requested; hero contains the AI chat -->
 
     <section class="video-callout">
       <div class="video-header">
