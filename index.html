@@ -2758,7 +2758,12 @@ async function loadWaveOverview(){
     // Stats
     document.getElementById('waveInvoicesCount').textContent = waveCache.invoices.length || 0;
     document.getElementById('waveCustomersCount').textContent = waveCache.customers.length || 0;
-    const total = (waveCache.invoices || []).reduce((sum, inv)=> sum + (parseFloat(inv.total) || 0), 0);
+    const total = (waveCache.invoices || []).reduce((sum, inv)=> {
+      const amountDue = (inv.amountDue != null && !isNaN(Number(inv.amountDue))) ? Number(inv.amountDue) : null;
+      const invoiceTotal = (inv.total != null && !isNaN(Number(inv.total))) ? Number(inv.total) : null;
+      const chosen = (amountDue != null && amountDue > 0) ? amountDue : (invoiceTotal != null ? invoiceTotal : 0);
+      return sum + chosen;
+    }, 0);
     document.getElementById('waveRevenueCount').textContent = `$${total.toLocaleString()}`;
     const now = new Date();
     const overdue = (waveCache.invoices || []).filter(inv => {
@@ -2785,7 +2790,12 @@ async function loadWaveOverview(){
         <div class="activity-icon">🧾</div>
         <div class="activity-content">
           <p class="activity-text">Invoice #${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</p>
-          <p class="activity-time">$${(parseFloat(inv.total)||0).toLocaleString()} • ${(inv.status||'').toString()}</p>
+          <p class="activity-time">$${(function(){
+            const amountDue = (inv.amountDue != null) ? Number(inv.amountDue) : null;
+            const invoiceTotal = (inv.total != null) ? Number(inv.total) : null;
+            const chosen = (amountDue != null && !isNaN(amountDue) && amountDue > 0) ? amountDue : (invoiceTotal != null ? invoiceTotal : 0);
+            return chosen.toLocaleString();
+          })()} • ${(inv.status||'').toString()}</p>
         </div>
       </div>
     `).join('');

@@ -54,9 +54,15 @@ export default async function handler(req, res) {
         if (json.errors) return res.status(500).json({ error: 'Wave GraphQL error', details: json.errors });
         const slice = json.data?.business?.invoices;
         const edges = slice?.edges || [];
+        const parseMoney = (v) => {
+          if (v == null) return null;
+          if (typeof v === 'number') return v;
+          const n = parseFloat(String(v).replace(/,/g, ''));
+          return Number.isFinite(n) ? n : null;
+        };
         all.push(...edges.map(e => {
-          const amountDueValue = (e.node.amountDue && (e.node.amountDue.value ?? e.node.amountDue?.amount)) ?? null;
-          const totalValue = (e.node.total && (e.node.total.value ?? e.node.total?.amount)) ?? null;
+          const amountDueValue = parseMoney((e.node.amountDue && (e.node.amountDue.value ?? e.node.amountDue?.amount)) ?? null);
+          const totalValue = parseMoney((e.node.total && (e.node.total.value ?? e.node.total?.amount)) ?? null);
           const currencyCode = e.node.total?.currency?.code || e.node.amountDue?.currency?.code;
           return {
             id: e.node.id,
@@ -66,8 +72,8 @@ export default async function handler(req, res) {
             invoiceDate: e.node.invoiceDate,
             dueDate: e.node.dueDate,
             // Store both amounts; UI will choose best to display
-            amountDue: (amountDueValue != null ? Number(amountDueValue) : null),
-            total: (totalValue != null ? Number(totalValue) : null),
+            amountDue: amountDueValue,
+            total: totalValue,
             currency: currencyCode,
             customerName: e.node.customer?.name,
             customer: e.node.customer
