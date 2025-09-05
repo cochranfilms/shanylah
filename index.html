@@ -2455,9 +2455,10 @@ async function loadContacts() {
   contactsList.innerHTML = '<div class="loading-state">Loading contacts...</div>';
   
   try {
-    const response = await fetch('/api/hubspot/contacts');
+    const response = await fetch('/api/hubspot/contacts?limit=300&pageSize=100');
     const data = await response.json();
-    window.__hsContactsCache = Array.isArray(data.contacts) ? data.contacts : [];
+    // Sort newest first for a live feel
+    window.__hsContactsCache = (Array.isArray(data.contacts) ? data.contacts : []).sort((a,b)=> new Date(b.createdAt||0) - new Date(a.createdAt||0));
     renderContacts(window.__hsContactsCache);
   } catch (error) {
     contactsList.innerHTML = '<div class="loading-state">Error loading contacts - Check API configuration</div>';

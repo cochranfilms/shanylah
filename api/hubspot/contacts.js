@@ -15,30 +15,47 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      // Fetch contacts
-      const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts?limit=50&properties=firstname,lastname,email,company,phone,hs_lead_status,createdate', {
-        headers,
-      });
+      // Cursor-paginated fetch using HubSpot search API, sorted by recent created date
+      const url = (()=>{ try{ return new URL(req.url, 'http://local'); }catch(_){ return null; } })();
+      const apiLimit = Math.min(1000, Math.max(1, Number(url?.searchParams?.get('limit') || 300))); // total desired
+      const pageSize = Math.min(100, Math.max(1, Number(url?.searchParams?.get('pageSize') || 100))); // per page
+      let after = url?.searchParams?.get('after') || undefined;
+      const contacts = [];
+      const props = ['firstname','lastname','email','company','phone','hs_lead_status','createdate'];
 
-      if (!response.ok) {
-        throw new Error(`HubSpot API error: ${response.status}`);
+      while (contacts.length < apiLimit) {
+        const body = {
+          sorts: [{ propertyName: 'createdate', direction: 'DESCENDING' }],
+          properties: props,
+          limit: Math.min(pageSize, apiLimit - contacts.length),
+          after
+        };
+        const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts/search', {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(body)
+        });
+        if (!response.ok) {
+          throw new Error(`HubSpot API error: ${response.status}`);
+        }
+        const data = await response.json();
+        (data.results || []).forEach(contact => {
+          contacts.push({
+            id: contact.id,
+            firstName: contact.properties?.firstname || '',
+            lastName: contact.properties?.lastname || '',
+            email: contact.properties?.email || '',
+            company: contact.properties?.company || '',
+            phone: contact.properties?.phone || '',
+            leadStatus: contact.properties?.hs_lead_status || 'new',
+            createdAt: contact.properties?.createdate
+          });
+        });
+        after = data.paging?.next?.after;
+        if (!after) break;
       }
 
-      const data = await response.json();
-      
-      // Transform data for frontend
-      const contacts = data.results.map(contact => ({
-        id: contact.id,
-        firstName: contact.properties.firstname || '',
-        lastName: contact.properties.lastname || '',
-        email: contact.properties.email || '',
-        company: contact.properties.company || '',
-        phone: contact.properties.phone || '',
-        leadStatus: contact.properties.hs_lead_status || 'new',
-        createdAt: contact.properties.createdate
-      }));
-
-      return res.status(200).json({ contacts });
+      return res.status(200).json({ contacts, nextAfter: after });
 
     } else if (req.method === 'POST') {
       // Create new contact
