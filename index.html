@@ -190,6 +190,10 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   animation:float 3s ease-in-out infinite;
 }
 
+/* Floating logo beside rocket in headline */
+.rocket-logo{ width:48px; height:auto; margin-left:10px; vertical-align:middle; filter:drop-shadow(0 6px 12px rgba(0,0,0,.15)); animation:float 3s ease-in-out infinite; }
+@media(max-width:640px){ .rocket-logo{ width:32px; } }
+
 @keyframes float{
   0%,100%{transform:translateY(0px)}
   50%{transform:translateY(-5px)}
@@ -1132,7 +1136,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
         <img src="CF_Logo_Black2025.png" alt="Cochran Films logo" onerror="this.src='CF_Logo_Black2025.png'">
         <div>
           <div class="tag">🎬 Welcome to the Team! 🎬</div>
-          <h1>Hey Shanylah! You're officially part of the Cochran Films family! 🚀</h1>
+          <h1>Hey Shanylah! You're officially part of the Cochran Films family! 🚀 <img src="CF_Logo_Black2025.png" alt="Cochran Films" class="rocket-logo" onerror="this.src='CF_Logo_Black2025.png'" /></h1>
           <p class="intro">This is your personal command center — everything you need to rock your role as our amazing assistant. Bookmark this page because we're constantly adding new tools and resources to help you succeed and grow with us!</p>
         </div>
       </div>
