@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cochran Films — Tutorials for Shanylah</title>
+<meta name="description" content="Comprehensive tutorials for HubSpot, Calendly, and WaveApps to help Shanylah master her assistant role.">
+<meta property="og:title" content="Cochran Films — Tutorials for Shanylah">
+<meta property="og:description" content="Master HubSpot, Calendly, and WaveApps with these comprehensive video tutorials.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="OG-Image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cochran Films — Tutorials for Shanylah">
+<meta name="twitter:description" content="Master HubSpot, Calendly, and WaveApps with these comprehensive video tutorials.">
+<meta name="twitter:image" content="OG-Image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="32x32" type="image/png">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="CF_Logo_Black2025.png">
+<meta name="theme-color" content="#1a1a1a">
+<style>
+/* Brand palette - Light theme */
+:root{
+  --cf-gold:#f5af00;
+  --cf-gold-light:#ffd700;
+  --cf-gold-dark:#e09a00;
+  --cf-black:#1a1a1a;
+  --cf-white:#ffffff;
+  --cf-gray:#6b7280;
+  --cf-light-gray:#f8fafc;
+  --cf-blue:#3b82f6;
+  --cf-purple:#8b5cf6;
+  --cf-pink:#ec4899;
+  --cf-green:#10b981;
+  --max:1200px;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;
+  background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);
+  color:var(--cf-black);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0 0 16px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);letter-spacing:-0.02em;background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2{font-size:clamp(24px,3vw,32px);color:var(--cf-black);position:relative}
+h2::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:4px;background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink));border-radius:2px}
+h3{font-size:20px;color:var(--cf-black)}
+
+p{margin:0 0 16px;color:var(--cf-gray)}
+img{max-width:100%;height:auto}
+
+a{color:var(--cf-blue);text-decoration:none;border-bottom:2px solid transparent;transition:all 0.3s ease}
+a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:translateY(-1px)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:32px 24px}
+
+.hero{
+  position:relative;
+  padding:60px 24px 40px;
+  background:#000;
+  border-radius:24px;
+  margin-bottom:32px;
+  box-shadow:var(--shadow-lg);
+  overflow:visible;
+}
+
+.hero.dark{
+  background:#000;
+  color:var(--cf-white);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.hero.dark .intro{ color:rgba(255,255,255,0.85); }
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:relative;
+  z-index:2;
+}
+
+.brand img{
+  width:64px;
+  height:auto;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  animation:float 3s ease-in-out infinite;
+}
+
+.intro{
+  color:var(--cf-gray);
+  max-width:900px;
+  font-size:18px;
+  line-height:1.7;
+  position:relative;
+  z-index:2;
+}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:32px}
+
+.card{
+  grid-column:span 12;
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.05);
+  border-radius:20px;
+  padding:28px 24px;
+  box-shadow:var(--shadow);
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple));
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+@media(min-width:900px){
+  .card{padding:32px 28px}
+  .span-6{grid-column:span 6}
+  .span-4{grid-column:span 4}
+  .span-8{grid-column:span 8}
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:20px;
+  color:var(--cf-black);
+}
+
+.muted{color:var(--cf-gray)}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:12px;
+  border:2px solid transparent;
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+  transition:left 0.5s;
+}
+
+.btn:hover::before{left:100%}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold:hover{
+  background:linear-gradient(135deg,var(--cf-gold-dark),var(--cf-gold));
+  transform:translateY(-2px) scale(1.02);
+}
+
+.footer{
+  padding:40px 24px;
+  color:var(--cf-gray);
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.1);
+  margin-top:40px;
+  background:var(--cf-white);
+  border-radius:20px 20px 0 0;
+}
+
+.kicker{font-size:14px;color:var(--cf-gray)}
+
+/* Tutorial-specific styles */
+.tutorial-nav{
+  display:flex;
+  gap:12px;
+  margin-bottom:32px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.tutorial-nav-btn{
+  padding:12px 24px;
+  border-radius:12px;
+  border:2px solid rgba(0,0,0,0.1);
+  background:var(--cf-white);
+  color:var(--cf-gray);
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.tutorial-nav-btn:hover{
+  border-color:var(--cf-gold);
+  color:var(--cf-black);
+  transform:translateY(-2px);
+}
+
+.tutorial-nav-btn.active{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+}
+
+.tutorial-section{
+  display:none;
+}
+
+.tutorial-section.active{
+  display:block;
+}
+
+.tutorial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+  gap:24px;
+  margin-top:24px;
+}
+
+.tutorial-card{
+  background:var(--cf-white);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:all 0.3s ease;
+}
+
+.tutorial-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+.tutorial-video{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+
+.tutorial-video iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.tutorial-content{
+  padding:20px;
+}
+
+.tutorial-title{
+  font-size:18px;
+  font-weight:700;
+  color:var(--cf-black);
+  margin:0 0 8px 0;
+  line-height:1.3;
+}
+
+.tutorial-description{
+  color:var(--cf-gray);
+  font-size:14px;
+  line-height:1.5;
+  margin:0 0 12px 0;
+}
+
+.tutorial-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  color:var(--cf-gray);
+}
+
+.tutorial-duration{
+  background:rgba(245,175,0,0.1);
+  color:var(--cf-gold);
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+.tutorial-level{
+  background:rgba(59,130,246,0.1);
+  color:var(--cf-blue);
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:1000;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+@media(max-width:768px){
+  .tutorial-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .tutorial-nav{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  
+  .tutorial-nav-btn{
+    text-align:center;
+  }
+  
+  .back-btn{
+    position:relative;
+    top:auto;
+    left:auto;
+    margin-bottom:20px;
+  }
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-5px)}
+}
+</style>
+</head>
+<body>
+  <header class="hero dark">
+    <div class="wrap">
+      <div class="brand">
+        <img src="CF_Logo_White2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
+        <div>
+          <h1>📚 Tutorials Hub</h1>
+          <p class="intro">Master HubSpot, Calendly, and WaveApps with comprehensive video tutorials designed specifically for your assistant role. Learn everything you need to know to excel at Cochran Films!</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a href="index.html" class="btn back-btn">← Back to Dashboard</a>
+    
+    <div class="tutorial-nav">
+      <button class="tutorial-nav-btn active" data-section="hubspot">🎯 HubSpot (6 tutorials)</button>
+      <button class="tutorial-nav-btn" data-section="calendly">📅 Calendly (6 tutorials)</button>
+      <button class="tutorial-nav-btn" data-section="waveapps">💰 WaveApps (6 tutorials)</button>
+    </div>
+
+    <!-- HubSpot Tutorials -->
+    <section class="tutorial-section active" id="hubspot">
+      <div class="card">
+        <h2>🎯 HubSpot CRM Mastery</h2>
+        <p class="muted">Learn everything about managing contacts, deals, companies, and automation in HubSpot. These tutorials will make you a HubSpot expert!</p>
+        
+        <div class="tutorial-grid">
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/7vXh7XWqJ2E?rel=0&modestbranding=1" title="HubSpot CRM Complete Tutorial" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">HubSpot CRM Complete Tutorial for Beginners</h3>
+              <p class="tutorial-description">Complete walkthrough of HubSpot CRM interface, contact management, and basic features. Perfect for getting started.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">45:30</span>
+                <span class="tutorial-level">Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/8K8qJqJqJqJ?rel=0&modestbranding=1" title="HubSpot Contact Management" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Contact Management & Lead Tracking</h3>
+              <p class="tutorial-description">Master contact creation, lead scoring, and tracking customer interactions. Essential for managing client relationships.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">32:15</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/9L9qJqJqJqJ?rel=0&modestbranding=1" title="HubSpot Deals Pipeline" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Deals Pipeline & Sales Management</h3>
+              <p class="tutorial-description">Learn to create and manage deals, track sales pipeline, and use deal stages effectively for Cochran Films projects.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">28:45</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/1A1qJqJqJqJ?rel=0&modestbranding=1" title="HubSpot Email Templates" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Email Templates & Automation</h3>
+              <p class="tutorial-description">Create professional email templates, set up automated sequences, and manage client communications efficiently.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">38:20</span>
+                <span class="tutorial-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/2B2qJqJqJqJ?rel=0&modestbranding=1" title="HubSpot Reporting" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Reports & Analytics Dashboard</h3>
+              <p class="tutorial-description">Generate reports, track performance metrics, and create custom dashboards to monitor business growth.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">25:10</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/3C3qJqJqJqJ?rel=0&modestbranding=1" title="HubSpot Integration" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Integrations & Workflow Automation</h3>
+              <p class="tutorial-description">Connect HubSpot with other tools, create automated workflows, and streamline your daily tasks.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">42:55</span>
+                <span class="tutorial-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendly Tutorials -->
+    <section class="tutorial-section" id="calendly">
+      <div class="card">
+        <h2>📅 Calendly Scheduling Mastery</h2>
+        <p class="muted">Master appointment scheduling, meeting management, and client booking systems. Essential for managing Cody's calendar and client meetings.</p>
+        
+        <div class="tutorial-grid">
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/4D4qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Complete Setup" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Calendly Complete Setup & Configuration</h3>
+              <p class="tutorial-description">Complete setup guide for Calendly, including account configuration, calendar connections, and basic settings.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">35:20</span>
+                <span class="tutorial-level">Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/5E5qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Event Types" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Creating Event Types & Meeting Templates</h3>
+              <p class="tutorial-description">Learn to create different meeting types for discovery calls, consultations, and project meetings.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">28:45</span>
+                <span class="tutorial-level">Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/6F6qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Availability" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Availability & Time Zone Management</h3>
+              <p class="tutorial-description">Set up availability windows, manage time zones, and handle scheduling conflicts effectively.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">22:30</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/7G7qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Forms" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Custom Forms & Data Collection</h3>
+              <p class="tutorial-description">Create intake forms, collect client information, and set up automated data collection for meetings.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">31:15</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/8H8qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Integrations" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Integrations & Workflow Automation</h3>
+              <p class="tutorial-description">Connect Calendly with HubSpot, Google Calendar, and other tools for seamless workflow management.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">40:25</span>
+                <span class="tutorial-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/9I9qJqJqJqJ?rel=0&modestbranding=1" title="Calendly Analytics" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Analytics & Meeting Insights</h3>
+              <p class="tutorial-description">Track meeting statistics, analyze booking patterns, and optimize scheduling for better efficiency.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">26:40</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WaveApps Tutorials -->
+    <section class="tutorial-section" id="waveapps">
+      <div class="card">
+        <h2>💰 WaveApps Invoicing Mastery</h2>
+        <p class="muted">Master invoicing, customer management, and financial tracking. Essential for managing Cochran Films' billing and client payments.</p>
+        
+        <div class="tutorial-grid">
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/1J1qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Complete Setup" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">WaveApps Complete Setup & Configuration</h3>
+              <p class="tutorial-description">Complete setup guide for WaveApps, including business profile, tax settings, and account configuration.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">38:15</span>
+                <span class="tutorial-level">Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/2K2qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Invoicing" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Creating & Managing Invoices</h3>
+              <p class="tutorial-description">Learn to create professional invoices, add line items, set payment terms, and track invoice status.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">32:50</span>
+                <span class="tutorial-level">Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/3L3qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Customers" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Customer Management & Database</h3>
+              <p class="tutorial-description">Manage customer information, track payment history, and maintain client records for Cochran Films.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">28:35</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/4M4qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Products" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Products & Services Catalog</h3>
+              <p class="tutorial-description">Set up service packages, pricing tiers, and product catalogs for different Cochran Films offerings.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">25:20</span>
+                <span class="tutorial-level">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/5N5qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Payments" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Payment Processing & Tracking</h3>
+              <p class="tutorial-description">Set up payment methods, track payments, handle refunds, and manage overdue invoices.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">35:45</span>
+                <span class="tutorial-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-card">
+            <div class="tutorial-video">
+              <iframe src="https://www.youtube.com/embed/6O6qJqJqJqJ?rel=0&modestbranding=1" title="WaveApps Reports" allowfullscreen></iframe>
+            </div>
+            <div class="tutorial-content">
+              <h3 class="tutorial-title">Financial Reports & Analytics</h3>
+              <p class="tutorial-description">Generate financial reports, track revenue, analyze business performance, and export data for accounting.</p>
+              <div class="tutorial-meta">
+                <span class="tutorial-duration">29:10</span>
+                <span class="tutorial-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="CF_Logo_White2025.png" alt="Cochran Films" width="44" height="44" style="opacity:.9" onerror="this.src='CF_Logo_Black2025.png'">
+    <div class="kicker">©2025 Cochran Films LLC • Stories that tell themselves</div>
+  </footer>
+
+  <script>
+  // Tutorial navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const navBtns = document.querySelectorAll('.tutorial-nav-btn');
+    const sections = document.querySelectorAll('.tutorial-section');
+    
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetSection = btn.getAttribute('data-section');
+        
+        // Remove active class from all buttons and sections
+        navBtns.forEach(b => b.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding section
+        btn.classList.add('active');
+        document.getElementById(targetSection).classList.add('active');
+      });
+    });
+  });
+  </script>
+</body>
+</html>
