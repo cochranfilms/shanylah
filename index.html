@@ -1,0 +1,3550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cochran Films — Shanylah Sainvil Onboarding</title>
+<meta name="description" content="Onboarding guide for Shanylah Sainvil — Cochran Films procedures, expectations, and quick links.">
+<meta property="og:title" content="Cochran Films — Shanylah Sainvil Onboarding">
+<meta property="og:description" content="Welcome Shanylah! Your onboarding hub with tools, links, and first‑week guidance.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="OG-Image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cochran Films — Shanylah Sainvil Onboarding">
+<meta name="twitter:description" content="Welcome Shanylah! Your onboarding hub with tools, links, and first‑week guidance.">
+<meta name="twitter:image" content="OG-Image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="32x32" type="image/png">
+<link rel="icon" href="CF_Logo_Black2025.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="CF_Logo_Black2025.png">
+<meta name="theme-color" content="#1a1a1a">
+<script>
+(function(){
+  // Early Ada guard: make start() idempotent even if vendor script loads twice
+  function makeIdempotent(ada){
+    try{
+      if(!ada || ada.__cfWrapped) return ada;
+      var originalStart = typeof ada.start === 'function' ? ada.start.bind(ada) : null;
+      ada.start = function(){
+        if(ada.__cfStarted) return Promise.resolve();
+        ada.__cfStarted = true;
+        try{ return originalStart ? originalStart.apply(this, arguments) : Promise.resolve(); }
+        catch(e){ return Promise.resolve(); }
+      };
+      ada.__cfWrapped = true;
+      return ada;
+    }catch(e){ return ada; }
+  }
+  function guardKey(key){
+    try{
+      if(window[key]) window[key] = makeIdempotent(window[key]);
+      Object.defineProperty(window, key, {
+        configurable: true,
+        set: function(v){ this['__'+key] = makeIdempotent(v); },
+        get: function(){ return this['__'+key]; }
+      });
+    }catch(e){}
+  }
+  ['AdaEmbed','adaEmbed','Ada','AdaChaperone'].forEach(guardKey);
+
+  // Suppress noisy third‑party Ketch CMP "no purposes" errors if present
+  window.addEventListener('unhandledrejection', function(e){
+    try{ if(e && e.reason && String(e.reason && e.reason.message || e.reason).toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  });
+  window.addEventListener('error', function(e){
+    try{ if((e && e.filename && /ketch\.js/.test(e.filename)) && String(e.message||'').toLowerCase().includes('no purposes')) { e.preventDefault && e.preventDefault(); } }catch(_){}
+  }, true);
+})();
+</script>
+<style>
+/* Brand palette - Light theme */
+:root{
+  --cf-gold:#f5af00;
+  --cf-gold-light:#ffd700;
+  --cf-gold-dark:#e09a00;
+  --cf-black:#1a1a1a;
+  --cf-white:#ffffff;
+  --cf-gray:#6b7280;
+  --cf-light-gray:#f8fafc;
+  --cf-blue:#3b82f6;
+  --cf-purple:#8b5cf6;
+  --cf-pink:#ec4899;
+  --cf-green:#10b981;
+  --max:1200px;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;
+  background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);
+  color:var(--cf-black);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0 0 16px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);letter-spacing:-0.02em;background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2{font-size:clamp(24px,3vw,32px);color:var(--cf-black);position:relative}
+h2::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:4px;background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink));border-radius:2px}
+h3{font-size:20px;color:var(--cf-black)}
+
+p{margin:0 0 16px;color:var(--cf-gray)}
+img{max-width:100%;height:auto}
+
+a{color:var(--cf-blue);text-decoration:none;border-bottom:2px solid transparent;transition:all 0.3s ease}
+a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:translateY(-1px)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:32px 24px}
+
+.hero{
+  position:relative;
+  padding:100px 24px 40px;
+  background:#000;
+  border-radius:24px;
+  margin-bottom:32px;
+  box-shadow:var(--shadow-lg);
+  overflow:visible;
+}
+
+/* Dark theme variant for the hero banner */
+.hero.dark{
+  background:#000;
+  color:var(--cf-white);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.hero.dark .intro{ color:rgba(255,255,255,0.85); }
+.hero.dark .tag{ display:none; }
+.hero.dark::before{ opacity:.12; }
+
+/* Theme toggle chip */
+/* Theme toggle removed; always dark */
+
+/* Name badge (lanyard style) */
+.name-badge{
+  position:absolute;
+  top:8px;
+  left:24px;
+  width:180px;
+  perspective:800px;
+  z-index:3;
+  animation:badgeBob 6s ease-in-out infinite;
+}
+.name-badge .lanyard{
+  position:absolute;
+  top:-6px;left:50%;
+  width:6px;height:58px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#8b5cf6,#ec4899);
+  border-radius:6px 6px 0 0;
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+  opacity:.9;
+}
+.name-badge .clip{
+  position:absolute;top:58px;left:50%;transform:translateX(-50%);
+  width:34px;height:16px;border-radius:10px;
+  background:linear-gradient(180deg,#e5e7eb,#cbd5e1);
+  border:1px solid rgba(0,0,0,.1);
+  box-shadow:inset 0 1px 0 #fff,0 4px 10px rgba(0,0,0,.08);
+}
+.name-badge .card{
+  margin-top:60px;
+  width:180px;min-height:112px;height:auto;
+  background:linear-gradient(135deg,#ffffff 0%, #fff7ed 100%);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  box-shadow:0 16px 30px rgba(0,0,0,.16);
+  transform-style:preserve-3d;
+  transition:transform .25s ease, box-shadow .25s ease;
+  display:grid;grid-template-rows:auto 1fr auto;align-items:center;
+  padding:10px 12px; cursor:pointer;
+}
+.name-badge .card:hover{ box-shadow:0 24px 40px rgba(0,0,0,.2); }
+.name-badge .top{
+  display:flex; align-items:center; gap:8px; width:100%;
+}
+.name-badge .top img{ height:26px; width:auto; border-radius:6px; }
+.name-badge .company{ font-size:11px; font-weight:800; letter-spacing:.4px; color:#0f172a; }
+.name-badge .hello{ position:relative; margin:8px 0 2px 2px; font-size:11px; color:#6b7280; }
+.name-badge .name{ font-family:Montserrat,Inter,sans-serif; font-weight:900; font-size:16px; color:#111827; text-transform:capitalize; line-height:1.1; }
+.name-badge .title{ font-size:11px; font-weight:700; color:#64748b; margin-top:-2px; }
+.name-badge .stripe{ position:absolute; inset:auto 0 0 0; height:6px; border-radius:0 0 14px 14px; background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); }
+
+/* Extra polish: holographic sticker + shine */
+.name-badge .holo{ position:absolute; right:8px; top:8px; width:18px; height:18px; border-radius:4px; background:conic-gradient(from 0deg,#ffd700,#8b5cf6,#ec4899,#10b981,#ffd700); opacity:.6; box-shadow:0 1px 3px rgba(0,0,0,.15); }
+.name-badge .card::after{ content:''; position:absolute; inset:2px; border-radius:12px; background:linear-gradient(120deg,transparent 40%, rgba(255,255,255,.45) 50%, transparent 60%); filter:blur(0.5px); transform:translateX(-110%); animation:badgeShine 6s ease-in-out infinite; pointer-events:none; }
+
+@keyframes badgeShine{ 0%,20%{ transform:translateX(-110%);} 50%{ transform:translateX(110%);} 100%{ transform:translateX(110%);} }
+@keyframes badgeBob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(2px);} }
+
+@media(max-width:640px){
+  .name-badge{ left:12px; width:160px; top:6px; }
+  .name-badge .card{ width:160px; height:96px; }
+  .name-badge .top img{ height:22px; width:auto; }
+  .name-badge .name{ font-size:14px; }
+  .name-badge .title{ font-size:10px; }
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f5af00" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%238b5cf6" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ec4899" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity:0.3;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:relative;
+  z-index:2;
+}
+
+/* Ensure heading clears the hanging name badge */
+.brand h1{ margin-top:84px; }
+@media(max-width:900px){ .brand h1{ margin-top:96px; } }
+@media(max-width:640px){ .brand h1{ margin-top:110px; } }
+
+.brand img{
+  width:64px;
+  height:auto;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  animation:float 3s ease-in-out infinite;
+}
+
+/* Floating logo beside rocket in headline */
+.rocket-logo{ width:48px; height:auto; margin-left:10px; vertical-align:middle; filter:drop-shadow(0 6px 12px rgba(0,0,0,.15)); animation:float 3s ease-in-out infinite; }
+@media(max-width:640px){ .rocket-logo{ width:32px; } }
+
+/* AI input embedded in hero */
+.hero-ai{
+  margin-top:16px;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 14px 28px rgba(0,0,0,.35);
+  position:relative; z-index:10;
+}
+.hero-ai-title{ margin:0 0 8px; font-weight:800; color:#fff; display:flex; align-items:center; gap:10px; }
+.hero-ai .search-input-group{ display:flex; gap:10px; align-items:stretch }
+@media(max-width:640px){ .hero-ai{ padding:12px; } .hero-ai .search-input-group{ flex-direction:column; } }
+
+/* Onboarding video callout */
+.video-callout{
+  max-width:var(--max);
+  margin:0 auto 24px;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+.video-callout .video-header{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.video-callout .watch-badge{
+  display:inline-flex; align-items:center; gap:8px; padding:8px 14px;
+  font-weight:800; color:#111827; background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));
+  border-radius:999px; box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.video-callout .video-title{ margin:0; font-weight:800; color:#000; font-size:22px; }
+.video-callout .video-embed{ position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:#000; }
+.video-callout .video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; }
+@media(max-width:640px){ .video-callout .video-title{ font-size:18px; } }
+
+/* Mobile optimizations for AI Assistant and dashboards */
+@media(max-width:640px){
+  /* AI Assistant */
+  .ai-search-container .search-input-group{ flex-direction:column; align-items:stretch; }
+  .ai-search-container .ai-search-btn{ width:100%; }
+  .ai-response-actions{ justify-content:stretch; }
+  .ai-response-actions .btn{ flex:1 1 auto; }
+
+  /* Generic search bars and toolbars */
+  .tab-header{ flex-direction:column; align-items:stretch; }
+  .search-bar{ flex-direction:column; align-items:stretch; gap:8px; }
+  .search-input{ width:100%; }
+
+  /* Dashboard tabs horizontal scroll */
+  .dashboard-tabs{ overflow-x:auto; white-space:nowrap; }
+  .dashboard-tabs .tab-btn{ flex:0 0 auto; padding:12px 14px; font-size:14px; }
+
+  /* Wave dashboard stats + overview */
+  #wave-dashboard .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #wave-dashboard .overview-grid{ grid-template-columns:1fr; }
+
+  /* Cards spacing */
+  .card{ padding:22px 18px; }
+}
+/* Professional profile card */
+.profile-card{
+  position:absolute; right:20px; top:84px; z-index:3;
+  width:230px; padding:14px; border-radius:16px;
+  background:linear-gradient(135deg,rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.15);
+  color:#e5e7eb; box-shadow:0 20px 40px rgba(0,0,0,.35);
+  backdrop-filter:blur(10px) saturate(1.2);
+}
+.profile-card .avatar{
+  width:100%; aspect-ratio:1/1; border-radius:14px; overflow:hidden; position:relative;
+  box-shadow:inset 0 0 0 4px rgba(255,255,255,.08);
+}
+.profile-card .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+.profile-card .ring{ position:absolute; inset:-2px; border-radius:16px; pointer-events:none; background:linear-gradient(135deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding:2px; }
+.profile-card .meta{ display:flex; align-items:center; gap:8px; margin-top:10px; }
+.profile-card .meta img{ height:16px; width:auto; }
+.profile-card .meta .name{ font-weight:800; color:#fff; }
+.profile-card .meta .title{ font-size:12px; color:#cbd5e1; font-weight:600; }
+
+@media(max-width:900px){ .profile-card{ display:none; } }
+
+@keyframes float{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-5px)}
+}
+
+.tag{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin:12px 0;
+  box-shadow:var(--shadow);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+
+.intro{
+  color:var(--cf-gray);
+  max-width:900px;
+  font-size:18px;
+  line-height:1.7;
+  position:relative;
+  z-index:2;
+}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:32px}
+
+.card{
+  grid-column:span 12;
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.05);
+  border-radius:20px;
+  padding:28px 24px;
+  box-shadow:var(--shadow);
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--cf-gold),var(--cf-pink),var(--cf-purple));
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+@media(min-width:900px){
+  .card{padding:32px 28px}
+  .span-6{grid-column:span 6}
+  .span-4{grid-column:span 4}
+  .span-8{grid-column:span 8}
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:20px;
+  color:var(--cf-black);
+}
+
+.muted{color:var(--cf-gray)}
+
+.list{
+  margin:12px 0 0;
+  padding-left:20px;
+}
+
+.list li{
+  margin:8px 0;
+  color:var(--cf-gray);
+  position:relative;
+}
+
+.list li::marker{
+  color:var(--cf-gold);
+  font-weight:bold;
+}
+
+.quick-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:16px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:12px;
+  border:2px solid transparent;
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+  transition:left 0.5s;
+}
+
+.btn:hover::before{left:100%}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-gold-light));
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+}
+
+.btn.gold:hover{
+  background:linear-gradient(135deg,var(--cf-gold-dark),var(--cf-gold));
+  transform:translateY(-2px) scale(1.02);
+}
+
+.btn.studio-btn{
+  background:linear-gradient(135deg,#00ff88,#00cc6a);
+  color:#000;
+  border-color:#00ff88;
+  font-weight:700;
+}
+
+.btn.studio-btn:hover{
+  background:linear-gradient(135deg,#00cc6a,#00ff88);
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 8px 20px rgba(0,255,136,0.3);
+}
+
+.footer{
+  padding:40px 24px;
+  color:var(--cf-gray);
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.1);
+  margin-top:40px;
+  background:var(--cf-white);
+  border-radius:20px 20px 0 0;
+}
+
+.kicker{font-size:14px;color:var(--cf-gray)}
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+@media(min-width:900px){
+  .two-col{grid-template-columns:1.1fr .9fr}
+}
+
+.drive-embed{
+  width:100%;
+  height:560px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.viewer{
+  display:grid;
+  gap:16px;
+}
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.field{
+  flex:1 1 320px;
+  padding:12px 16px;
+  border-radius:12px;
+  border:2px solid rgba(0,0,0,0.1);
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.field:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+  box-shadow:0 0 0 3px rgba(245,175,0,0.1);
+}
+
+.viewer-iframe{
+  width:100%;
+  height:620px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.apps-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+.app-embed{
+  display:grid;
+  gap:16px;
+}
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  padding:16px;
+  background:var(--cf-light-gray);
+  border-radius:12px;
+}
+
+.toolbar .title{
+  font-weight:700;
+  margin-right:auto;
+  color:var(--cf-black);
+  font-size:18px;
+}
+
+.app-frame{
+  width:100%;
+  height:860px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.calendar-embed{
+  width:100%;
+  height:800px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:16px;
+  background:var(--cf-white);
+  box-shadow:var(--shadow);
+}
+
+.hint{
+  font-size:14px;
+  color:var(--cf-gray);
+  font-style:italic;
+}
+
+.fullscreen{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  background:var(--cf-white);
+  padding:20px;
+  margin:0;
+  z-index:9999;
+  border-radius:0;
+}
+
+.fullscreen .app-frame{
+  height:calc(100vh - 100px);
+}
+
+/* Cochran Films embed specific styles */
+.cochran-embed-container.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cf-white);
+  padding: 20px;
+  margin: 0;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.cochran-embed-container.fullscreen .app-frame {
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
+/* Cochran Films Main Website embed specific styles */
+.cochran-main-embed-container.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cf-white);
+  padding: 20px;
+  margin: 0;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.cochran-main-embed-container.fullscreen .app-frame {
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
+/* Scroll animations */
+@keyframes slideInUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card{
+  animation:slideInUp 0.6s ease-out;
+}
+
+.card:nth-child(2){animation-delay:0.1s}
+.card:nth-child(3){animation-delay:0.2s}
+.card:nth-child(4){animation-delay:0.3s}
+.card:nth-child(5){animation-delay:0.4s}
+
+/* AI Search Components */
+.ai-search-container{display:grid;gap:20px}
+.search-input-group{display:flex;gap:12px;align-items:stretch}
+.ai-search-field{
+  flex:1;
+  padding:16px 20px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:12px;
+  background:var(--cf-white);
+  color:var(--cf-black);
+  font-size:16px;
+  transition:all 0.3s ease;
+  font-family:inherit;
+}
+.ai-search-field:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+  box-shadow:0 0 0 3px rgba(245,175,0,0.1);
+}
+.ai-search-btn{
+  padding:16px 24px;
+  white-space:nowrap;
+  min-width:120px;
+}
+.ai-response{
+  background:var(--cf-light-gray);
+  border:2px solid rgba(0,0,0,0.05);
+  border-radius:12px;
+  padding:20px;
+  margin-top:16px;
+}
+.ai-response-content{
+  color:var(--cf-black);
+  line-height:1.6;
+  margin-bottom:16px;
+}
+.ai-response-actions{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+.ai-suggestions{margin-top:16px}
+.suggestion-label{
+  font-size:14px;
+  color:var(--cf-gray);
+  margin-bottom:8px;
+  font-weight:600;
+}
+.suggestion-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.suggestion-chip{
+  padding:8px 16px;
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:20px;
+  color:var(--cf-gray);
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-family:inherit;
+}
+.suggestion-chip:hover{
+  background:var(--cf-gold);
+  color:var(--cf-white);
+  border-color:var(--cf-gold);
+  transform:translateY(-1px);
+}
+
+/* HubSpot Dashboard Styles */
+.hubspot-dashboard{
+  background:var(--cf-white);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.dashboard-tabs{
+  display:flex;
+  background:var(--cf-light-gray);
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.tab-btn{
+  flex:1;
+  padding:16px 20px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  color:var(--cf-gray);
+  transition:all 0.3s ease;
+  border-bottom:3px solid transparent;
+}
+
+.tab-btn:hover{
+  background:rgba(245,175,0,0.1);
+  color:var(--cf-black);
+}
+
+.tab-btn.active{
+  background:var(--cf-white);
+  color:var(--cf-gold);
+  border-bottom-color:var(--cf-gold);
+}
+
+.tab-content{
+  display:none;
+  padding:24px;
+  min-height:400px;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+/* Responsive improvements for small laptops and mobile */
+@media(max-width:1024px){
+  .wrap{ padding:24px 16px; }
+  .hero{ padding:40px 16px 24px; }
+  .dashboard-tabs{ overflow-x:auto; white-space:nowrap; }
+  .dashboard-tabs .tab-btn{ flex:0 0 auto; padding:14px 16px; font-size:14px; }
+  .tab-content{ padding:16px; }
+  .grid{ grid-template-columns:1fr; }
+  .span-4,.span-6,.span-8{ grid-column:span 12; }
+}
+
+@media(max-width:640px){
+  h1{ font-size:28px; }
+  .tag{ padding:6px 12px; font-size:12px; }
+  .btn{ padding:10px 14px; border-radius:10px; }
+  .search-bar{ flex-direction:column; align-items:stretch; gap:8px; }
+  .search-input{ width:100%; }
+  .data-item{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .item-actions{ width:100%; display:flex; gap:8px; }
+  .form-row{ grid-template-columns:1fr; }
+  .cf-logout-btn{ top:12px; right:12px; padding:8px 12px; }
+}
+
+.search-bar{
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+  align-items:center;
+}
+
+.search-input{
+  flex:1;
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.search-input:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.data-list{
+  max-height:400px;
+  overflow-y:auto;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  background:var(--cf-white);
+}
+
+.data-item{
+  padding:16px;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background 0.3s ease;
+}
+
+.data-item:hover{
+  background:var(--cf-light-gray);
+}
+
+.data-item:last-child{
+  border-bottom:none;
+}
+
+.item-info h4{
+  margin:0 0 4px 0;
+  color:var(--cf-black);
+  font-size:16px;
+}
+
+.item-info p{
+  margin:0;
+  color:var(--cf-gray);
+  font-size:14px;
+}
+
+.item-actions{
+  display:flex;
+  gap:8px;
+}
+
+.item-actions .btn{
+  padding:6px 12px;
+  font-size:12px;
+}
+
+.loading-state{
+  padding:40px;
+  text-align:center;
+  color:var(--cf-gray);
+  font-style:italic;
+}
+
+.contact-form{
+  display:grid;
+  gap:16px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.form-row input,
+.form-row select{
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  transition:border-color 0.3s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.contact-form textarea{
+  padding:12px 16px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:16px;
+  min-height:80px;
+  resize:vertical;
+  font-family:inherit;
+}
+
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.api-status{
+  margin-top:16px;
+  padding:12px 16px;
+  background:var(--cf-light-gray);
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.status-indicator{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.status-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--cf-gray);
+  animation:pulse 2s infinite;
+}
+
+.status-dot.connected{
+  background:var(--cf-green);
+  animation:none;
+}
+
+.status-dot.error{
+  background:#ef4444;
+  animation:none;
+}
+
+.status-text{
+  font-size:14px;
+  color:var(--cf-gray);
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.5}
+}
+
+/* Enhanced Dashboard Styles */
+.dashboard-header{
+  background:linear-gradient(135deg,var(--cf-gold),var(--cf-purple));
+  padding:24px;
+  border-radius:16px 16px 0 0;
+  margin:-24px -24px 0 -24px;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+}
+
+.stat-card{
+  background:rgba(255,255,255,0.95);
+  padding:20px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:transform 0.3s ease;
+}
+
+.stat-card:hover{
+  transform:translateY(-2px);
+}
+
+.stat-icon{
+  font-size:32px;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(245,175,0,0.1);
+  border-radius:12px;
+}
+
+.stat-content{
+  flex:1;
+}
+
+.stat-number{
+  font-size:28px;
+  font-weight:700;
+  color:var(--cf-black);
+  line-height:1;
+}
+
+.stat-label{
+  font-size:14px;
+  color:var(--cf-gray);
+  margin-top:4px;
+}
+
+.tab-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.filter-bar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.filter-bar select{
+  padding:8px 12px;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  font-size:14px;
+  background:var(--cf-white);
+  transition:border-color 0.3s ease;
+}
+
+.filter-bar select:focus{
+  outline:none;
+  border-color:var(--cf-gold);
+}
+
+.overview-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.overview-card{
+  background:var(--cf-white);
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:12px;
+  padding:20px;
+}
+
+.overview-card h3{
+  margin:0 0 16px 0;
+  color:var(--cf-black);
+  font-size:18px;
+}
+
+.activity-list{
+  max-height:300px;
+  overflow-y:auto;
+}
+
+.activity-item{
+  padding:12px 0;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.activity-item:last-child{
+  border-bottom:none;
+}
+
+.activity-icon{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--cf-light-gray);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+}
+
+.activity-content{
+  flex:1;
+}
+
+.activity-text{
+  font-size:14px;
+  color:var(--cf-black);
+  margin:0;
+}
+
+.activity-time{
+  font-size:12px;
+  color:var(--cf-gray);
+  margin:0;
+}
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.action-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  background:var(--cf-white);
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-size:14px;
+  font-weight:500;
+}
+
+.action-btn:hover{
+  border-color:var(--cf-gold);
+  background:rgba(245,175,0,0.05);
+  transform:translateY(-1px);
+}
+
+.action-icon{
+  font-size:16px;
+}
+
+.form-container{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.form-container h3{
+  margin:0 0 24px 0;
+  color:var(--cf-black);
+  font-size:24px;
+  text-align:center;
+}
+
+.form-section{
+  margin-bottom:32px;
+  padding:20px;
+  background:var(--cf-light-gray);
+  border-radius:12px;
+}
+
+.form-section h4{
+  margin:0 0 16px 0;
+  color:var(--cf-black);
+  font-size:16px;
+  font-weight:600;
+}
+
+.form-actions{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  margin-top:32px;
+}
+
+.form-actions .btn{
+  min-width:120px;
+}
+
+/* Enhanced Data List Styles */
+.data-list{
+  max-height:500px;
+  overflow-y:auto;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:8px;
+  background:var(--cf-white);
+}
+
+.data-item{
+  padding:16px;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background 0.3s ease;
+  position:relative;
+}
+
+.data-item:hover{
+  background:var(--cf-light-gray);
+}
+
+.data-item:last-child{
+  border-bottom:none;
+}
+
+.item-info{
+  flex:1;
+  min-width:0;
+}
+
+.item-info h4{
+  margin:0 0 4px 0;
+  color:var(--cf-black);
+  font-size:16px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.item-info p{
+  margin:0;
+  color:var(--cf-gray);
+  font-size:14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.item-meta{
+  display:flex;
+  gap:8px;
+  margin-top:4px;
+}
+
+.item-tag{
+  background:rgba(245,175,0,0.1);
+  color:var(--cf-gold);
+  padding:2px 8px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:500;
+}
+
+.item-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.item-actions .btn{
+  padding:6px 12px;
+  font-size:12px;
+  min-width:auto;
+}
+
+/* Status Indicators */
+.status-new{color:#10b981}
+.status-qualified{color:#3b82f6}
+.status-unqualified{color:#ef4444}
+.status-converted{color:#8b5cf6}
+
+.stage-appointmentscheduled{color:#f59e0b}
+.stage-qualifiedtobuy{color:#3b82f6}
+.stage-presentationscheduled{color:#8b5cf6}
+.stage-decisionmakerboughtin{color:#10b981}
+.stage-closedwon{color:#059669}
+
+/* Responsive Design */
+@media (max-width:768px){
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  
+  .overview-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .quick-actions{
+    grid-template-columns:1fr;
+  }
+  
+  .tab-header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  
+  .form-row{
+    grid-template-columns:1fr;
+  }
+  
+  .form-actions{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand">
+        <div>
+          
+          <h1>Hey Shanylah! You're officially part of the Cochran Films family! 🚀 <img src="CF_Logo_White2025.png" alt="Cochran Films" class="rocket-logo" onerror="this.src='CF_Logo_Black2025.png'" /></h1>
+          <p class="intro">This is your personal command center — everything you need to rock your role as our amazing assistant. Bookmark this page because we're constantly adding new tools and resources to help you succeed and grow with us!</p>
+        </div>
+      </div>
+      
+      <!-- Professional profile card -->
+      <aside class="profile-card" aria-label="Employee profile card">
+        <div class="avatar">
+          <img src="Shanylah.jpeg" alt="Shanylah Sainvil portrait" onerror="this.style.display='none'">
+          <div class="ring" aria-hidden="true"></div>
+        </div>
+        <div class="meta">
+          <img src="CF_Logo_White2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
+          <div>
+            <div class="name">Shanylah Sainvil</div>
+            <div class="title">Assistant • Cochran Films</div>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Embedded AI input inside hero -->
+      <div class="hero-ai">
+        <h3 class="hero-ai-title">🤖 AI Assistant Search</h3>
+        <div class="ai-search-container">
+          <div class="search-input-group">
+            <input id="aiSearchInput" class="ai-search-field" type="text" placeholder="Ask me anything about Cochran Films, tools, procedures, or your role..." autocomplete="off">
+            <button id="aiSearchBtn" class="btn gold ai-search-btn" type="button">
+              <span class="btn-text">Search</span>
+              <span class="btn-loading" style="display:none;">⏳</span>
+            </button>
+          </div>
+          <div id="aiResponse" class="ai-response" style="display:none; margin-top:10px;">
+            <div class="ai-response-content"></div>
+            <div class="ai-response-actions">
+              <button class="btn" onclick="copyResponse()">📋 Copy</button>
+              <button class="btn" onclick="clearResponse()">🗑️ Clear</button>
+            </div>
+          </div>
+          <div class="ai-suggestions" style="margin-top:10px;">
+            <p class="suggestion-label">💡 Try asking:</p>
+            <div class="suggestion-chips">
+              <button class="suggestion-chip" onclick="setSuggestion('How do I schedule a client meeting?')">How do I schedule a client meeting?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('What are the brand guidelines for email responses?')">What are the brand guidelines for email responses?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('How do I update a lead in HubSpot?')">How do I update a lead in HubSpot?</button>
+              <button class="suggestion-chip" onclick="setSuggestion('What should I include in weekly check-ins?')">What should I include in weekly check-ins?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Name Badge -->
+      <div class="name-badge" id="nameBadge" aria-label="Name badge for Shanylah Sainvil">
+        <div class="lanyard" aria-hidden="true"></div>
+        <div class="clip" aria-hidden="true"></div>
+        <div class="card" tabindex="0" role="button" aria-pressed="false">
+          <div class="top">
+            <img src="CF_Logo_Black2025.png" alt="Cochran Films" onerror="this.src='CF_Logo_Black2025.png'">
+          </div>
+          <div class="name">Shanylah Sainvil</div>
+          <div class="title">Assistant</div>
+          <div class="hello">Welcome aboard</div>
+          <div class="holo" aria-hidden="true" title="Official"></div>
+          <div class="stripe" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="quick-links" style="margin-top:14px">
+        <a class="btn gold" href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Team Files (Read)</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Your Drive Folder (Upload)</a>
+        <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Discovery & Media Forms</a>
+        <a class="btn" href="https://www.cochranfilms.com/" target="_blank" rel="noopener">Cochran Films Website</a>
+        <a class="btn studio-btn" href="https://cochranfilms.studio/" target="_blank" rel="noopener">Cochran Films Studio</a>
+        <a class="btn" href="tutorials.html">📚 Tutorials Hub</a>
+      </div>
+    </div>
+  </header>
+  
+  
+
+  <script>
+  // Force dark mode for hero (no toggle)
+  (function(){ try{ var hero=document.querySelector('.hero'); if(hero) hero.classList.add('dark'); }catch(e){} })();
+  </script>
+
+  <!-- Important onboarding video for Shanylah (kept after AI section) -->
+  <main id="cf-main" class="wrap">
+    <!-- AI tools section removed as requested; hero contains the AI chat -->
+
+    <section class="video-callout">
+      <div class="video-header">
+        <span class="watch-badge">▶ Watch this first</span>
+        <h2 class="video-title">Welcome message — important context for your first week</h2>
+      </div>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/d7hvFxe8Zwg?rel=0&modestbranding=1&fs=1&autoplay=0"
+          title="Welcome video"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Cochran Films Website Embed -->
+    <section class="card" style="margin-top:18px">
+      <h2>🌐 Cochran Films Website Control</h2>
+      <p class="muted">View and control the main Cochran Films website directly from your dashboard. Perfect for quick updates, content management, and client demonstrations.</p>
+      
+      <div class="toolbar" style="margin-bottom:16px">
+        <div class="title">Cochran Films Studio</div>
+        <button class="btn gold" onclick="refreshCochranSite()">🔄 Refresh</button>
+        <button class="btn" onclick="toggleCochranFullscreen()">⛶ Fullscreen</button>
+        <a class="btn" href="https://www.cochranfilms.studio" target="_blank" rel="noopener">🔗 Open in New Tab</a>
+      </div>
+      
+      <div class="cochran-embed-container" id="cochranEmbedContainer">
+        <iframe 
+          id="cochranSiteFrame"
+          class="app-frame" 
+          src="https://www.cochranfilms.studio"
+          title="Cochran Films Studio Website"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <div class="hint" style="margin-top:12px">
+        💡 Use this embedded view to quickly navigate the website, check content, or demonstrate features to clients without leaving your dashboard.
+      </div>
+    </section>
+
+    <!-- Cochran Films Main Website Embed -->
+    <section class="card" style="margin-top:18px">
+      <h2>🏢 Cochran Films Main Website</h2>
+      <p class="muted">Access the main Cochran Films website with full services, portfolio, and client information. Perfect for client consultations and service demonstrations.</p>
+      
+      <div class="toolbar" style="margin-bottom:16px">
+        <div class="title">Cochran Films Main Site</div>
+        <button class="btn gold" onclick="refreshCochranMainSite()">🔄 Refresh</button>
+        <button class="btn" onclick="toggleCochranMainFullscreen()">⛶ Fullscreen</button>
+        <a class="btn" href="https://www.cochranfilms.com" target="_blank" rel="noopener">🔗 Open in New Tab</a>
+      </div>
+      
+      <div class="cochran-main-embed-container" id="cochranMainEmbedContainer">
+        <iframe 
+          id="cochranMainSiteFrame"
+          class="app-frame" 
+          src="https://www.cochranfilms.com"
+          title="Cochran Films Main Website"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <div class="hint" style="margin-top:12px">
+        💡 This is the main business website with services, portfolio, pricing, and contact information. Use for client consultations and service demonstrations.
+      </div>
+    </section>
+
+    <section id="wave-tools" class="card" style="margin-top:18px">
+      <h2>💰 WaveApps Invoicing Dashboard</h2>
+      <p class="muted">Create and manage invoices, customers, and products. Uses placeholder API endpoints under <code>/api/wave/*</code>.</p>
+
+      <div class="hubspot-dashboard" id="wave-dashboard">
+        <div class="dashboard-header">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">🧾</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveInvoicesCount">-</div>
+                <div class="stat-label">Invoices</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">👤</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveCustomersCount">-</div>
+                <div class="stat-label">Customers</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💵</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveRevenueCount">$-</div>
+                <div class="stat-label">Total Invoiced</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⏰</div>
+              <div class="stat-content">
+                <div class="stat-number" id="waveOverdueCount">-</div>
+                <div class="stat-label">Overdue</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-tabs">
+          <button class="tab-btn active" data-tab="wave-overview">📊 Overview</button>
+          <button class="tab-btn" data-tab="wave-invoices">🧾 Invoices</button>
+          <button class="tab-btn" data-tab="wave-customers">👥 Customers</button>
+          <button class="tab-btn" data-tab="wave-products">📦 Products</button>
+          <button class="tab-btn" data-tab="wave-create">➕ Create Invoice</button>
+        </div>
+
+        <div class="tab-content active" id="wave-overview-tab">
+          <div class="overview-grid">
+            <div class="overview-card">
+              <h3>Recent Invoices</h3>
+              <div id="waveRecentInvoices" class="activity-list">
+                <div class="loading-state">Loading recent invoices...</div>
+              </div>
+            </div>
+            <div class="overview-card">
+              <h3>Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="action-btn" onclick="waveSwitchTab('wave-create')"><span class="action-icon">➕</span><span>Create Invoice</span></button>
+                <button class="action-btn" onclick="waveSwitchTab('wave-invoices')"><span class="action-icon">🧾</span><span>View Invoices</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-invoices-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveInvoiceSearch" placeholder="Search invoices by number, customer, or amount..." class="search-input">
+              <button class="btn gold" onclick="searchWaveInvoices()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveInvoices()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="waveInvoiceFilter" onchange="filterWaveInvoices()">
+                <option value="">All</option>
+                <option value="draft">Draft</option>
+                <option value="sent">Sent</option>
+                <option value="paid">Paid</option>
+                <option value="overdue">Overdue</option>
+              </select>
+            </div>
+          </div>
+          <div id="waveInvoicesList" class="data-list">
+            <div class="loading-state">Loading invoices...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-customers-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveCustomerSearch" placeholder="Search customers..." class="search-input">
+              <button class="btn gold" onclick="searchWaveCustomers()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveCustomers()">🔄 Refresh</button>
+            </div>
+          </div>
+          <div id="waveCustomersList" class="data-list">
+            <div class="loading-state">Loading customers...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-products-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="waveProductSearch" placeholder="Search products/services..." class="search-input">
+              <button class="btn gold" onclick="searchWaveProducts()">🔍 Search</button>
+              <button class="btn" onclick="refreshWaveProducts()">🔄 Refresh</button>
+            </div>
+          </div>
+          <div id="waveProductsList" class="data-list">
+            <div class="loading-state">Loading products...</div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="wave-create-tab">
+          <div class="form-container">
+            <h3>➕ Create Invoice</h3>
+            <form id="waveCreateInvoiceForm" class="contact-form">
+              <div class="form-section">
+                <h4>Customer</h4>
+                <div class="form-row">
+                  <input type="text" id="waveCustomerName" placeholder="Customer Name *" required>
+                  <input type="email" id="waveCustomerEmail" placeholder="Customer Email *" required>
+                </div>
+                <div class="form-row">
+                  <input type="text" id="waveCustomerAddress" placeholder="Address">
+                  <input type="text" id="waveCustomerCity" placeholder="City">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Line Item</h4>
+                <div class="form-row">
+                  <input type="text" id="waveItemDescription" placeholder="Description *" required>
+                  <input type="number" id="waveItemQuantity" min="1" step="1" placeholder="Qty *" required>
+                </div>
+                <div class="form-row">
+                  <input type="number" id="waveItemUnitPrice" min="0" step="0.01" placeholder="Unit Price *" required>
+                  <input type="text" id="waveCurrency" placeholder="Currency (e.g. USD)" value="USD">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn gold">🧾 Create Invoice</button>
+                <button type="button" class="btn" onclick="waveClearCreateForm()">🗑️ Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="api-status">
+        <div class="status-indicator">
+          <span class="status-dot" id="waveStatusDot"></span>
+          <span class="status-text" id="waveStatusText">Checking WaveApps connection...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moved onboarding overview and quick links further down to keep interactive tools grouped -->
+
+    <section id="drive-embeds" class="grid" style="margin-top:18px" aria-label="Embedded Drive Folders">
+      <article class="card span-6">
+        <h3>Team Files — Inline View</h3>
+        <iframe class="drive-embed" src="https://drive.google.com/embeddedfolderview?id=1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC#grid" title="Cochran Films Internal Drive"></iframe>
+        <p class="kicker">Read‑only preview. If access is restricted, set folder sharing to "Anyone with the link: Viewer".</p>
+      </article>
+      <article class="card span-6">
+        <h3>Your Uploads — Inline View</h3>
+        <iframe class="drive-embed" src="https://drive.google.com/embeddedfolderview?id=1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq#list" title="Shanylah Personal Folder"></iframe>
+        <p class="kicker">Use "Open in Drive" inside the frame to upload. In‑page uploads would require Google Picker API.</p>
+      </article>
+    </section>
+
+    <section id="file-viewer" class="card" style="margin-top:18px">
+      <h2>👀 Inline File Viewer</h2>
+      <p class="muted">Paste any Google Drive link (Docs, Sheets, Slides, PDFs, images, videos) and preview it here. Works with items shared to "Anyone with the link".</p>
+      <div class="viewer">
+        <div class="controls">
+          <input id="driveUrl" class="field" type="url" inputmode="url" placeholder="Paste a Google Drive link…">
+          <button id="previewBtn" class="btn gold" type="button">Preview</button>
+          <a id="openBtn" class="btn" href="#" target="_blank" rel="noopener">Open in Drive</a>
+          <a id="downloadBtn" class="btn" href="#" target="_blank" rel="noopener">Download</a>
+          <a id="sampleBtn" class="btn" href="#" role="button">Try sample</a>
+        </div>
+        <iframe id="viewerFrame" class="viewer-iframe" title="Drive file preview"></iframe>
+      </div>
+    </section>
+
+    <section id="unified-workspace" class="card" style="margin-top:18px">
+      <h2>🚀 Unified Workspace</h2>
+      <p class="muted">Quick access to key platforms. Most services block iframe embedding for security, so we've provided direct links with embedded Calendly (which works).</p>
+      <div class="apps-grid">
+        <div class="app-embed" data-name="Calendly" data-url="https://calendly.com/">
+          <div class="toolbar">
+            <div class="title">Calendly (Embedded)</div>
+            <button class="btn gold" data-action="refresh" type="button">Refresh</button>
+            <button class="btn" data-action="fullscreen" type="button">Fullscreen</button>
+            <a class="btn" data-action="open" href="https://calendly.com/" target="_blank" rel="noopener">Open in New Tab</a>
+          </div>
+          <iframe class="app-frame" title="Calendly"></iframe>
+          <div class="hint">✅ Calendly works embedded - log in and manage bookings here.</div>
+        </div>
+
+        <div class="app-embed">
+          <div class="toolbar">
+            <div class="title">Other Platforms (Direct Links)</div>
+          </div>
+          <div style="padding: 20px; background: rgba(255,255,255,.02); border-radius: 8px; border: 1px solid rgba(255,255,255,.08);">
+            <div class="quick-links">
+              <a class="btn gold" href="https://app.hubspot.com/" target="_blank" rel="noopener">HubSpot CRM</a>
+              <a class="btn" href="https://trello.com/" target="_blank" rel="noopener">Trello Boards</a>
+              <a class="btn" href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">LinkedIn Company</a>
+              <a class="btn" href="https://www.waveapps.com/" target="_blank" rel="noopener">Wave Invoicing</a>
+              <a class="btn" href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
+              <a class="btn" href="https://calendar.google.com/" target="_blank" rel="noopener">Google Calendar</a>
+            </div>
+            <p class="hint" style="margin-top: 12px;">These platforms block iframe embedding for security. Click any button to open in a new tab.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar-embed" class="card" style="margin-top:18px">
+      <h2>📆 Cochran Films Google Calendar</h2>
+      <p class="muted">Live view of our team calendar. Use the direct link if the embed asks you to sign in.</p>
+      <div class="quick-links" style="margin-bottom:12px">
+        <a class="btn gold" href="https://calendar.google.com/calendar/u/0?cid=aW5mb0Bjb2NocmFuZmlsbXMuY29t" target="_blank" rel="noopener">Open in Google Calendar</a>
+      </div>
+      <iframe
+        class="calendar-embed"
+        title="Cochran Films Calendar"
+        src="https://calendar.google.com/calendar/embed?src=info%40cochranfilms.com&ctz=America%2FNew_York&mode=AGENDA"
+        frameborder="0"
+        scrolling="no"></iframe>
+    </section>
+
+    <section id="hubspot-dashboard-section" class="card" style="margin-top:18px">
+      <h2>🎯 HubSpot CRM Dashboard</h2>
+      <p class="muted">Complete business management hub with real-time CRM integration for maximum efficiency.</p>
+      
+      <div class="hubspot-dashboard" id="hubspot-dashboard">
+        <!-- Enhanced Header with Quick Stats -->
+        <div class="dashboard-header">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-content">
+                <div class="stat-number" id="contactsCount">-</div>
+                <div class="stat-label">Contacts</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💰</div>
+              <div class="stat-content">
+                <div class="stat-number" id="dealsCount">-</div>
+                <div class="stat-label">Deals</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📈</div>
+              <div class="stat-content">
+                <div class="stat-number" id="revenueCount">$-</div>
+                <div class="stat-label">Pipeline Value</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✅</div>
+              <div class="stat-content">
+                <div class="stat-number" id="tasksCount">-</div>
+                <div class="stat-label">Active Tasks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Navigation Tabs -->
+        <div class="dashboard-tabs">
+          <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+          <button class="tab-btn" data-tab="contacts">👥 Contacts</button>
+          <button class="tab-btn" data-tab="deals">💰 Deals</button>
+          <button class="tab-btn" data-tab="companies">🏢 Companies</button>
+          <button class="tab-btn" data-tab="leads">🎯 Leads</button>
+          <button class="tab-btn" data-tab="quotes">📋 Quotes</button>
+          <button class="tab-btn" data-tab="add-contact">➕ Add Contact</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overview-tab">
+          <div class="overview-grid">
+            <div class="overview-card">
+              <h3>📊 Recent Activity</h3>
+              <div id="recentActivity" class="activity-list">
+                <div class="loading-state">Loading recent activity...</div>
+              </div>
+            </div>
+            <div class="overview-card">
+              <h3>🎯 Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="action-btn" onclick="switchTab('add-contact')">
+                  <span class="action-icon">➕</span>
+                  <span>Add Contact</span>
+                </button>
+                <button class="action-btn" onclick="createDeal()">
+                  <span class="action-icon">💰</span>
+                  <span>Create Deal</span>
+                </button>
+                <button class="action-btn" onclick="createQuote()">
+                  <span class="action-icon">📋</span>
+                  <span>Create Quote</span>
+                </button>
+                <button class="action-btn" onclick="switchTab('leads')">
+                  <span class="action-icon">🎯</span>
+                  <span>View Leads</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Contacts Tab -->
+        <div class="tab-content" id="contacts-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="contactSearch" placeholder="Search contacts by name, email, or company..." class="search-input">
+              <button class="btn gold" onclick="searchContacts()">🔍 Search</button>
+              <button class="btn" onclick="refreshContacts()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="contactFilter" onchange="filterContacts()">
+                <option value="">All Contacts</option>
+                <option value="new">New Leads</option>
+                <option value="existing">Existing Clients</option>
+                <option value="recent">Recently Added</option>
+              </select>
+            </div>
+          </div>
+          <div id="contactsList" class="data-list">
+            <div class="loading-state">Loading contacts...</div>
+          </div>
+        </div>
+
+        <!-- Enhanced Deals Tab -->
+        <div class="tab-content" id="deals-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="dealSearch" placeholder="Search deals by name or amount..." class="search-input">
+              <button class="btn gold" onclick="searchDeals()">🔍 Search</button>
+              <button class="btn" onclick="refreshDeals()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="dealFilter" onchange="filterDeals()">
+                <option value="">All Deals</option>
+                <option value="appointmentscheduled">Discovery Calls</option>
+                <option value="qualifiedtobuy">Qualified</option>
+                <option value="presentationscheduled">Presentations</option>
+                <option value="decisionmakerboughtin">Decision Made</option>
+                <option value="closedwon">Closed Won</option>
+              </select>
+            </div>
+          </div>
+          <div id="dealsList" class="data-list">
+            <div class="loading-state">Loading deals...</div>
+          </div>
+        </div>
+
+        <!-- Companies Tab -->
+        <div class="tab-content" id="companies-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="companySearch" placeholder="Search companies..." class="search-input">
+              <button class="btn gold" onclick="searchCompanies()">🔍 Search</button>
+              <button class="btn" onclick="refreshCompanies()">🔄 Refresh</button>
+            </div>
+          </div>
+          <div id="companiesList" class="data-list">
+            <div class="loading-state">Loading companies...</div>
+          </div>
+        </div>
+
+        <!-- Leads Tab -->
+        <div class="tab-content" id="leads-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="leadSearch" placeholder="Search leads..." class="search-input">
+              <button class="btn gold" onclick="searchLeads()">🔍 Search</button>
+              <button class="btn" onclick="refreshLeads()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="leadFilter" onchange="filterLeads()">
+                <option value="">All Leads</option>
+                <option value="new">New Leads</option>
+                <option value="qualified">Qualified</option>
+                <option value="unqualified">Unqualified</option>
+              </select>
+            </div>
+          </div>
+          <div id="leadsList" class="data-list">
+            <div class="loading-state">Loading leads...</div>
+          </div>
+        </div>
+
+        <!-- Quotes Tab -->
+        <div class="tab-content" id="quotes-tab">
+          <div class="tab-header">
+            <div class="search-bar">
+              <input type="text" id="quoteSearch" placeholder="Search quotes..." class="search-input">
+              <button class="btn gold" onclick="searchQuotes()">🔍 Search</button>
+              <button class="btn" onclick="refreshQuotes()">🔄 Refresh</button>
+            </div>
+            <div class="filter-bar">
+              <select id="quoteFilter" onchange="filterQuotes()">
+                <option value="">All Quotes</option>
+                <option value="draft">Draft</option>
+                <option value="sent">Sent</option>
+                <option value="accepted">Accepted</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+          <div id="quotesList" class="data-list">
+            <div class="loading-state">Loading quotes...</div>
+          </div>
+        </div>
+
+        <!-- Enhanced Add Contact Tab -->
+        <div class="tab-content" id="add-contact-tab">
+          <div class="form-container">
+            <h3>➕ Add New Contact</h3>
+            <form id="addContactForm" class="contact-form">
+              <div class="form-section">
+                <h4>Personal Information</h4>
+                <div class="form-row">
+                  <input type="text" id="firstName" placeholder="First Name *" required>
+                  <input type="text" id="lastName" placeholder="Last Name *" required>
+                </div>
+                <div class="form-row">
+                  <input type="email" id="email" placeholder="Email *" required>
+                  <input type="tel" id="phone" placeholder="Phone">
+                </div>
+              </div>
+              
+              <div class="form-section">
+                <h4>Company Information</h4>
+                <div class="form-row">
+                  <input type="text" id="company" placeholder="Company">
+                  <input type="text" id="jobTitle" placeholder="Job Title">
+                </div>
+                <div class="form-row">
+                  <input type="text" id="website" placeholder="Website">
+                  <input type="text" id="industry" placeholder="Industry">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Lead Information</h4>
+                <div class="form-row">
+                  <select id="leadSource">
+                    <option value="">Lead Source</option>
+                    <option value="website">Website</option>
+                    <option value="referral">Referral</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="google">Google</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <select id="leadStatus">
+                    <option value="new">New</option>
+                    <option value="qualified">Qualified</option>
+                    <option value="unqualified">Unqualified</option>
+                    <option value="converted">Converted</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <input type="text" id="leadScore" placeholder="Lead Score (1-100)">
+                  <input type="date" id="lastContactDate" placeholder="Last Contact Date">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Additional Information</h4>
+                <textarea id="notes" placeholder="Notes about this contact..."></textarea>
+                <div class="form-row">
+                  <input type="text" id="address" placeholder="Address">
+                  <input type="text" id="city" placeholder="City">
+                </div>
+                <div class="form-row">
+                  <input type="text" id="state" placeholder="State">
+                  <input type="text" id="zipCode" placeholder="ZIP Code">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn gold">➕ Add Contact</button>
+                <button type="button" class="btn" onclick="clearForm()">🗑️ Clear Form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="api-status">
+        <div id="hubspotApiStatus" class="status-indicator">
+          <span class="status-dot" id="hubspotStatusDot"></span>
+          <span class="status-text" id="hubspotStatusText">Checking HubSpot connection...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reinserted onboarding overview and file handoff after widgets/dashboards block -->
+    <section class="card" style="margin-top:18px">
+      <h3>📁 File Handoff</h3>
+      <p>
+        • Team resources live here: <a href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">Cochran Films Internal Drive</a><br>
+        • Upload your work here: <a href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">Shanylah Personal Folder</a>
+      </p>
+      <p class="kicker">We'll add more shortcuts (SOPs, templates, scripts) as needed.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card span-8">
+        <h2>🎉 1) Welcome + What You've Already Completed</h2>
+        <ul class="list">
+          <li>Reviewed and signed your Assistant Contract ✅</li>
+          <li>Reviewed the Cochran Films SOP ✅</li>
+          <li>Received and reviewed Brand Guidelines ✅</li>
+          <li>Granted Admin access to Calendly and HubSpot ✅</li>
+        </ul>
+        <p class="muted">Great start — you're cleared to begin your active role.</p>
+      </article>
+
+      <aside class="card span-4">
+        <h3>⚡ Quick Access</h3>
+        <div class="quick-links">
+          <a class="btn" href="https://www.hubspot.com/" target="_blank" rel="noopener">HubSpot</a>
+          <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a>
+          <a class="btn" href="https://trello.com/" target="_blank" rel="noopener">Trello</a>
+          <a class="btn" href="https://www.waveapps.com/" target="_blank" rel="noopener">Wave</a>
+          <a class="btn" href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </aside>
+
+      <article class="card span-12">
+        <h2>🎬 2) Overview of Cochran Films</h2>
+        <p>Cochran Films LLC is a full-stack media powerhouse based in Georgia, specializing in high-end video production, branding, web development, content strategy, on-site photo printing, and AI-driven systems via our sister brand Marketing Mousetrap Agency. Founded by Cody Cochran, we focus on quality, innovation, client satisfaction, and empowering stories through film, education, and technology.</p>
+        <div class="two-col">
+          <div>
+            <h3>What We Do</h3>
+            <ul class="list">
+              <li>Media Production: film, promos, docs, podcasts, commercials</li>
+              <li>Business Tools: automated invoicing, client portals, dashboards</li>
+              <li>Branding & Web: logos, websites, SEO, automation</li>
+              <li>Community & Education: Course Creator Academy, CCA Critiques</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Key Values</h3>
+            <ul class="list">
+              <li>Trust</li>
+              <li>Loyalty</li>
+              <li>Innovation</li>
+              <li>Family</li>
+              <li>Professionalism</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card span-6">
+        <h2>💼 3) Your Role as an Assistant</h2>
+        <h3>Primary Responsibilities</h3>
+        <ul class="list">
+          <li>Email sorting and response</li>
+          <li>Scheduling via Calendly</li>
+          <li>Managing client info and pipeline in HubSpot</li>
+          <li>Internal file organization (Google Drive / G Suite)</li>
+          <li>Weekly check-ins and updates with Cody</li>
+        </ul>
+        <h3>Expanded Capabilities (Next)</h3>
+        <ul class="list">
+          <li>Access to Cody's email account (view/sort/send on behalf)</li>
+          <li>Access to Cody's LinkedIn for lead messaging and research</li>
+        </ul>
+        <h3>Success Looks Like</h3>
+        <ul class="list">
+          <li>Timely, detail‑oriented task completion</li>
+          <li>Reachable during weekday business hours</li>
+          <li>Proactive check-ins for updates or shifts</li>
+          <li>Client confidentiality and brand professionalism</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>📅 4) Calendly — Overview</h2>
+        <p>Calendly powers discovery calls, onboarding meetings, and consultations.</p>
+        <h3>Your Use</h3>
+        <ul class="list">
+          <li>Monitor bookings and notify Cody of new appointments</li>
+          <li>Adjust availability or meeting types as needed</li>
+          <li>Review meeting notes/form data prior to calls</li>
+        </ul>
+        <h3>Helpful Features</h3>
+        <ul class="list">
+          <li>Google Calendar sync</li>
+          <li>Meeting buffers and time zones</li>
+          <li>Form integration for client info</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>🎯 5) HubSpot — Overview</h2>
+        <p>HubSpot is our CRM to manage leads, clients, templates, and the pipeline.</p>
+        <h3>Your Use</h3>
+        <ul class="list">
+          <li>Track new contacts and deal status</li>
+          <li>Use email templates for outreach or follow‑ups</li>
+          <li>Log notes and update tasks after conversations</li>
+        </ul>
+        <h3>Helpful Features</h3>
+        <ul class="list">
+          <li>Contact timeline history</li>
+          <li>Pipeline views and stages</li>
+          <li>Automation: reminders, follow‑ups, internal alerts</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>🛠️ 6) Tools You'll Use Often</h2>
+        <ul class="list">
+          <li>Gmail: inquiries and replies</li>
+          <li>LinkedIn (Cody's): leads and client data — <a href="https://www.linkedin.com/company/cochranfilms" target="_blank" rel="noopener">open</a></li>
+          <li>Google Calendar: events, shoots, calls</li>
+          <li>Google Drive: assets, documents, brand kits</li>
+          <li>Trello or Sheets: task tracking — <a href="https://trello.com/" target="_blank" rel="noopener">open</a></li>
+          <li>WaveApps: invoices and reminders — <a href="https://www.waveapps.com/" target="_blank" rel="noopener">open</a></li>
+          <li>Zoom / FaceTime: weekly check‑ins</li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>🔗 7) Quick Links</h2>
+        <div class="quick-links">
+          <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Discovery Call Booking</a>
+          <a class="btn" href="https://landing.cochranfilms.com/forms-hub.html" target="_blank" rel="noopener">Media Inquiry Form</a>
+          <a class="btn" href="https://www.cochranfilms.com/" target="_blank" rel="noopener">Cochran Films Website</a>
+          <a class="btn" href="https://www.cochranfilms.com/portfolio" target="_blank" rel="noopener">Portfolio</a>
+          <a class="btn" href="https://www.instagram.com/cochran.films/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://www.youtube.com/@cochranfilmsllc" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </article>
+
+      <article class="card span-12">
+        <h2>🎯 8) First Week Goals</h2>
+        <ul class="list">
+          <li>Get familiar with the HubSpot dashboard — <a href="https://www.hubspot.com/" target="_blank" rel="noopener">hubspot.com</a></li>
+          <li>Log into Calendly and view upcoming bookings — <a href="https://calendly.com/" target="_blank" rel="noopener">calendly.com</a></li>
+          <li>Review brand guidelines — <a href="https://drive.google.com/file/d/17mSv4xvh9IDfNdupTEB8YvJImgNwy0BU/view?usp=sharing" target="_blank" rel="noopener">open</a></li>
+          <li>Get access to Gmail + LinkedIn</li>
+          <li>One‑on‑one with Cody — Already done ✅</li>
+          <li>Bookmark all important links and logins</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>📧 Email Management Tools</h2>
+      <p class="muted">Essential tools and templates for sorting, organizing, and responding to emails effectively.</p>
+      <div class="two-col">
+        <div>
+          <h3>Email Organization</h3>
+          <ul class="list">
+            <li><strong>Priority Labels:</strong> Urgent, Client, Internal, Follow-up</li>
+            <li><strong>Folder Structure:</strong> Inbox, Clients, Projects, Admin</li>
+            <li><strong>Response Templates:</strong> Quick replies for common inquiries</li>
+            <li><strong>Auto-forwarding:</strong> Set up rules for specific client types</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Quick Actions</h3>
+          <div class="quick-links">
+            <a class="btn" href="https://mail.google.com/" target="_blank" rel="noopener">📧 Gmail</a>
+            <a class="btn" href="https://support.google.com/mail/answer/6579" target="_blank" rel="noopener">📋 Email Filters</a>
+            <a class="btn" href="https://support.google.com/mail/answer/118708" target="_blank" rel="noopener">⚡ Quick Replies</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>📅 Scheduling & Meeting Management</h2>
+      <p class="muted">Streamline discovery calls, client meetings, and internal project coordination.</p>
+      <div class="two-col">
+        <div>
+          <h3>Meeting Types</h3>
+          <ul class="list">
+            <li><strong>Discovery Calls:</strong> 15-30 min initial consultations</li>
+            <li><strong>Client Meetings:</strong> Project updates and planning</li>
+            <li><strong>Internal Syncs:</strong> Weekly check-ins with Cody</li>
+            <li><strong>Vendor Calls:</strong> Freelancer and collaborator coordination</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Calendly Setup</h3>
+          <ul class="list">
+            <li>Buffer time between meetings (15 min)</li>
+            <li>Time zone auto-detection</li>
+            <li>Automatic HubSpot integration</li>
+            <li>Meeting reminders and follow-ups</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quick-links" style="margin-top:16px">
+        <a class="btn gold" href="https://calendly.com/" target="_blank" rel="noopener">📅 Calendly Dashboard</a>
+        <a class="btn" href="https://calendly.com/help" target="_blank" rel="noopener">❓ Calendly Help</a>
+        <a class="btn" href="https://calendar.google.com/" target="_blank" rel="noopener">📆 Google Calendar</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>🤝 Vendor & Collaborator Management</h2>
+      <p class="muted">Tools and processes for coordinating with freelancers, vendors, and project collaborators.</p>
+      <div class="two-col">
+        <div>
+          <h3>Communication Channels</h3>
+          <ul class="list">
+            <li><strong>Email:</strong> Primary communication method</li>
+            <li><strong>Phone:</strong> Urgent matters and quick clarifications</li>
+            <li><strong>Project Management:</strong> Trello for task tracking</li>
+            <li><strong>File Sharing:</strong> Google Drive for assets</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Coordination Best Practices</h3>
+          <ul class="list">
+            <li>Set clear deadlines and expectations</li>
+            <li>Provide detailed project briefs</li>
+            <li>Schedule regular check-ins</li>
+            <li>Maintain organized file structure</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quick-links" style="margin-top:16px">
+        <a class="btn" href="https://trello.com/" target="_blank" rel="noopener">📋 Trello Boards</a>
+        <a class="btn" href="https://drive.google.com/" target="_blank" rel="noopener">📁 Google Drive</a>
+        <a class="btn" href="https://www.waveapps.com/" target="_blank" rel="noopener">💰 Wave Invoicing</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>📁 Digital File Organization</h2>
+      <p class="muted">Maintain organized digital documents, files, and internal resources for maximum efficiency.</p>
+      <div class="two-col">
+        <div>
+          <h3>File Structure</h3>
+          <ul class="list">
+            <li><strong>Client Folders:</strong> Organized by project name</li>
+            <li><strong>Assets:</strong> Logos, images, videos by category</li>
+            <li><strong>Templates:</strong> Email, contract, and proposal templates</li>
+            <li><strong>Internal:</strong> SOPs, guidelines, and procedures</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Naming Conventions</h3>
+          <ul class="list">
+            <li><strong>Projects:</strong> YYYY-MM-DD_ClientName_ProjectType</li>
+            <li><strong>Assets:</strong> ClientName_AssetType_Version</li>
+            <li><strong>Documents:</strong> DocumentType_ClientName_Date</li>
+            <li><strong>Internal:</strong> Category_DocumentName_Version</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quick-links" style="margin-top:16px">
+        <a class="btn gold" href="https://drive.google.com/drive/folders/1wPNOT-M9-vA4Uep6pSM3bq3qTOMYEQUC?usp=drive_link" target="_blank" rel="noopener">📂 Team Drive</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1-rDCCbGelvTEEgxkfv68b_aMDkSXRnyq?usp=drive_link" target="_blank" rel="noopener">📁 Personal Folder</a>
+        <a class="btn" href="https://support.google.com/drive/answer/2375091" target="_blank" rel="noopener">📋 Organization Tips</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>📖 Complete Onboarding Guide</h2>
+      <p class="muted">Your comprehensive reference guide with all the details, links, and resources you need to succeed.</p>
+      <div class="quick-links" style="margin-bottom:16px">
+        <a class="btn gold" href="README.md" target="_blank" rel="noopener">📄 View Full README</a>
+        <a class="btn" href="https://github.com/cochranfilms/shanylah" target="_blank" rel="noopener">🔗 GitHub Repository</a>
+      </div>
+      <iframe class="viewer-iframe" src="README.md" title="Complete Onboarding Guide" style="height:600px;"></iframe>
+    </section>
+  </main>
+
+  <script>
+  // Reorder sections so informational content appears first, followed by tools/widgets
+  (function(){
+    function moveToolsToEnd(){
+      try{
+        var main = document.getElementById('cf-main') || document.querySelector('main');
+        if(!main) return;
+        var toolIds = ['ai-tools','wave-tools','drive-embeds','file-viewer','unified-workspace','calendar-embed','hubspot-dashboard-section'];
+        toolIds.forEach(function(id){
+          var el = document.getElementById(id);
+          if(el && el.parentElement === main){ main.appendChild(el); }
+        });
+      }catch(e){ /* noop */ }
+    }
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', moveToolsToEnd);
+    } else {
+      moveToolsToEnd();
+    }
+  })();
+  </script>
+
+  <footer class="footer">
+    <img src="CF_Logo_White2025.png" alt="Cochran Films" width="44" height="44" style="opacity:.9" onerror="this.src='CF_Logo_Black2025.png'">
+    <div class="kicker">©2025 Cochran Films LLC • Stories that tell themselves</div>
+  </footer>
+
+<script>
+// Name badge tilt/hover interaction
+(function(){
+  var badge = document.getElementById('nameBadge');
+  if(!badge) return;
+  var card = badge.querySelector('.card');
+  function setTilt(e){
+    var rect = card.getBoundingClientRect();
+    var x = (e.clientX || (rect.left + rect.width/2)) - rect.left;
+    var y = (e.clientY || (rect.top + rect.height/2)) - rect.top;
+    var rx = ((y/rect.height) - 0.5) * -8;
+    var ry = ((x/rect.width) - 0.5) * 8;
+    card.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+  }
+  function reset(){ card.style.transform = 'rotateX(0) rotateY(0)'; }
+  card.addEventListener('mousemove', setTilt);
+  card.addEventListener('mouseleave', reset);
+  card.addEventListener('focus', function(){ card.style.boxShadow = '0 26px 48px rgba(0,0,0,.22)'; });
+  card.addEventListener('blur', function(){ card.style.boxShadow = ''; reset(); });
+})();
+
+// Authentication Check
+(function(){
+  // Check if user is authenticated
+  if (sessionStorage.getItem('cf_authenticated') !== 'true') {
+    // Redirect to login page
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Check session timeout (24 hours)
+  const loginTime = parseInt(sessionStorage.getItem('cf_login_time') || '0');
+  const now = Date.now();
+  const sessionTimeout = 24 * 60 * 60 * 1000; // 24 hours
+  
+  if (now - loginTime >= sessionTimeout) {
+    // Session expired, clear storage and redirect
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Add fancy logout button + custom modal
+  function addLogoutButton() {
+    const header = document.querySelector('.hero');
+    if (!header) return;
+
+    // Inject styles once
+    if (!document.getElementById('cf-logout-styles')) {
+      const style = document.createElement('style');
+      style.id = 'cf-logout-styles';
+      style.textContent = `
+        .cf-logout-btn{
+          position:absolute;top:20px;right:20px;
+          display:inline-flex;align-items:center;gap:10px;
+          padding:10px 16px;border-radius:999px;
+          border:1px solid rgba(239,68,68,.25);
+          background:linear-gradient(135deg, rgba(255,240,241,.95) 0%, rgba(255,228,230,.95) 100%);
+          color:#b91c1c;font-weight:600;letter-spacing:.2px;
+          box-shadow:0 6px 16px rgba(239,68,68,.12);
+          cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+          backdrop-filter:saturate(1.2) blur(2px);
+        }
+        .cf-logout-btn:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(239,68,68,.18);} 
+        .cf-logout-btn svg{ width:22px;height:22px; }
+        .cf-tree{ transform-origin:50% 80%; }
+        .cf-axe{ transform-origin:14px 18px; animation:cf-axe-swing 2.2s ease-in-out infinite; }
+        @keyframes cf-axe-swing{ 0%,100%{ transform:rotate(0deg) translateY(0);} 40%{ transform:rotate(-28deg) translateY(0);} 60%{ transform:rotate(6deg) translateY(0);} }
+
+        /* Modal */
+        .cf-logout-overlay{ position:fixed; inset:0; display:grid; place-items:center; background:rgba(15,23,42,.4); backdrop-filter:blur(6px); opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:40; }
+        .cf-logout-overlay.show{ opacity:1; pointer-events:auto; }
+        .cf-logout-modal{ width:min(560px,92vw); background:linear-gradient(135deg,#ffffff 0%, #fff7ed 100%);
+          border:1px solid rgba(0,0,0,.06); border-radius:24px; box-shadow:0 30px 60px rgba(0,0,0,.18);
+          padding:28px; position:relative; overflow:hidden; }
+        .cf-logout-modal::after{ content:''; position:absolute; inset:auto -40% -40% auto; width:200px;height:200px; border-radius:50%; background:radial-gradient(closest-side, rgba(245,175,0,.25), transparent 70%); filter:blur(4px);}
+        .cf-logout-header{ display:flex; align-items:center; gap:14px; margin-bottom:8px; }
+        .cf-logout-title{ font-family:Montserrat,Inter,sans-serif; font-weight:700; font-size:22px; color:#0f172a; }
+        .cf-logout-sub{ color:#475569; margin:0 0 18px; }
+        .cf-logout-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:10px; }
+        .cf-btn{ padding:12px 18px; border-radius:12px; font-weight:600; border:1px solid transparent; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+        .cf-btn:active{ transform:translateY(1px); }
+        .cf-btn.cancel{ background:#fff; border-color:#e2e8f0; color:#0f172a; }
+        .cf-btn.cancel:hover{ box-shadow:0 8px 18px rgba(2,6,23,.1); }
+        .cf-btn.logout{ background:linear-gradient(135deg,#fda4af,#fb7185); color:#fff; box-shadow:0 12px 24px rgba(190,18,60,.25); }
+        .cf-btn.logout:hover{ box-shadow:0 16px 32px rgba(190,18,60,.35); }
+        .cf-illustration{ width:64px;height:64px; border-radius:16px; display:grid;place-items:center; background:linear-gradient(135deg,#fff7ed,#fffbeb); border:1px solid #fee2e2; box-shadow:inset 0 0 0 6px #fff; }
+        .cf-illustration svg{ width:40px;height:40px; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Build modal once
+    if (!document.querySelector('.cf-logout-overlay')){
+      const overlay = document.createElement('div');
+      overlay.className = 'cf-logout-overlay';
+      overlay.innerHTML = `
+        <div class="cf-logout-modal" role="dialog" aria-modal="true" aria-labelledby="cfLogoutTitle">
+          <div class="cf-logout-header">
+            <div class="cf-illustration" aria-hidden="true">
+              ${getTreeSvg('40','40')}
+            </div>
+            <div>
+              <div class="cf-logout-title" id="cfLogoutTitle">Ready to head out?</div>
+              <p class="cf-logout-sub">You can sign back in anytime. Your work will be here.</p>
+            </div>
+          </div>
+          <div class="cf-logout-actions">
+            <button class="cf-btn cancel" type="button">Stay</button>
+            <button class="cf-btn logout" type="button">Logout</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      // Close handlers
+      overlay.addEventListener('click', (e)=>{ if(e.target === overlay){ overlay.classList.remove('show'); } });
+      overlay.querySelector('.cancel').addEventListener('click', ()=> overlay.classList.remove('show'));
+      overlay.querySelector('.logout').addEventListener('click', ()=>{ sessionStorage.clear(); window.location.href = 'login.html'; });
+    }
+
+    // Create animated button
+    const logoutBtn = document.createElement('button');
+    logoutBtn.className = 'cf-logout-btn';
+    logoutBtn.type = 'button';
+    logoutBtn.setAttribute('aria-label','Logout');
+    logoutBtn.innerHTML = `${getTreeSvg('22','22')}<span>Logout</span>`;
+    logoutBtn.addEventListener('click', ()=>{
+      const overlay = document.querySelector('.cf-logout-overlay');
+      overlay && overlay.classList.add('show');
+      });
+      
+      header.style.position = 'relative';
+      header.appendChild(logoutBtn);
+
+    // Helper to provide SVG
+    function getTreeSvg(w,h){
+      return `
+        <svg viewBox="0 0 48 48" width="${w}" height="${h}" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="cf-tree">
+            <ellipse cx="24" cy="40" rx="12" ry="3" fill="#eab308" opacity=".2"/>
+            <rect x="22" y="22" width="4" height="12" rx="2" fill="#92400e"/>
+            <circle cx="24" cy="18" r="10" fill="#22c55e"/>
+            <circle cx="18" cy="20" r="6" fill="#16a34a"/>
+            <circle cx="30" cy="21" r="7" fill="#16a34a"/>
+          </g>
+          <g class="cf-axe">
+            <rect x="12" y="12" width="3" height="18" rx="1.5" fill="#b45309"/>
+            <path d="M9 16 L17 14 L17 20 L9 18 Z" fill="#f87171" stroke="#7f1d1d" stroke-width=".6"/>
+          </g>
+        </svg>`;
+    }
+  }
+
+  // Initialize when page loads
+  document.addEventListener('DOMContentLoaded', addLogoutButton);
+})();
+
+(function(){
+  const input = document.getElementById('driveUrl');
+  const previewBtn = document.getElementById('previewBtn');
+  const openBtn = document.getElementById('openBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const frame = document.getElementById('viewerFrame');
+  const sampleBtn = document.getElementById('sampleBtn');
+
+  const SAMPLE_ID = '17mSv4xvh9IDfNdupTEB8YvJImgNwy0BU';
+
+  function extractIdAndKind(rawUrl){
+    if(!rawUrl) return null;
+    try{ rawUrl = rawUrl.trim(); }catch(e){ return null; }
+    const url = new URL(rawUrl);
+    const host = url.hostname;
+    const path = url.pathname;
+    const searchParams = url.searchParams;
+
+    const idFromD = /\/d\/([a-zA-Z0-9_-]{10,})/.exec(path);
+    const idFromQuery = searchParams.get('id');
+    const id = (idFromD && idFromD[1]) || idFromQuery || '';
+    if(!id) return null;
+
+    let kind = 'file';
+    if(host.includes('docs.google.com')){
+      if(path.includes('/document/')) kind = 'document';
+      else if(path.includes('/spreadsheets/')) kind = 'spreadsheet';
+      else if(path.includes('/presentation/')) kind = 'presentation';
+    }
+    return { id, kind };
+  }
+
+  function buildPreviewUrl(info){
+    if(!info) return '';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/preview`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/preview`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/preview`;
+      default: return `https://drive.google.com/file/d/${id}/preview`;
+    }
+  }
+
+  function buildOpenUrl(info){
+    if(!info) return '#';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/view`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/view`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/view`;
+      default: return `https://drive.google.com/file/d/${id}/view`;
+    }
+  }
+
+  function buildDownloadUrl(info){
+    if(!info) return '#';
+    const id = info.id;
+    switch(info.kind){
+      case 'document': return `https://docs.google.com/document/d/${id}/export?format=pdf`;
+      case 'spreadsheet': return `https://docs.google.com/spreadsheets/d/${id}/export?format=pdf`;
+      case 'presentation': return `https://docs.google.com/presentation/d/${id}/export/pdf`;
+      default: return `https://drive.google.com/uc?export=download&id=${id}`;
+    }
+  }
+
+  function preview(url){
+    const info = extractIdAndKind(url);
+    if(!info){ alert('Please paste a valid Google Drive link.'); return; }
+    const previewUrl = buildPreviewUrl(info);
+    const openUrl = buildOpenUrl(info);
+    const downloadUrl = buildDownloadUrl(info);
+    frame.src = previewUrl;
+    openBtn.href = openUrl;
+    downloadBtn.href = downloadUrl;
+  }
+
+  previewBtn.addEventListener('click', () => preview(input.value));
+  input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); preview(input.value); } });
+  sampleBtn.addEventListener('click', (e) => { e.preventDefault(); input.value = `https://drive.google.com/file/d/${SAMPLE_ID}/view?usp=sharing`; preview(input.value); });
+})();
+
+// Initialize app iframes
+(function(){
+  const blocks = document.querySelectorAll('.app-embed');
+  blocks.forEach(block => {
+    const url = block.getAttribute('data-url');
+    const frame = block.querySelector('iframe');
+    const openBtn = block.querySelector('[data-action="open"]');
+    const refreshBtn = block.querySelector('[data-action="refresh"]');
+    const fullscreenBtn = block.querySelector('[data-action="fullscreen"]');
+    if(frame) frame.src = url;
+    if(openBtn) openBtn.href = url.replace(/login$/,'');
+    if(refreshBtn) refreshBtn.addEventListener('click', ()=>{ if(frame) frame.src = frame.src; });
+    if(fullscreenBtn) fullscreenBtn.addEventListener('click', ()=>{
+      block.classList.toggle('fullscreen');
+      // Scroll to top when entering fullscreen
+      if(block.classList.contains('fullscreen')) window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+
+// Cochran Films Website Embed Controls
+function refreshCochranSite() {
+  const frame = document.getElementById('cochranSiteFrame');
+  if (frame) {
+    frame.src = frame.src; // Force refresh by reloading the src
+  }
+}
+
+function toggleCochranFullscreen() {
+  const container = document.getElementById('cochranEmbedContainer');
+  if (container) {
+    container.classList.toggle('fullscreen');
+    // Scroll to top when entering fullscreen
+    if (container.classList.contains('fullscreen')) {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  }
+}
+
+// Cochran Films Main Website Embed Controls
+function refreshCochranMainSite() {
+  const frame = document.getElementById('cochranMainSiteFrame');
+  if (frame) {
+    frame.src = frame.src; // Force refresh by reloading the src
+  }
+}
+
+function toggleCochranMainFullscreen() {
+  const container = document.getElementById('cochranMainEmbedContainer');
+  if (container) {
+    container.classList.toggle('fullscreen');
+    // Scroll to top when entering fullscreen
+    if (container.classList.contains('fullscreen')) {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  }
+}
+
+// AI Search functionality
+(function(){
+  const searchInput = document.getElementById('aiSearchInput');
+  const searchBtn = document.getElementById('aiSearchBtn');
+  const responseDiv = document.getElementById('aiResponse');
+  const responseContent = responseDiv.querySelector('.ai-response-content');
+  const btnText = searchBtn.querySelector('.btn-text');
+  const btnLoading = searchBtn.querySelector('.btn-loading');
+
+  async function searchAI(query) {
+    if (!query.trim()) return;
+    
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    searchBtn.disabled = true;
+    
+    try {
+      // This will be replaced with your Vercel API endpoint
+      const response = await fetch('/api/chatgpt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: query,
+          context: 'Cochran Films Assistant Onboarding'
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      
+      const data = await response.json();
+      responseContent.innerHTML = data.response || 'No response received.';
+      responseDiv.style.display = 'block';
+      
+    } catch (error) {
+      console.error('AI Search Error:', error);
+      responseContent.innerHTML = `
+        <div style="color: #ef4444; padding: 16px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;">
+          <strong>⚠️ API Integration Needed</strong><br>
+          The ChatGPT API is not yet connected. Please set up the Vercel environment variables and API endpoint.<br><br>
+          <strong>Your question:</strong> "${query}"<br><br>
+          <em>Once the API is connected, this will provide AI-powered responses about Cochran Films procedures and tools.</em>
+        </div>
+      `;
+      responseDiv.style.display = 'block';
+    } finally {
+      // Reset button state
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      searchBtn.disabled = false;
+    }
+  }
+
+  // Event listeners
+  searchBtn.addEventListener('click', () => searchAI(searchInput.value));
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchAI(searchInput.value);
+    }
+  });
+})();
+
+// Helper functions for response actions
+function copyResponse() {
+  const content = document.querySelector('.ai-response-content').textContent;
+  navigator.clipboard.writeText(content).then(() => {
+    // Show brief success feedback
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = originalText, 2000);
+  });
+}
+
+function clearResponse() {
+  document.getElementById('aiResponse').style.display = 'none';
+  document.getElementById('aiSearchInput').value = '';
+}
+
+function setSuggestion(text) {
+  document.getElementById('aiSearchInput').value = text;
+  document.getElementById('aiSearchInput').focus();
+}
+
+// Enhanced HubSpot Dashboard functionality
+(function(){
+  // Tab switching (scoped to HubSpot dashboard)
+  const container = document.getElementById('hubspot-dashboard');
+  if (!container) return;
+  const tabBtns = container.querySelectorAll('.tab-btn');
+  const tabContents = container.querySelectorAll('.tab-content');
+  
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      
+      // Remove active class only within HubSpot dashboard
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked tab and corresponding content
+      btn.classList.add('active');
+      const target = container.querySelector('#' + targetTab + '-tab');
+      if (target) target.classList.add('active');
+      
+      // Load data when switching to a tab
+      switch(targetTab) {
+        case 'overview': loadOverview(); break;
+        case 'contacts': loadContacts(); break;
+        case 'deals': loadDeals(); break;
+        case 'companies': loadCompanies(); break;
+        case 'leads': loadLeads(); break;
+        case 'quotes': loadQuotes(); break;
+        case 'tasks': loadTasks(); break;
+      }
+    });
+  });
+
+  // Add contact form submission
+  document.getElementById('addContactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      company: document.getElementById('company').value,
+      leadSource: document.getElementById('leadSource').value,
+      notes: document.getElementById('notes').value
+    };
+    
+    try {
+      const response = await fetch('/api/hubspot/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Contact added successfully!');
+        document.getElementById('addContactForm').reset();
+        loadContacts(); // Refresh contacts list
+      } else {
+        throw new Error('Failed to add contact');
+      }
+    } catch (error) {
+      console.error('Error adding contact:', error);
+      alert('Error adding contact. Please check your HubSpot API configuration.');
+    }
+  });
+
+  // Load initial data
+  checkHubSpotConnection();
+  loadOverview();
+})();
+
+// Enhanced API functions
+async function loadOverview() {
+  try {
+    // Load stats
+    const [contactsRes, dealsRes] = await Promise.all([
+      fetch('/api/hubspot/contacts'),
+      fetch('/api/hubspot/deals')
+    ]);
+    
+    const contactsData = await contactsRes.json();
+    const dealsData = await dealsRes.json();
+    
+    // Update stats
+    document.getElementById('contactsCount').textContent = contactsData.contacts?.length || 0;
+    document.getElementById('dealsCount').textContent = dealsData.deals?.length || 0;
+    
+    // Calculate pipeline value
+    const totalValue = dealsData.deals?.reduce((sum, deal) => sum + (parseFloat(deal.amount) || 0), 0) || 0;
+    document.getElementById('revenueCount').textContent = `$${totalValue.toLocaleString()}`;
+    
+    // Load recent activity
+    loadRecentActivity(contactsData.contacts, dealsData.deals);
+    
+  } catch (error) {
+    console.error('Error loading overview:', error);
+  }
+}
+
+async function loadRecentActivity(contacts, deals) {
+  const activityList = document.getElementById('recentActivity');
+  
+  if (!contacts || !deals) {
+    activityList.innerHTML = '<div class="loading-state">No recent activity</div>';
+    return;
+  }
+  
+  // Combine and sort recent items
+  const activities = [];
+  
+  contacts.slice(0, 3).forEach(contact => {
+    activities.push({
+      type: 'contact',
+      icon: '👤',
+      text: `New contact: ${contact.firstName} ${contact.lastName}`,
+      time: new Date(contact.createdAt).toLocaleDateString()
+    });
+  });
+  
+  deals.slice(0, 3).forEach(deal => {
+    activities.push({
+      type: 'deal',
+      icon: '💰',
+      text: `Deal: ${deal.dealName} - $${deal.amount}`,
+      time: new Date(deal.createdAt).toLocaleDateString()
+    });
+  });
+  
+  // Sort by date and take first 5
+  activities.sort((a, b) => new Date(b.time) - new Date(a.time));
+  
+  if (activities.length === 0) {
+    activityList.innerHTML = '<div class="loading-state">No recent activity</div>';
+    return;
+  }
+  
+  activityList.innerHTML = activities.slice(0, 5).map(activity => `
+    <div class="activity-item">
+      <div class="activity-icon">${activity.icon}</div>
+      <div class="activity-content">
+        <p class="activity-text">${activity.text}</p>
+        <p class="activity-time">${activity.time}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadCompanies() {
+  const companiesList = document.getElementById('companiesList');
+  companiesList.innerHTML = '<div class="loading-state">Loading companies...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/companies');
+    const data = await response.json();
+    
+    if (data.companies && data.companies.length > 0) {
+      companiesList.innerHTML = data.companies.map(company => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${company.name || 'Unnamed Company'}</h4>
+            <p>${company.domain || 'No website'} • ${company.industry || 'No industry'}</p>
+            <div class="item-meta">
+              <span class="item-tag">${company.type || 'Company'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewCompany('${company.id}')">👁️ View</button>
+            <button class="btn" onclick="editCompany('${company.id}')">✏️ Edit</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      companiesList.innerHTML = '<div class="loading-state">No companies found</div>';
+    }
+  } catch (error) {
+    companiesList.innerHTML = '<div class="loading-state">Error loading companies - Check API configuration</div>';
+  }
+}
+
+async function loadLeads() {
+  const leadsList = document.getElementById('leadsList');
+  leadsList.innerHTML = '<div class="loading-state">Loading leads...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/leads');
+    const data = await response.json();
+    
+    if (data.leads && data.leads.length > 0) {
+      leadsList.innerHTML = data.leads.map(lead => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${lead.firstName} ${lead.lastName}</h4>
+            <p>${lead.email} • ${lead.company || 'No company'}</p>
+            <div class="item-meta">
+              <span class="item-tag status-${lead.status}">${lead.status}</span>
+              <span class="item-tag">Score: ${lead.score || 'N/A'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewLead('${lead.id}')">👁️ View</button>
+            <button class="btn" onclick="qualifyLead('${lead.id}')">✅ Qualify</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      leadsList.innerHTML = '<div class="loading-state">No leads found</div>';
+    }
+  } catch (error) {
+    leadsList.innerHTML = '<div class="loading-state">Error loading leads - Check API configuration</div>';
+  }
+}
+
+async function loadQuotes() {
+  const quotesList = document.getElementById('quotesList');
+  quotesList.innerHTML = '<div class="loading-state">Loading quotes...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/quotes');
+    const data = await response.json();
+    
+    if (data.quotes && data.quotes.length > 0) {
+      quotesList.innerHTML = data.quotes.map(quote => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${quote.title || 'Untitled Quote'}</h4>
+            <p>$${quote.amount} • ${quote.status || 'Draft'}</p>
+            <div class="item-meta">
+              <span class="item-tag">${quote.status || 'Draft'}</span>
+              <span class="item-tag">Due: ${quote.dueDate || 'No date'}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewQuote('${quote.id}')">👁️ View</button>
+            <button class="btn" onclick="sendQuote('${quote.id}')">📧 Send</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      quotesList.innerHTML = '<div class="loading-state">No quotes found</div>';
+    }
+  } catch (error) {
+    quotesList.innerHTML = '<div class="loading-state">Error loading quotes - Check API configuration</div>';
+  }
+}
+
+// HubSpot API functions
+async function checkHubSpotConnection() {
+  const statusDot = document.getElementById('hubspotStatusDot');
+  const statusText = document.getElementById('hubspotStatusText');
+  
+  try {
+    const response = await fetch('/api/hubspot/status');
+    if (response.ok) {
+      statusDot.classList.add('connected');
+      statusText.textContent = 'HubSpot connected successfully';
+    } else {
+      throw new Error('Connection failed');
+    }
+  } catch (error) {
+    statusDot.classList.add('error');
+    statusText.textContent = 'HubSpot connection failed - Check API configuration';
+  }
+}
+
+async function loadContacts() {
+  const contactsList = document.getElementById('contactsList');
+  contactsList.innerHTML = '<div class="loading-state">Loading contacts...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/contacts?limit=300&pageSize=100');
+    const data = await response.json();
+    // Sort newest first for a live feel
+    window.__hsContactsCache = (Array.isArray(data.contacts) ? data.contacts : []).sort((a,b)=> new Date(b.createdAt||0) - new Date(a.createdAt||0));
+    renderContacts(window.__hsContactsCache);
+  } catch (error) {
+    contactsList.innerHTML = '<div class="loading-state">Error loading contacts - Check API configuration</div>';
+  }
+}
+
+async function loadDeals() {
+  const dealsList = document.getElementById('dealsList');
+  dealsList.innerHTML = '<div class="loading-state">Loading deals...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/deals');
+    const data = await response.json();
+    
+    if (data.deals && data.deals.length > 0) {
+      dealsList.innerHTML = data.deals.map(deal => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${deal.dealName}</h4>
+            <p>$${deal.amount} • ${deal.dealStage}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewDeal('${deal.id}')">👁️ View</button>
+            <button class="btn" onclick="editDeal('${deal.id}')">✏️ Edit</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      dealsList.innerHTML = '<div class="loading-state">No deals found</div>';
+    }
+  } catch (error) {
+    dealsList.innerHTML = '<div class="loading-state">Error loading deals - Check API configuration</div>';
+  }
+}
+
+async function loadTasks() {
+  const tasksList = document.getElementById('tasksList');
+  tasksList.innerHTML = '<div class="loading-state">Loading tasks...</div>';
+  
+  try {
+    const response = await fetch('/api/hubspot/tasks');
+    const data = await response.json();
+    
+    if (data.tasks && data.tasks.length > 0) {
+      tasksList.innerHTML = data.tasks.map(task => `
+        <div class="data-item">
+          <div class="item-info">
+            <h4>${task.taskName}</h4>
+            <p>Due: ${task.dueDate} • ${task.taskStatus}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn" onclick="viewTask('${task.id}')">👁️ View</button>
+            <button class="btn" onclick="completeTask('${task.id}')">✅ Complete</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      tasksList.innerHTML = '<div class="loading-state">No tasks found</div>';
+    }
+  } catch (error) {
+    tasksList.innerHTML = '<div class="loading-state">Error loading tasks - Check API configuration</div>';
+  }
+}
+
+// Search functions
+function searchContacts() {
+  const query = (document.getElementById('contactSearch').value || '').toLowerCase();
+  const filtered = getFilteredContacts({ query });
+  renderContacts(filtered);
+}
+
+function searchDeals() {
+  const query = document.getElementById('dealSearch').value;
+  // Implement search functionality
+  console.log('Searching deals:', query);
+}
+
+function searchTasks() {
+  const query = document.getElementById('taskSearch').value;
+  // Implement search functionality
+  console.log('Searching tasks:', query);
+}
+
+// Action functions
+async function viewContact(id) {
+  try{
+    // Resolve portalId once to build a stable deep link
+    if(!window.__hsPortalId){
+      const s = await fetch('/api/hubspot/status', { cache: 'no-store' }).then(r=>r.json()).catch(()=>({}));
+      if(s && s.portalId) window.__hsPortalId = s.portalId;
+    }
+  }catch(_){}
+  if(window.__hsPortalId){
+    window.open(`https://app.hubspot.com/contacts/${window.__hsPortalId}/record/0-1/${id}`, '_blank');
+  } else {
+    // Legacy fallback without portalId
+    window.open(`https://app.hubspot.com/contacts/contact/${id}`, '_blank');
+  }
+}
+
+function editContact(id) { viewContact(id); }
+
+function viewDeal(id) {
+  window.open(`https://app.hubspot.com/deals/${id}`, '_blank');
+}
+
+function editDeal(id) {
+  window.open(`https://app.hubspot.com/deals/${id}`, '_blank');
+}
+
+function viewTask(id) {
+  window.open(`https://app.hubspot.com/tasks/${id}`, '_blank');
+}
+
+async function completeTask(id) {
+  try {
+    const response = await fetch(`/api/hubspot/tasks/${id}/complete`, {
+      method: 'POST'
+    });
+    
+    if (response.ok) {
+      loadTasks(); // Refresh tasks list
+    } else {
+      throw new Error('Failed to complete task');
+    }
+  } catch (error) {
+    console.error('Error completing task:', error);
+    alert('Error completing task');
+  }
+}
+
+// Enhanced utility functions
+function switchTab(tabName) {
+  const tabBtn = document.querySelector(`[data-tab="${tabName}"]`);
+  if (tabBtn) tabBtn.click();
+}
+
+function clearForm() {
+  document.getElementById('addContactForm').reset();
+}
+
+// Refresh functions
+function refreshContacts() { loadContacts(); }
+function refreshDeals() { loadDeals(); }
+function refreshCompanies() { loadCompanies(); }
+function refreshLeads() { loadLeads(); }
+function refreshQuotes() { loadQuotes(); }
+function refreshTasks() { loadTasks(); }
+
+// Filter functions
+function filterContacts() {
+  const filter = document.getElementById('contactFilter').value;
+  const filtered = getFilteredContacts({ status: filter, query: (document.getElementById('contactSearch').value||'').toLowerCase() });
+  renderContacts(filtered);
+}
+
+function getFilteredContacts({ status = '', query = '' } = {}){
+  const list = Array.isArray(window.__hsContactsCache) ? window.__hsContactsCache : [];
+  return list.filter(c => {
+    const matchesStatus = !status || (c.leadStatus || '').toLowerCase() === status;
+    const matchesQuery = !query || [c.firstName, c.lastName, c.email, c.company].join(' ').toLowerCase().includes(query);
+    return matchesStatus && matchesQuery;
+  });
+}
+
+function renderContacts(contacts){
+  const target = document.getElementById('contactsList');
+  if(!Array.isArray(contacts) || contacts.length === 0){
+    target.innerHTML = '<div class="loading-state">No contacts found</div>';
+    return;
+  }
+  target.innerHTML = contacts.map(contact => `
+    <div class="data-item">
+      <div class="item-info">
+        <h4>${contact.firstName} ${contact.lastName}</h4>
+        <p>${contact.email} • ${contact.company || 'No company'}</p>
+        <div class="item-meta">
+          <span class="item-tag">Status: ${(contact.leadStatus||'new')}</span>
+          ${contact.createdAt ? `<span class="item-tag">Added: ${new Date(contact.createdAt).toLocaleDateString()}</span>` : ''}
+        </div>
+      </div>
+      <div class="item-actions">
+        <button class="btn" onclick="viewContact('${contact.id}')">👁️ View</button>
+        <button class="btn" onclick="editContact('${contact.id}')">✏️ Edit</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterDeals() {
+  const filter = document.getElementById('dealFilter').value;
+  // Implement filtering logic
+  console.log('Filtering deals by:', filter);
+}
+
+function filterLeads() {
+  const filter = document.getElementById('leadFilter').value;
+  // Implement filtering logic
+  console.log('Filtering leads by:', filter);
+}
+
+function filterQuotes() {
+  const filter = document.getElementById('quoteFilter').value;
+  // Implement filtering logic
+  console.log('Filtering quotes by:', filter);
+}
+
+// Action functions for new entities
+function viewCompany(id) {
+  window.open(`https://app.hubspot.com/companies/${id}`, '_blank');
+}
+
+function editCompany(id) {
+  window.open(`https://app.hubspot.com/companies/${id}`, '_blank');
+}
+
+function viewLead(id) {
+  window.open(`https://app.hubspot.com/contacts/${id}`, '_blank');
+}
+
+function qualifyLead(id) {
+  // Implement lead qualification logic
+  console.log('Qualifying lead:', id);
+  alert('Lead qualification feature coming soon!');
+}
+
+function viewQuote(id) {
+  window.open(`https://app.hubspot.com/quotes/${id}`, '_blank');
+}
+
+function sendQuote(id) {
+  // Implement quote sending logic
+  console.log('Sending quote:', id);
+  alert('Quote sending feature coming soon!');
+}
+
+function createDeal() {
+  // Implement deal creation
+  console.log('Creating new deal');
+  alert('Deal creation feature coming soon!');
+}
+
+function createQuote() {
+  // Implement quote creation
+  console.log('Creating new quote');
+  alert('Quote creation feature coming soon!');
+}
+
+// Ada embed duplicate-start guard (idempotent)
+(function(){
+  function wrapAda(){
+    try{
+      const ada = window.AdaEmbed || window.adaEmbed || window.Ada || window.AdaChaperone;
+      if(!ada || ada.__cfWrapped) return;
+      const originalStart = typeof ada.start === 'function' ? ada.start.bind(ada) : null;
+      if(!originalStart){ ada.__cfWrapped = true; return; }
+      ada.start = function(){
+        if(ada.__cfStarted){ return Promise.resolve(); }
+        ada.__cfStarted = true;
+        try{ return originalStart.apply(this, arguments); }
+        catch(e){ console.warn('Ada start suppressed or failed', e); return Promise.resolve(); }
+      };
+      ada.__cfWrapped = true;
+    }catch(e){ /* noop */ }
+  }
+  wrapAda();
+  const obs = new MutationObserver(wrapAda);
+  obs.observe(document.documentElement, { childList:true, subtree:true });
+})();
+
+// WaveApps Dashboard
+const waveCache = {
+  invoices: [],
+  customers: [],
+  products: []
+};
+
+async function checkWaveConnection(){
+  const dot = document.getElementById('waveStatusDot');
+  const text = document.getElementById('waveStatusText');
+  if(!dot || !text) return;
+  try{
+    const res = await fetch('/api/wave/status', { cache: 'no-store' });
+    if(res.ok){
+      dot.classList.add('connected');
+      text.textContent = 'WaveApps connected successfully';
+    } else {
+      throw new Error('Status not OK');
+    }
+  }catch(e){
+    dot.classList.add('error');
+    text.textContent = 'WaveApps connection failed - Check API configuration';
+  }
+}
+
+async function loadWaveOverview(){
+  try{
+    const [invRes, custRes] = await Promise.all([
+      fetch('/api/wave/invoices', { cache: 'no-store' }),
+      fetch('/api/wave/customers', { cache: 'no-store' })
+    ]);
+    const invoicesData = await invRes.json().catch(()=>({ invoices: [] }));
+    const customersData = await custRes.json().catch(()=>({ customers: [] }));
+    waveCache.invoices = invoicesData.invoices || [];
+    waveCache.customers = customersData.customers || [];
+
+    // Stats
+    document.getElementById('waveInvoicesCount').textContent = waveCache.invoices.length || 0;
+    document.getElementById('waveCustomersCount').textContent = waveCache.customers.length || 0;
+    const total = (waveCache.invoices || []).reduce((sum, inv)=> {
+      const amountDue = (inv.amountDue != null && !isNaN(Number(inv.amountDue))) ? Number(inv.amountDue) : null;
+      const invoiceTotal = (inv.total != null && !isNaN(Number(inv.total))) ? Number(inv.total) : null;
+      const chosen = (amountDue != null && amountDue > 0) ? amountDue : (invoiceTotal != null ? invoiceTotal : 0);
+      return sum + chosen;
+    }, 0);
+    document.getElementById('waveRevenueCount').textContent = `$${total.toLocaleString()}`;
+    const now = new Date();
+    const overdue = (waveCache.invoices || []).filter(inv => {
+      const status = (inv.status || '').toLowerCase();
+      if(status === 'overdue') return true;
+      if(status !== 'paid' && inv.dueDate){
+        const due = new Date(inv.dueDate);
+        return due < now;
+      }
+      return false;
+    }).length;
+    document.getElementById('waveOverdueCount').textContent = overdue;
+
+    // Recent invoices
+    const list = document.getElementById('waveRecentInvoices');
+    if(!list) return;
+    if(!waveCache.invoices.length){
+      list.innerHTML = '<div class="loading-state">No invoices found</div>';
+      return;
+    }
+    const sorted = [...waveCache.invoices].sort((a,b)=> new Date(b.createdAt||0) - new Date(a.createdAt||0)).slice(0,5);
+    list.innerHTML = sorted.map(inv => `
+      <div class="activity-item">
+        <div class="activity-icon">🧾</div>
+        <div class="activity-content">
+          <p class="activity-text">Invoice #${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</p>
+          <p class="activity-time">$${(function(){
+            const amountDue = (inv.amountDue != null) ? Number(inv.amountDue) : null;
+            const invoiceTotal = (inv.total != null) ? Number(inv.total) : null;
+            const chosen = (amountDue != null && !isNaN(amountDue) && amountDue > 0) ? amountDue : (invoiceTotal != null ? invoiceTotal : 0);
+            return chosen.toLocaleString();
+          })()} • ${(inv.status||'').toString()}</p>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    console.error('Wave overview error:', e);
+  }
+}
+
+async function loadWaveInvoices(){
+  const container = document.getElementById('waveInvoicesList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading invoices...</div>';
+  try{
+    const res = await fetch('/api/wave/invoices', { cache: 'no-store' });
+    if (!res.ok) throw new Error('Wave invoices API not available');
+    const data = await res.json();
+    waveCache.invoices = data.invoices || [];
+    renderWaveInvoices(waveCache.invoices);
+  }catch(e){
+    // Client-side fallback demo data
+    waveCache.invoices = [
+      { id: '1001', invoiceNumber: 'INV-1001', customerName: 'Acme Corp', total: 1500.0, status: 'sent', createdAt: new Date(Date.now()-86400000*5).toISOString(), dueDate: new Date(Date.now()+86400000*2).toISOString() },
+      { id: '1002', invoiceNumber: 'INV-1002', customerName: 'Globex', total: 750.0, status: 'paid', createdAt: new Date(Date.now()-86400000*12).toISOString(), dueDate: new Date(Date.now()-86400000*2).toISOString() },
+      { id: '1003', invoiceNumber: 'INV-1003', customerName: 'Initech', total: 980.0, status: 'overdue', createdAt: new Date(Date.now()-86400000*20).toISOString(), dueDate: new Date(Date.now()-86400000*1).toISOString() }
+    ];
+    renderWaveInvoices(waveCache.invoices);
+  }
+}
+
+function renderWaveInvoices(invoices){
+  const container = document.getElementById('waveInvoicesList');
+  if(!container) return;
+  if(!invoices || !invoices.length){
+    container.innerHTML = '<div class="loading-state">No invoices found</div>';
+    return;
+  }
+  container.innerHTML = invoices.map(inv => `
+    <div class="data-item">
+      <div class="item-info">
+        <h4>#${inv.invoiceNumber || inv.id || ''} • ${(inv.customerName || inv.customer?.name || 'Unknown')}</h4>
+        <p>$${(function(){
+          const amountDue = (inv.amountDue != null) ? Number(inv.amountDue) : null;
+          const total = (inv.total != null) ? Number(inv.total) : null;
+          const chosen = (amountDue != null && !isNaN(amountDue) && amountDue > 0) ? amountDue : (total != null ? total : 0);
+          return chosen.toLocaleString();
+        })()} • ${(inv.status||'').toString()}${inv.dueDate? ' • Due: '+new Date(inv.dueDate).toLocaleDateString():''}</p>
+      </div>
+      <div class="item-actions">
+        <button class="btn" onclick="viewWaveInvoice('${inv.id || ''}','${inv.invoiceNumber || ''}','${inv.customerName || (inv.customer && inv.customer.name) || ''}')">👁️ View</button>
+        <button class="btn" onclick="sendWaveInvoice('${inv.id || ''}')">📧 Send</button>
+        <button class="btn" onclick="markWaveInvoicePaid('${inv.id || ''}')">✅ Mark Paid</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadWaveCustomers(){
+  const container = document.getElementById('waveCustomersList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading customers...</div>';
+  try{
+    const res = await fetch('/api/wave/customers', { cache: 'no-store' });
+    const data = await res.json();
+    waveCache.customers = data.customers || [];
+    if(!waveCache.customers.length){
+      container.innerHTML = '<div class="loading-state">No customers found</div>';
+      return;
+    }
+    container.innerHTML = waveCache.customers.map(c => `
+      <div class="data-item">
+        <div class="item-info">
+          <h4>${c.name || 'Unnamed'}</h4>
+          <p>${c.email || 'No email'}${c.city? ' • '+c.city: ''}</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn" onclick="viewWaveCustomer('${c.id || ''}')">👁️ View</button>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    if(container) container.innerHTML = '<div class="loading-state">Error loading customers - Check API configuration</div>';
+  }
+}
+
+async function loadWaveProducts(){
+  const container = document.getElementById('waveProductsList');
+  if(container) container.innerHTML = '<div class="loading-state">Loading products...</div>';
+  try{
+    const res = await fetch('/api/wave/products', { cache: 'no-store' });
+    const data = await res.json();
+    waveCache.products = data.products || [];
+    if(!waveCache.products.length){
+      container.innerHTML = '<div class="loading-state">No products found</div>';
+      return;
+    }
+    container.innerHTML = waveCache.products.map(p => `
+      <div class="data-item">
+        <div class="item-info">
+          <h4>${p.name || 'Unnamed'}</h4>
+          <p>$${(parseFloat(p.unitPrice)||0).toLocaleString()} • ${p.description || ''}</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn" onclick="addWaveProductToForm('${p.id || ''}')">➕ Add to Invoice</button>
+        </div>
+      </div>
+    `).join('');
+  }catch(e){
+    if(container) container.innerHTML = '<div class="loading-state">Error loading products - Check API configuration</div>';
+  }
+}
+
+// Wave search/filter/refresh helpers
+function searchWaveInvoices(){
+  const q = (document.getElementById('waveInvoiceSearch')?.value || '').toLowerCase();
+  const filtered = (waveCache.invoices||[]).filter(inv => {
+    return String(inv.invoiceNumber||'').toLowerCase().includes(q)
+      || String(inv.customerName||inv.customer?.name||'').toLowerCase().includes(q)
+      || String(inv.total||'').toLowerCase().includes(q);
+  });
+  renderWaveInvoices(filtered);
+}
+
+function filterWaveInvoices(){
+  const f = (document.getElementById('waveInvoiceFilter')?.value || '').toLowerCase();
+  if(!f) { renderWaveInvoices(waveCache.invoices); return; }
+  const filtered = (waveCache.invoices||[]).filter(inv => (inv.status||'').toLowerCase() === f);
+  renderWaveInvoices(filtered);
+}
+
+function refreshWaveInvoices(){ loadWaveInvoices(); }
+function refreshWaveCustomers(){ loadWaveCustomers(); }
+function refreshWaveProducts(){ loadWaveProducts(); }
+function searchWaveCustomers(){ /* TODO: optional */ refreshWaveCustomers(); }
+function searchWaveProducts(){ /* TODO: optional */ refreshWaveProducts(); }
+
+// Wave actions
+async function viewWaveInvoice(id, number, customerName){
+  const num = number ? String(number).replace(/^INV-/, '') : '';
+  try{
+    // Try business-scoped invoices list (more reliable)
+    const st = await fetch('/api/wave/status', { cache: 'no-store' }).then(r=>r.json()).catch(()=>({}));
+    const bizId = st && st.business && st.business.id;
+    if (bizId && num){
+      const url = `https://next.waveapps.com/businesses/${encodeURIComponent(bizId)}/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`;
+      window.open(url, '_blank');
+      return;
+    }
+  }catch(_){}
+  if(num){
+    // Fallbacks: global search, then classic domain
+    const candidateUrls = [
+      `https://next.waveapps.com/invoices?query=${encodeURIComponent(num)}&search=${encodeURIComponent(num)}`,
+      `https://my.waveapps.com/invoices?search=${encodeURIComponent(num)}`
+    ];
+    window.open(candidateUrls[0],'_blank');
+    return;
+  }
+  if(!id) return;
+  const encoded = encodeURIComponent(String(id));
+  window.open(`https://next.waveapps.com/invoices/${encoded}`,'_blank');
+}
+function sendWaveInvoice(id){ if(!id) return; alert('Sending via API not implemented in this demo.'); }
+function markWaveInvoicePaid(id){ if(!id) return; alert('Mark paid via API not implemented in this demo.'); }
+function viewWaveCustomer(id){ if(!id) return; window.open(`https://next.waveapps.com/contacts/${id}`, '_blank'); }
+function addWaveProductToForm(productId){
+  const p = (waveCache.products||[]).find(x=>String(x.id)===String(productId));
+  if(!p) return;
+  const desc = document.getElementById('waveItemDescription');
+  const price = document.getElementById('waveItemUnitPrice');
+  if(desc) desc.value = p.name || '';
+  if(price) price.value = p.unitPrice || '';
+  waveSwitchTab('wave-create');
+}
+
+function waveClearCreateForm(){
+  document.getElementById('waveCreateInvoiceForm')?.reset();
+}
+
+function waveSwitchTab(tabName){
+  const btn = document.querySelector(`#wave-dashboard [data-tab="${tabName}"]`);
+  if(btn) btn.click();
+}
+
+(function(){
+  // Bind Wave tab loads + visual switching
+  const container = document.getElementById('wave-dashboard');
+  if (container) {
+    const waveBtns = container.querySelectorAll('.tab-btn');
+    const waveContents = container.querySelectorAll('.tab-content');
+    
+    waveBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        // Toggle active states within Wave dashboard
+        waveBtns.forEach(b => b.classList.remove('active'));
+        waveContents.forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const target = container.querySelector('#' + tab + '-tab');
+        if (target) target.classList.add('active');
+        
+        // Load data for selected tab
+        switch(tab){
+          case 'wave-overview': loadWaveOverview(); break;
+          case 'wave-invoices': loadWaveInvoices(); break;
+          case 'wave-customers': loadWaveCustomers(); break;
+          case 'wave-products': loadWaveProducts(); break;
+          case 'wave-create': /* no async load needed */ break;
+        }
+      });
+    });
+  }
+
+  // Create invoice form
+  const form = document.getElementById('waveCreateInvoiceForm');
+  if(form){
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        customer: {
+          name: document.getElementById('waveCustomerName')?.value,
+          email: document.getElementById('waveCustomerEmail')?.value,
+          address: document.getElementById('waveCustomerAddress')?.value,
+          city: document.getElementById('waveCustomerCity')?.value
+        },
+        currency: document.getElementById('waveCurrency')?.value || 'USD',
+        items: [
+          {
+            description: document.getElementById('waveItemDescription')?.value,
+            quantity: Number(document.getElementById('waveItemQuantity')?.value || 1),
+            unitPrice: Number(document.getElementById('waveItemUnitPrice')?.value || 0)
+          }
+        ]
+      };
+      try{
+        const res = await fetch('/api/wave/invoices', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if(res.ok){
+          alert('Invoice created successfully!');
+          waveClearCreateForm();
+          loadWaveInvoices();
+          waveSwitchTab('wave-invoices');
+        } else {
+          throw new Error('Failed to create invoice');
+        }
+      }catch(err){
+        console.error('Wave create invoice error:', err);
+        alert('Error creating invoice. Please check Wave API configuration.');
+      }
+    });
+  }
+
+  // Initial load
+  checkWaveConnection();
+  loadWaveOverview();
+})();
+</script>
+<script>
+// Quiet duplicate Ada start and Ketch "no purposes" noise in console
+window.addEventListener('unhandledrejection', function(e){
+  try{
+    const msg = String((e && e.reason && (e.reason.message || e.reason)) || '').toLowerCase();
+    if(msg.includes('ada embed has already been started')) { e.preventDefault && e.preventDefault(); return; }
+    if(msg.includes('no purposes')) { e.preventDefault && e.preventDefault(); return; }
+  }catch(_){}
+});
+</script>
+
+</body>
+</html>
+
+
