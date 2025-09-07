@@ -297,7 +297,7 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   box-shadow:inset 0 0 0 4px rgba(255,255,255,.08);
 }
 .profile-card .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-.profile-card .ring{ position:absolute; inset:-2px; border-radius:16px; pointer-events:none; background:linear-gradient(135deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding:2px; }
+.profile-card .ring{ position:absolute; inset:-2px; border-radius:16px; pointer-events:none; background:linear-gradient(135deg,var(--cf-gold),var(--cf-pink),var(--cf-purple)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite: exclude; padding:2px; }
 .profile-card .meta{ display:flex; align-items:center; gap:8px; margin-top:10px; }
 .profile-card .meta img{ height:16px; width:auto; }
 .profile-card .meta .name{ font-weight:800; color:#fff; }
