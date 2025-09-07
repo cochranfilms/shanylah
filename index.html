@@ -603,6 +603,24 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   width: 100%;
 }
 
+/* Cochran Films Main Website embed specific styles */
+.cochran-main-embed-container.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cf-white);
+  padding: 20px;
+  margin: 0;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.cochran-main-embed-container.fullscreen .app-frame {
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
 /* Scroll animations */
 @keyframes slideInUp{
   from{
@@ -1389,6 +1407,34 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
       
       <div class="hint" style="margin-top:12px">
         💡 Use this embedded view to quickly navigate the website, check content, or demonstrate features to clients without leaving your dashboard.
+      </div>
+    </section>
+
+    <!-- Cochran Films Main Website Embed -->
+    <section class="card" style="margin-top:18px">
+      <h2>🏢 Cochran Films Main Website</h2>
+      <p class="muted">Access the main Cochran Films website with full services, portfolio, and client information. Perfect for client consultations and service demonstrations.</p>
+      
+      <div class="toolbar" style="margin-bottom:16px">
+        <div class="title">Cochran Films Main Site</div>
+        <button class="btn gold" onclick="refreshCochranMainSite()">🔄 Refresh</button>
+        <button class="btn" onclick="toggleCochranMainFullscreen()">⛶ Fullscreen</button>
+        <a class="btn" href="https://www.cochranfilms.com" target="_blank" rel="noopener">🔗 Open in New Tab</a>
+      </div>
+      
+      <div class="cochran-main-embed-container" id="cochranMainEmbedContainer">
+        <iframe 
+          id="cochranMainSiteFrame"
+          class="app-frame" 
+          src="https://www.cochranfilms.com"
+          title="Cochran Films Main Website"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <div class="hint" style="margin-top:12px">
+        💡 This is the main business website with services, portfolio, pricing, and contact information. Use for client consultations and service demonstrations.
       </div>
     </section>
 
@@ -2476,6 +2522,25 @@ function refreshCochranSite() {
 
 function toggleCochranFullscreen() {
   const container = document.getElementById('cochranEmbedContainer');
+  if (container) {
+    container.classList.toggle('fullscreen');
+    // Scroll to top when entering fullscreen
+    if (container.classList.contains('fullscreen')) {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  }
+}
+
+// Cochran Films Main Website Embed Controls
+function refreshCochranMainSite() {
+  const frame = document.getElementById('cochranMainSiteFrame');
+  if (frame) {
+    frame.src = frame.src; // Force refresh by reloading the src
+  }
+}
+
+function toggleCochranMainFullscreen() {
+  const container = document.getElementById('cochranMainEmbedContainer');
   if (container) {
     container.classList.toggle('fullscreen');
     // Scroll to top when entering fullscreen
