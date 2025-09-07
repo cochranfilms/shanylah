@@ -585,6 +585,24 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
   height:calc(100vh - 100px);
 }
 
+/* Cochran Films embed specific styles */
+.cochran-embed-container.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cf-white);
+  padding: 20px;
+  margin: 0;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.cochran-embed-container.fullscreen .app-frame {
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
 /* Scroll animations */
 @keyframes slideInUp{
   from{
@@ -1343,6 +1361,34 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
           frameborder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Cochran Films Website Embed -->
+    <section class="card" style="margin-top:18px">
+      <h2>🌐 Cochran Films Website Control</h2>
+      <p class="muted">View and control the main Cochran Films website directly from your dashboard. Perfect for quick updates, content management, and client demonstrations.</p>
+      
+      <div class="toolbar" style="margin-bottom:16px">
+        <div class="title">Cochran Films Studio</div>
+        <button class="btn gold" onclick="refreshCochranSite()">🔄 Refresh</button>
+        <button class="btn" onclick="toggleCochranFullscreen()">⛶ Fullscreen</button>
+        <a class="btn" href="https://www.cochranfilms.studio" target="_blank" rel="noopener">🔗 Open in New Tab</a>
+      </div>
+      
+      <div class="cochran-embed-container" id="cochranEmbedContainer">
+        <iframe 
+          id="cochranSiteFrame"
+          class="app-frame" 
+          src="https://www.cochranfilms.studio"
+          title="Cochran Films Studio Website"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <div class="hint" style="margin-top:12px">
+        💡 Use this embedded view to quickly navigate the website, check content, or demonstrate features to clients without leaving your dashboard.
       </div>
     </section>
 
@@ -2419,6 +2465,25 @@ a:hover{color:var(--cf-gold);border-bottom-color:var(--cf-gold);transform:transl
     });
   });
 })();
+
+// Cochran Films Website Embed Controls
+function refreshCochranSite() {
+  const frame = document.getElementById('cochranSiteFrame');
+  if (frame) {
+    frame.src = frame.src; // Force refresh by reloading the src
+  }
+}
+
+function toggleCochranFullscreen() {
+  const container = document.getElementById('cochranEmbedContainer');
+  if (container) {
+    container.classList.toggle('fullscreen');
+    // Scroll to top when entering fullscreen
+    if (container.classList.contains('fullscreen')) {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  }
+}
 
 // AI Search functionality
 (function(){
